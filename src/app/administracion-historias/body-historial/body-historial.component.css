@@ -1,0 +1,126 @@
+.main {
+    background-color: #f2f2f2; /* Color de fondo gris */
+    text-align: center; /* Centra el texto */
+    padding: 220px; /* Espaciado interior del contenedor */
+}
+
+.main h1 {
+    font-size: 36px; /* Tamaño del texto en negrita */
+    font-weight: bold; /* Grosor del texto */
+    color: #007bff; /* Color del texto azul */
+}
+
+.main p {
+    font-size: 18px; /* Tamaño del texto normal */
+    margin-bottom: 20px; /* Margen inferior */
+}
+
+.btn-register, .btn-login {
+    background-color: #000; /* Color de fondo negro */
+    color: #fff; /* Color del texto blanco */
+    border: none; /* Sin borde */
+    padding: 15px 30px; /* Espaciado interno del botón */
+    font-size: 18px; /* Tamaño del texto del botón */
+    margin-bottom: 20px; /* Margen inferior */
+    border-radius: 30px;
+}
+
+.btn-login {
+    background-color: #000; /* Puedes cambiar el color si lo deseas */
+}
+
+.filtro {
+    text-align: left;
+    margin-bottom: 20px;
+    text-align: center; /* Centra el texto */
+}
+
+.select-filtro {
+    font-size: 16px;
+    padding: 10px;
+}
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.card {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.btn-verde, .btn-gris {
+    background-color: transparent;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.btn-verde {
+    background-color: #4caf50; /* Verde */
+}
+
+.btn-gris {
+    background-color: #ccc; /* Gris */
+}
+
+.btn-orange {
+    background-color: #ff9800; /* Color de fondo naranja */
+    color: white; /* Color del texto blanco */
+    border: none; /* Sin borde */
+    padding: 15px 30px; /* Espaciado interno del botón */
+    font-size: 18px; /* Tamaño del texto del botón */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+    border-radius: 30px;
+}
+
+.btn-orange:hover {
+    background-color: #f57c00; /* Cambia el color de fondo al pasar sobre el botón */
+}
+
+.guardar-btn {
+    position: relative;
+    top: 10px;
+    left: 650px;
+    background-color: orange;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.guardar-btn:hover {
+    background-color: darkorange;
+}
+
+/* Estilos para el texto "Resultados: 18 Estudiantes" */
+.resultados-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    justify-content: center;
+}

@@ -1,0 +1,82 @@
+main {
+    background-color: #f2f2f2; /* Color de fondo gris */
+    text-align: center; /* Centra el texto */
+    padding: 290px; /* Espaciado interior del contenedor */
+}
+
+.main h1 {
+    font-size: 40px; /* Tamaño del texto en negrita */
+    font-weight: bold; /* Grosor del texto */
+    color: #007bff; /* Color del texto azul */
+}
+
+.main p {
+    font-size: 18px; /* Tamaño del texto normal */
+    margin-bottom: 20px; /* Margen inferior */
+}
+
+.btn-register, .btn-login {
+    background-color: #000; /* Color de fondo negro */
+    color: #fff; /* Color del texto blanco */
+    border: none; /* Sin borde */
+    padding: 15px 30px; /* Espaciado interno del botón */
+    font-size: 18px; /* Tamaño del texto del botón */
+    margin-bottom: 20px; /* Margen inferior */
+    border-radius: 30px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group input {
+    width: 15%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 30px;
+    margin-bottom: 20px;
+}
+
+.btn-orange {
+    background-color: #ff9800; /* Color de fondo naranja */
+    color: white; /* Color del texto blanco */
+    border: none; /* Sin borde */
+    padding: 15px 30px; /* Espaciado interno del botón */
+    font-size: 18px; /* Tamaño del texto del botón */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+    border-radius: 30px;
+}
+
+.btn-orange:hover {
+    background-color: #f57c00; /* Cambia el color de fondo al pasar sobre el botón */
+}
+
+.btn-login {
+    background-color: #000; /* Puedes cambiar el color si lo deseas */
+}
+
+.guardar-btn {
+    position: relative;
+    top: 10px;
+    left: 650px;
+    background-color: orange;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.guardar-btn:hover {
+    background-color: darkorange;
+}
+
+/* Estilos para el texto "Resultados: 18 Estudiantes" */
+.resultados-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    justify-content: center;
+}
