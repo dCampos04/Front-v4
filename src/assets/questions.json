@@ -1,0 +1,93 @@
+{
+  "questions": [{
+    "questionText": "Pregunta 1",
+    "options": [{
+      "text": "p1, respuesta 1",
+      "correct": true
+    },
+      {
+        "text": "p1, respuesta 2"
+      },
+      {
+        "text": "p1, respuesta 3"
+      },
+      {
+        "text": "p1, respuesta 4"
+      }
+    ],
+    "explanation": "pq si"
+  },
+    {
+      "questionText": "Pregunta 2",
+      "options": [{
+        "text": "p2, respuesta 1",
+        "correct": true
+      },
+        {
+          "text": "p2, respuesta 2"
+        },
+        {
+          "text": "p2, respuesta 3"
+        },
+        {
+          "text": "p2, respuesta 4"
+        }
+      ],
+      "explanation": "pq si 2"
+    },
+    {
+      "questionText": "Pregunta 3",
+      "options": [{
+        "text": "p3, Respuesta 1",
+        "correct": true
+      },
+        {
+          "text": "p3, Respuesta 2"
+        },
+        {
+          "text": "p3, Respuesta 3"
+        },
+        {
+          "text": "p3, Respuesta 4"
+        }
+      ],
+      "explanation": "pq si 3"
+    },
+    {
+      "questionText": "Pregunta 4",
+      "options": [{
+        "text": "p4, Respuesta 1",
+        "correct": true
+      },
+        {
+          "text": "p4, Respuesta 2"
+        },
+        {
+          "text": "p4, Respuesta 3"
+        },
+        {
+          "text": "p4, Respuesta 4"
+        }
+      ],
+      "explanation": "pq si 4"
+    },
+    {
+      "questionText": "Pregunta 5",
+      "options": [{
+        "text": "p5, Respuesta 1",
+        "correct": true
+      },
+        {
+          "text": "p5, Respuesta 2"
+        },
+        {
+          "text": "p5, Respuesta 3"
+        },
+        {
+          "text": "p5, Respuesta 4"
+        }
+      ],
+      "explanation": "pq si 5"
+    }
+  ]
+}

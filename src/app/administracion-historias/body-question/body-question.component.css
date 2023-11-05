@@ -21,4 +21,13 @@ li .card:hover{
 ol{
   padding: 0;
 }
+section {
+  display: table;
+}
+
+.example-button-row {
+  display: table-cell;
+  max-width: 600px;
+}
+
 
