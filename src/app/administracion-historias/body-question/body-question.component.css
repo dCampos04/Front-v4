@@ -6,6 +6,7 @@ main {
 
 .card{
   max-width: 800px;
+  max-height: 800px;
   margin: 0 auto;
   padding: 10px;
 }
@@ -13,6 +14,15 @@ main {
 .formulario {
   width: 50%;
   margin: 0 auto;
+}
+
+.idStory {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.title {
+
 }
 
 .form-group {
@@ -24,15 +34,63 @@ label {
   font-weight: bold;
 }
 
-input, select {
+
+btns {
+  text-align: center;
+}
+
+.response {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.correct-label {
+  margin-left: 85px;
+}
+.answer-label {
+  margin-left: 105px;
+}
+
+.option{
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 40px;
+}
+
+.cuestionInput {
   width: 100%;
+  height: 40px;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
+.responseInput {
+  width: 250px; /* Ancho personalizado */
+  height: 40px; /* Alto personalizado */
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 40px;
 
-btns {
-  text-align: center;
+}
+
+.answer-number {
+  text-align: right;
+}
+
+.answer {
+  display: flex;
+  align-items: center;
+}
+
+textarea.cuestionInput {
+  width: 390px; /* Ancho personalizado */
+  height: 100px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 

@@ -1,41 +1,58 @@
 import {Component} from '@angular/core';
 
+
 @Component({
   selector: 'app-body-question',
   templateUrl: './body-question.component.html',
   styleUrls: ['./body-question.component.css'],
 })
 export class BodyQuestionComponent {
+  idStory = [''];
   questions = [
     {
-      historia: '',
-      pregunta: '',
-      respuestas: ['', '', '', ''],
-      respuestaCorrecta: '1',
+      questionText: '',
+      options: [
+        { text: '', correct: true },
+        { text: '' },
+        { text: '' },
+        { text: '' },
+      ],
     },
     {
-      historia: '',
-      pregunta: '',
-      respuestas: ['', '', '', ''],
-      respuestaCorrecta: '1',
+      questionText: '',
+      options: [
+        { text: '', correct: true },
+        { text: '' },
+        { text: '' },
+        { text: '' },
+      ],
     },
     {
-      historia: '',
-      pregunta: '',
-      respuestas: ['', '', '', ''],
-      respuestaCorrecta: '1',
+      questionText: '',
+      options: [
+        { text: '', correct: true },
+        { text: '' },
+        { text: '' },
+        { text: '' },
+      ],
     },
     {
-      historia: '',
-      pregunta: '',
-      respuestas: ['', '', '', ''],
-      respuestaCorrecta: '1',
+      questionText: '',
+      options: [
+        { text: '', correct: true },
+        { text: '' },
+        { text: '' },
+        { text: '' },
+      ],
     },
     {
-      historia: '',
-      pregunta: '',
-      respuestas: ['', '', '', ''],
-      respuestaCorrecta: '1',
+      questionText: '',
+      options: [
+        { text: '', correct: true },
+        { text: '' },
+        { text: '' },
+        { text: '' },
+      ],
     },
   ];
 
@@ -48,20 +65,25 @@ export class BodyQuestionComponent {
   prevpage() {
     this.page--;
   }
+  nextQuestion(index: number) {
+    if (index < this.questions.length - 1) {
+      // Solo avanza si no es la última pregunta
+      index++;
+    }
+  }
 
   submitForm(index: number) {
     console.log('Datos del formulario:', this.questions[index]);
   }
   generateJSON() {
+    // Construir el objeto JSON deseado
     const jsonQuestions = this.questions.map((question, i) => {
       return {
-        questionText: question.pregunta,
-        options: question.respuestas.map((respuesta, j) => {
-          return {
-            text: respuesta,
-            correct: j + 1 === +question.respuestaCorrecta,
-          };
-        }),
+        questionText: question.questionText,
+        options: question.options.map((option) => ({
+          text: option.text,
+          correct: option.correct,
+        })),
       };
     });
 
@@ -72,6 +94,16 @@ export class BodyQuestionComponent {
     const jsonString = JSON.stringify(jsonData, null, 2);
     console.log('JSON generado:', jsonString);
     // Puedes guardar jsonString en un archivo o enviarlo a través de una solicitud HTTP según tus necesidades.
+  }
+  // Establece la propiedad 'correct' en true para la opción seleccionada
+  updateCorrectOption(questionIndex: number, optionIndex: number) {
+    this.questions[questionIndex].options.forEach((option, index) => {
+      if (index === optionIndex) {
+        option.correct = true;
+      } else {
+        option.correct = false;
+      }
+    });
   }
 }
 

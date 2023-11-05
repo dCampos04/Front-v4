@@ -1,88 +1,20 @@
 {
-  "questions": [{
-    "questionText": "Pregunta1",
-    "options": [{
-      "text": "Respuesta1,1",
-      "correct": true
-    },
-      {
-        "text": "Respuesta1,2"
-      },
-      {
-        "text": "Respuesta1,3"
-      },
-      {
-        "text": "Respuesta1,4"
-      }
-    ]
-  },
+  "questions": [
+
     {
-      "questionText": "Pregunta 2",
-      "options": [{
-        "text": "Respuesta2,1",
-        "correct": true
-      },
-        {
-          "text": "Respuesta2,2"
-        },
-        {
-          "text": "Respuesta2,3"
-        },
-        {
-          "text": "Respuesta2,4"
-        }
-      ]
-    },
+    "questionText": "Pregunta 1",
+      "options": [{"text": "Respuesta1", "correct": true}, {"text": "Respuesta2"}, {"text": "Respuesta3"}, {"text": "Respuesta4"}]},
     {
-      "questionText": "Pregunta 3",
-      "options": [{
-        "text": "Respuesta3,1",
-        "correct": true
-      },
-        {
-          "text": "Respuesta3,2"
-        },
-        {
-          "text": "Respuesta3,3"
-        },
-        {
-          "text": "Respuesta3,4"
-        }
-      ]
-    },
+    "questionText": "Pregunta 2",
+      "options": [{"text": "Respuesta1", "correct": true}, {"text": "Respuesta2"}, {"text": "Respuesta3"}, {"text": "Respuesta4"}]},
     {
-      "questionText": "Pregunta4",
-      "options": [{
-        "text": "Respuesta4,1",
-        "correct": true
-      },
-        {
-          "text": "Respuesta4,2"
-        },
-        {
-          "text": "Respuesta4,3"
-        },
-        {
-          "text": "Respuesta4,4"
-        }
-      ]
-    },
+    "questionText": "Pregunta 3",
+      "options": [{"text": "Respuesta1", "correct": true}, {"text": "Respuesta2"}, {"text": "Respuesta3"}, {"text": "Respuesta4"}]},
     {
-      "questionText": "Pregunta5",
-      "options": [{
-        "text": "Respuesta5,1",
-        "correct": true
-      },
-        {
-          "text": "Respuesta5,2"
-        },
-        {
-          "text": "Respuesta5,3"
-        },
-        {
-          "text": "Respuesta5,4"
-        }
-      ]
-    }
+    "questionText": "Pregunta 4",
+      "options": [{"text": "Respuesta1", "correct": true}, {"text": "Respuesta2"}, {"text": "Respuesta3"}, {"text": "Respuesta4"}]},
+    {
+    "questionText": "Pregunta 5",
+      "options": [{"text": "Respuesta1", "correct": true}, {"text": "Respuesta2"}, {"text": "Respuesta3"}, {"text": "Respuesta4"}]}
   ]
 }

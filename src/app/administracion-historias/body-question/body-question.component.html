@@ -1,7 +1,13 @@
- <main>
+<div class="idStory">
+  <label>Codigo de la historia:</label>
+  <input type="text" name="idStory" [(ngModel)]="idStory">
+</div>
+
+
+<main>
    <div class="card">
 
-     <div class="d-flex justifly-content-between mt-3">
+     <div class="d-flex justifly-content-between mt-3 mb-10">
        <div class="quiz-header">
          <h4 style="font-style: italic; margin-left: 10px; margin-right: 450px;"> Realiza tus preguntas</h4>
          <span style="font-style: italic; margin-left: 10px;"> Bienvenido ___!</span>
@@ -10,47 +16,41 @@
          <img src="./assets/startup.png" width="70" alt="logo" >
        </div>
      </div>
-
      <ng-container *ngFor="let question of questions; let i = index">
        <div *ngIf="page === i + 1">
-         <div class="formulario mt-3 mb-3">
+         <div class="formulario">
            <form (submit)="submitForm(i)">
-             <div class="form-group">
-               <H2>FORMULARIO {{ i + 1 }}:</H2>
-               <label *ngIf="i === 0" for="historia{{ i + 1 }}">Titulo de la historia:</label>
-               <input *ngIf="i === 0" type="text" id="historia{{ i + 1 }}" name="historia{{ i + 1 }}" [(ngModel)]="questions[i].historia" required>
+             <div class="title mt-3 mb-3">
+               <h2>FORMULARIO {{ i + 1 }}:</h2>
              </div>
-
-             <div class="form-group">
-               <label for="pregunta{{ i + 1 }}">Pregunta {{ i + 1 }}:</label>
-               <input type="text" id="pregunta{{ i + 1 }}" name="pregunta{{ i + 1 }}" [(ngModel)]="questions[i].pregunta" required>
-             </div>
-
-             <div *ngFor="let respuesta of questions[i].respuestas; let j = index" class="form-group">
-               <label for="respuesta{{ i + 1 }}-{{ j + 1 }}">P{{ i + 1 }}, Respuesta {{ j + 1 }}:</label>
-               <input type="text" id="respuesta{{ i + 1 }}-{{ j + 1 }}" name="respuesta{{ i + 1 }}-{{ j + 1 }}" [(ngModel)]="questions[i].respuestas[j]" required>
-             </div>
-
-             <div class="form-group">
-               <label for="respuestaCorrecta{{ i + 1 }}">Respuesta correcta de P{{ i + 1 }}:</label>
-               <select id="respuestaCorrecta{{ i + 1 }}" name="respuestaCorrecta{{ i + 1 }}" [(ngModel)]="questions[i].respuestaCorrecta">
-                 <option *ngFor="let option of [1, 2, 3, 4]" [value]="option">{{ option }}</option>
-               </select>
+             <div class="resp-group ">
+               <label for="questionText{{ i + 1 }}">Pregunta {{ i + 1 }}:</label>
+               <textarea class="cuestionInput" id="questionText{{ i + 1 }}" name="questionText{{ i + 1 }}" [(ngModel)]="questions[i].questionText" required rows="3"></textarea>
+               <div class="d-flex justifly-content-between mt-3 mb-2">
+               <label class="answer-label">RESPUESTAS</label>
+               <label class="correct-label">CORRECTA</label>
+               </div>
+               <div *ngFor="let option of questions[i].options; let j = index" class="response">
+                 <label class="answer-number">R{{ j + 1 }}:  </label>
+                 <input class="responseInput" type="text" name="option{{ j }}" [(ngModel)]="questions[i].options[j].text" required>
+                 <input class="option" type="radio" [id]="'correct-' + i + '-' + j" name="correct{{ i }}" [value]="j" [checked]="questions[i].options[j].correct" (change)="updateCorrectOption(i, j)">
+               </div>
              </div>
            </form>
          </div>
        </div>
-     </ng-container>
+
+</ng-container>
 
 
 
      <div class="btns">
-       <div class="column d-flex justify-content-between mt-5 mb-5">
-         <button [disabled]="page===1" (click)="prevpage()" class="btn" ><i class="fa text-primary fa-chevron-left fa-2x" aria-hidden="true"></i></button>
+       <div class="column d-flex justify-content-between mb-5 mt-5">
+         <button [disabled]="page === 1" (click)="prevpage()" class="btn"><i class="fa text-primary fa-chevron-left fa-2x" aria-hidden="true"></i></button>
          <button *ngIf="page >= 5" (click)="generateJSON()" class="btn btn-primary">Guardar</button>
-         <button [disabled]="page===5" (click)="nextpage()" class="btn" ><i class="fa text-primary fa-chevron-right fa-2x" aria-hidden="true"></i></button>
+         <button [disabled]="page === 5" (click)="nextpage()" class="btn"><i class="fa text-primary fa-chevron-right fa-2x" aria-hidden="true"></i></button>
+
        </div>
      </div>
-
     </div>
   </main>
