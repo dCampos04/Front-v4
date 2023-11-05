@@ -11,13 +11,11 @@ import { ApiComponent } from './api/api.component';
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { BodyQuestionComponent } from './body-question/body-question.component';
 import { HttpClientModule } from "@angular/common/http";
-import {ChangeBg2Directive} from "./change-bg2.directive";
+import { FormsModule } from '@angular/forms';
+import {AppComponent} from "../app.component";
 
 
-
-
-
-  @NgModule({
+@NgModule({
   declarations: [
     AdministracionHistoriasComponent,
     HeaderAdministrarComponent,
@@ -25,14 +23,18 @@ import {ChangeBg2Directive} from "./change-bg2.directive";
     BodyHistorialComponent,
     ApiComponent,
     BodyQuestionComponent,
-    ChangeBg2Directive
-
   ],
     imports: [
       CommonModule,
       AdministracionHistoriasRoutingModule,
       MatToolbarModule,
       HttpClientModule,
-    ]
+      FormsModule
+
+
+],
+    providers: [],
+    bootstrap: [AppComponent]
   })
+
 export class AdministracionHistoriasModule { }

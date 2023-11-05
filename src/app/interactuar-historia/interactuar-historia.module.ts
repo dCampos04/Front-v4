@@ -8,6 +8,9 @@ import { BodyEsperaComponent } from './body-espera/body-espera.component';
 import { BodyInteraccionComponent } from './body-interaccion/body-interaccion.component';
 import { BodyResultadoComponent } from './body-resultado/body-resultado.component';
 import {IniciarHistoriaModule} from "../iniciar-historia/iniciar-historia.module";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import { HttpClientModule } from "@angular/common/http";
+import { ChangeBg2Directive } from "./change-bg2.directive";
 
 
 
@@ -17,12 +20,15 @@ import {IniciarHistoriaModule} from "../iniciar-historia/iniciar-historia.module
     BodyEsperaComponent,
     BodyInteraccionComponent,
     BodyResultadoComponent,
+    ChangeBg2Directive
 
   ],
   imports: [
     CommonModule,
     InteractuarHistoriaRoutingModule,
     IniciarHistoriaModule,
+    MatToolbarModule,
+    HttpClientModule,
   ]
 })
 export class InteractuarHistoriaModule { }

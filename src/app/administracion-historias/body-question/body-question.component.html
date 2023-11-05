@@ -1,83 +1,56 @@
-<h1>cuerpo del quiz</h1>
-<button routerLink="/historial">terminar</button>
-<main>
-<div class="container mt-5 mb-5">
-  <div class="card">
+ <main>
+   <div class="card">
+
+     <div class="d-flex justifly-content-between mt-3">
+       <div class="quiz-header">
+         <h4 style="font-style: italic; margin-left: 10px; margin-right: 450px;"> Realiza tus preguntas</h4>
+         <span style="font-style: italic; margin-left: 10px;"> Bienvenido ___!</span>
+       </div>
+       <div class="image">
+         <img src="./assets/startup.png" width="70" alt="logo" >
+       </div>
+     </div>
+
+     <ng-container *ngFor="let question of questions; let i = index">
+       <div *ngIf="page === i + 1">
+         <div class="formulario mt-3 mb-3">
+           <form (submit)="submitForm(i)">
+             <div class="form-group">
+               <H2>FORMULARIO {{ i + 1 }}:</H2>
+               <label *ngIf="i === 0" for="historia{{ i + 1 }}">Titulo de la historia:</label>
+               <input *ngIf="i === 0" type="text" id="historia{{ i + 1 }}" name="historia{{ i + 1 }}" [(ngModel)]="questions[i].historia" required>
+             </div>
+
+             <div class="form-group">
+               <label for="pregunta{{ i + 1 }}">Pregunta {{ i + 1 }}:</label>
+               <input type="text" id="pregunta{{ i + 1 }}" name="pregunta{{ i + 1 }}" [(ngModel)]="questions[i].pregunta" required>
+             </div>
+
+             <div *ngFor="let respuesta of questions[i].respuestas; let j = index" class="form-group">
+               <label for="respuesta{{ i + 1 }}-{{ j + 1 }}">P{{ i + 1 }}, Respuesta {{ j + 1 }}:</label>
+               <input type="text" id="respuesta{{ i + 1 }}-{{ j + 1 }}" name="respuesta{{ i + 1 }}-{{ j + 1 }}" [(ngModel)]="questions[i].respuestas[j]" required>
+             </div>
+
+             <div class="form-group">
+               <label for="respuestaCorrecta{{ i + 1 }}">Respuesta correcta de P{{ i + 1 }}:</label>
+               <select id="respuestaCorrecta{{ i + 1 }}" name="respuestaCorrecta{{ i + 1 }}" [(ngModel)]="questions[i].respuestaCorrecta">
+                 <option *ngFor="let option of [1, 2, 3, 4]" [value]="option">{{ option }}</option>
+               </select>
+             </div>
+           </form>
+         </div>
+       </div>
+     </ng-container>
 
 
-    <ng-container *ngIf="!isQuizCompleted">
 
-      <div class="d-flex justifly-content-between p-0">
-        <div class="image">
-          <img src="./assets/startup.png" width="70" alt="logo">
-        </div>
-        <div class="quiz-header">
-          <h4 style="font-style: italic; margin-left: 450px;"> Rsponde las preguntas </h4>
-          <span style="font-style: italic; margin-left: 450px;"> Bienvenido {{nameStudent}}!</span>
-        </div>
-      </div>
+     <div class="btns">
+       <div class="column d-flex justify-content-between mt-5 mb-5">
+         <button [disabled]="page===1" (click)="prevpage()" class="btn" ><i class="fa text-primary fa-chevron-left fa-2x" aria-hidden="true"></i></button>
+         <button *ngIf="page >= 5" (click)="generateJSON()" class="btn btn-primary">Guardar</button>
+         <button [disabled]="page===5" (click)="nextpage()" class="btn" ><i class="fa text-primary fa-chevron-right fa-2x" aria-hidden="true"></i></button>
+       </div>
+     </div>
 
-      <div class="d-flex justifly-content-around py-3">
-        <div class="score">
-          <h5 style="margin-left: 120px;">{{points}} Puntos</h5>
-        </div>
-        <div class="question-remain">
-          <span style="font-style: italic; margin-left: 120px;">Pregunta {{currentQuestion+1}} de {{questionList.length}}</span>
-        </div>
-        <div class="timer">
-          <h5 style="font-style: italic; margin-left: 120px;">{{counter}} seg ⏰</h5>
-        </div>
-      </div>
-
-      <div class="progress mb-3" role="progressbar" aria-label="Default striped example" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
-        <div class="progress-bar progress-bar-striped" [ngStyle]="{'width':progress+'%'}"></div>
-      </div>
-
-      <div class="question">
-        <div class="card">
-          <h3>{{questionList[currentQuestion]?.questionText}}</h3>
-        </div>
-      </div>
-
-      <div class="options">
-        <ol *ngFor="let option of questionList[currentQuestion]?.options">
-            <li (click)="answer(currentQuestion+1, option)">
-              <div  appChangeBg [isCorrect]="option.correct" class="card">
-                {{option.text}}
-              </div>
-            </li>
-        </ol>
-      </div>
-
-      <div class="btnend mt-3 mb-3">
-        <!--<button [disabled]="currentQuestion===0" class="btn" (click)="previusQuestion()"><i class="fa text-primary fa-chevron-left fa-2x" aria-hidden="true"></i></button>-->
-        <!--<button class="btn" (click)="resetQuiz()"><i class="fa text-primary fa-refresh fa-2x" aria-hidden="true"></i></button>-->
-        <button  *ngIf="currentQuestion < 4" class="btn" (click)="nextQuestion()"><i class="fa text-primary fa-chevron-right fa-2x" aria-hidden="true"></i></button>
-
-
-        <button *ngIf="currentQuestion >= 4" class="btn btn-primary" (click)="endQuiz()">FINALIZAR QUIZ</button>
-
-      </div>
-
-    </ng-container>
-
-    <ng-container *ngIf="isQuizCompleted">
-      <div class="row d-flex justify-content-between">
-        <img style="width: 50%" class="img-fluid col-sm-12 mx-auto mt-20px" src="./assets/ScoreEstudiante.jpg">
-        <div class="result text-center col-md-6 col-sm-12">
-          <br>
-          <h3>Felicidades! <br> La evaluacion a terminado conrrectamente.. <br> Estos son tus resultados: </h3>
-          <p> Total de preguntas formuladas: {{questionList.length}}</p>
-          <p> Total de preguntas correctas: {{correctAnswer}}</p>
-          <p> Total de preguntas incorrectas: {{inCorrectAnswer}}</p>
-          <h5> Tu puntaje: {{points}}/20 Puntos</h5>
-
-        </div>
-      </div>
-    </ng-container>
-
-  </div>
-</div>
-</main>
-
-
+    </div>
+  </main>

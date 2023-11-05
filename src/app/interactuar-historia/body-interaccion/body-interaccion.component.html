@@ -1,6 +1,188 @@
+<a routerLink="/resultado" class="new-btn-orange">Entregar</a>
+<main>
+  <ng-container *ngIf="!isQuizCompleted">
+  <div class="quizizq">
+    <div class="row">
+      <div class="col-md-6">
+        <img src="./assets/interactua.png" class="img-fluid" alt="Imagen">
+      </div>
+      <div class="col-md-6">
+        <div class="container mt-5 mb-5">
+          <div class="card">
 
-<main class="main">
-    <a routerLink="/interactua" class="btn-exit">X</a>
-    <img src="./assets/img/interactua.png" alt="Descripción de la imagen">
-    <a routerLink="/resultado" class="new-btn-orange">Entregar</a>
+
+            <ng-container *ngIf="!isQuizCompleted">
+
+              <div class="d-flex justifly-content-between mt-1 mb-5">
+                <div class="image">
+                  <img src="./assets/startup.png" width="70" alt="logo">
+                </div>
+                <div class="quiz-header">
+                  <h4 style="font-style: italic; margin-left: 160px;"> Rsponde las preguntas </h4>
+                  <span style="font-style: italic; margin-left: 160px;"> Bienvenido {{nameStudent}}!</span>
+                </div>
+              </div>
+
+              <div class="d-flex justifly-content-around py-3">
+                <div class="score">
+                  <h5 style="font-style: italic; margin-left: 50px;">{{points}} Puntos</h5>
+                </div>
+                <div class="question-remain">
+                  <span style="font-style: italic; margin-left: 50px;">Pregunta {{currentQuestion+1}} de {{questionList.length}}</span>
+                </div>
+                <div class="timer">
+                  <h5 style="font-style: italic; margin-left: 50px;">{{counter}} seg ⏰</h5>
+                </div>
+              </div>
+
+              <div class="progress mb-3" role="progressbar" aria-label="Default striped example" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar progress-bar-striped" [ngStyle]="{'width':progress+'%'}"></div>
+              </div>
+
+              <div class="question">
+                <div class="card">
+                  <h3>{{questionList[currentQuestion]?.questionText}}</h3>
+                </div>
+              </div>
+
+
+              <div class="options">
+                <ol *ngFor="let option of questionList[currentQuestion]?.options">
+                  <li (click)="answer(currentQuestion+1, option)">
+                    <div  appChangeBg [isCorrect]="option.correct" class="card">
+                      {{option.text}}
+                    </div>
+                  </li>
+                </ol>
+              </div>
+
+              <div class="btnend mt-3 mb-3">
+                <!--<button [disabled]="currentQuestion===0" class="btn" (click)="previusQuestion()"><i class="fa text-primary fa-chevron-left fa-2x" aria-hidden="true"></i></button>-->
+                <!--<button class="btn" (click)="resetQuiz()"><i class="fa text-primary fa-refresh fa-2x" aria-hidden="true"></i></button>-->
+                <button  *ngIf="currentQuestion < 4" class="btn" (click)="nextQuestion()"><i class="fa text-primary fa-chevron-right fa-2x" aria-hidden="true"></i></button>
+
+
+                <button *ngIf="currentQuestion >= 4" class="btn btn-primary" (click)="endQuiz()">FINALIZAR</button>
+
+              </div>
+
+            </ng-container>
+
+            </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  </ng-container>
+
+  <ng-container *ngIf="isQuizCompleted">
+  <div class="card1">
+
+    <div class="row d-flex justify-content-between">
+      <img style="width: 50%" class="img-fluid col-sm-12 mx-auto mt-auto" src="./assets/ScoreEstudiante.jpg">
+      <div class="result text-center col-md-6 col-sm-12">
+        <br>
+        <h3>Felicidades! <br> La evaluacion a terminado conrrectamente.. <br> Estos son tus resultados: </h3>
+        <p> Total de preguntas formuladas: {{questionList.length}}</p>
+        <p> Total de preguntas correctas: {{correctAnswer}}</p>
+        <p> Total de preguntas incorrectas: {{inCorrectAnswer}}</p>
+        <h5> Tu puntaje: {{points}}/20 Puntos</h5>
+      </div>
+    </div>
+
+  </div>
+  </ng-container>
+
 </main>
+
+
+
+
+
+
+
+
+<!--<main>
+  <div class="container mt-5 mb-5">
+    <div class="card">
+
+
+      <ng-container *ngIf="!isQuizCompleted">
+
+        <div class="d-flex justifly-content-between p-0">
+          <div class="image">
+            <img src="./assets/startup.png" width="70" alt="logo">
+          </div>
+          <div class="quiz-header">
+            <h4 style="font-style: italic; margin-left: 450px;"> Rsponde las preguntas </h4>
+            <span style="font-style: italic; margin-left: 450px;"> Bienvenido {{nameStudent}}!</span>
+          </div>
+        </div>
+
+        <div class="d-flex justifly-content-around py-3">
+          <div class="score">
+            <h5 style="margin-left: 120px;">{{points}} Puntos</h5>
+          </div>
+          <div class="question-remain">
+            <span style="font-style: italic; margin-left: 120px;">Pregunta {{currentQuestion+1}} de {{questionList.length}}</span>
+          </div>
+          <div class="timer">
+            <h5 style="font-style: italic; margin-left: 120px;">{{counter}} seg ⏰</h5>
+          </div>
+        </div>
+
+        <div class="progress mb-3" role="progressbar" aria-label="Default striped example" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-bar progress-bar-striped" [ngStyle]="{'width':progress+'%'}"></div>
+        </div>
+
+        <div class="question">
+          <div class="card">
+            <h3>{{questionList[currentQuestion]?.questionText}}</h3>
+          </div>
+        </div>
+
+
+        <div class="options">
+          <ol *ngFor="let option of questionList[currentQuestion]?.options">
+            <li (click)="answer(currentQuestion+1, option)">
+              <div  appChangeBg [isCorrect]="option.correct" class="card">
+                {{option.text}}
+              </div>
+            </li>
+          </ol>
+        </div>
+
+        <div class="btnend mt-3 mb-3">
+          //<button [disabled]="currentQuestion===0" class="btn" (click)="previusQuestion()"><i class="fa text-primary fa-chevron-left fa-2x" aria-hidden="true"></i></button>
+          //<button class="btn" (click)="resetQuiz()"><i class="fa text-primary fa-refresh fa-2x" aria-hidden="true"></i></button>
+<<button  *ngIf="currentQuestion < 4" class="btn" (click)="nextQuestion()"><i class="fa text-primary fa-chevron-right fa-2x" aria-hidden="true"></i></button>
+
+
+<button *ngIf="currentQuestion >= 4" class="btn btn-primary" (click)="endQuiz()">FINALIZAR QUIZ</button>
+
+</div>
+
+</ng-container>
+
+<ng-container *ngIf="isQuizCompleted">
+<div class="row d-flex justify-content-between">
+<img style="width: 50%" class="img-fluid col-sm-12 mx-auto mt-20px" src="./assets/ScoreEstudiante.jpg">
+<div class="result text-center col-md-6 col-sm-12">
+  <br>
+  <h3>Felicidades! <br> La evaluacion a terminado conrrectamente.. <br> Estos son tus resultados: </h3>
+  <p> Total de preguntas formuladas: {{questionList.length}}</p>
+  <p> Total de preguntas correctas: {{correctAnswer}}</p>
+  <p> Total de preguntas incorrectas: {{inCorrectAnswer}}</p>
+  <h5> Tu puntaje: {{points}}/20 Puntos</h5>
+</div>
+</div>
+</ng-container>
+
+</div>
+</div>
+
+<a routerLink="/resultado" class="new-btn-orange">Entregar</a>
+</main>-->
+
+
