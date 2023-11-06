@@ -9,7 +9,7 @@ import { interval, timeout} from "rxjs";
   styleUrls: ['./body-interaccion.component.css']
 })
 export class BodyInteraccionComponent implements OnInit {
-
+  public apiImageURL: string = '';
   public nameStudent: String = "";
   public questionList: any = [];
   public currentQuestion: number = 0;
@@ -36,6 +36,7 @@ export class BodyInteraccionComponent implements OnInit {
     this.questionService.getQuestionJson()
       .subscribe(res => {
         this.questionList = res.questions;
+        this.apiImageURL = res.imageUrl; // Aquí asignas la URL de la imagen
       })
   }
   qsValide() {
