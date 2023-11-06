@@ -78,6 +78,13 @@ button.btn-orange {
   margin-top: -25px;
 }
 
+.input-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
 .input-group input::placeholder {
   text-align: center;
   font-size: 30px; /* Cambia el tamaño del texto del placeholder */

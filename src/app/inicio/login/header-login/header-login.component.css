@@ -1,3 +1,10 @@
+navbar {
+  font-family: 'League Spartan', sans-serif;
+}
+.navbar {
+   font-family: 'League Spartan', sans-serif;
+}
+
 .container{
   margin-left: -0px;
   font-family: 'League Spartan', sans-serif;
@@ -103,3 +110,56 @@ div img:hover{
   justify-content: center;
   align-items: center;
 }
+
+.button-container {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+}
+
+.login-button {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+.login-button:hover {
+  background-color: #333;
+}
+
+.aa {
+  font-size: 40px; /* Cambia el tamaño de la fuente de los enlaces */
+}
+
+.bb {
+  margin-left: 650px;
+  font-size: 15px; /* Cambia el tamaño de la fuente de los enlaces */
+  color: black;
+}
+.aaa {
+  font-size: 30px;
+}
+
+.nav-link.activet {
+  background-color: black; /* Cambia el fondo a negro */
+  color: white; /* Cambia el color del texto a blanco */
+  border-radius: 10px; /* Agrega un borde redondeado */
+  padding: 10px 20px; /* Ajusta el espacio interno del botón */
+  font-size: 16px; /* Cambia el tamaño de la fuente */
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Agrega una transición suave al color de fondo */
+}
+
+.nav-link.activet:hover {
+  background-color: #000000; /* Cambia el fondo al pasar el mouse */
+  padding: 10px 20px;
+}
+
+
+
+

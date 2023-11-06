@@ -77,11 +77,10 @@
   </ng-container>
 
   <ng-container *ngIf="isQuizCompleted">
-  <div class="card1">
-
+  <div class="card1 justify-content-center">
     <div class="row d-flex justify-content-between">
       <img style="width: 50%" class="img-fluid col-sm-12 mx-auto mt-auto" src="./assets/ScoreEstudiante.jpg">
-      <div class="result text-center col-md-6 col-sm-12">
+      <div class="result col-md-6 col-sm-12">
         <br>
         <h3>Felicidades! <br> La evaluacion a terminado conrrectamente.. <br> Estos son tus resultados: </h3>
         <p> Total de preguntas formuladas: {{questionList.length}}</p>
@@ -90,7 +89,7 @@
         <h5> Tu puntaje: {{points}}/20 Puntos</h5>
       </div>
     </div>
-
+    <button routerLink="/interactua" class="btn-leave btn btn-primary">Salir</button>
   </div>
   </ng-container>
 

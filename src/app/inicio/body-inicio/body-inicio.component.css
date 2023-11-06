@@ -6,15 +6,15 @@
   font-family: 'League Spartan', sans-serif;
 }
 
+
+
 .main h1 {
   font-size: 55px; /* Tamaño del texto en negrita */
-
   color: #0049ac; /* Color del texto azul */
   margin-bottom: 40px;
   font-weight: bolder;
   font-family: 'League Spartan', sans-serif;
 }
-
 
 div.container1 {
   font-size: 25px; /* Tamaño del texto en negrita */
@@ -25,9 +25,8 @@ div.container1 {
 }
 
 .icon-grande {
-  font-size: 40px; /* Tamaño del icono, ajusta según tus necesidades */
+  font-size: 35px; /* Tamaño del icono, ajusta según tus necesidades */
 }
-
 
 .main p {
 

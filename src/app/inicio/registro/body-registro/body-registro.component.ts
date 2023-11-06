@@ -7,6 +7,8 @@ import { MatStepperModule} from '@angular/material/stepper';
 import { MatButtonModule} from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { RouterModule } from "@angular/router";
+import {MatDialog, MatDialogModule} from "@angular/material/dialog";
+import {ModalConfRegComponent} from "../modal-conf-reg/modal-conf-reg.component";
 
 @Component({
   selector: 'app-body-registro',
@@ -22,6 +24,7 @@ import { RouterModule } from "@angular/router";
     MatInputModule,
     MatCheckboxModule,
     RouterModule,
+    MatDialogModule
   ],
 })
 export class BodyRegistroComponent  implements OnInit {
@@ -29,7 +32,7 @@ export class BodyRegistroComponent  implements OnInit {
   firstFormGroup: FormGroup = new FormGroup({});
   secondFormGroup: FormGroup = new FormGroup({});
 
-  constructor(private _formBuilder: FormBuilder) {}
+  constructor(private _formBuilder: FormBuilder, public dialog: MatDialog) {}
 
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
@@ -42,5 +45,18 @@ export class BodyRegistroComponent  implements OnInit {
       confirmPasswordCtrl: ['', Validators.required],
       newsletterCtrl: [false]
     });
+  }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(ModalConfRegComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+  registrarse(){
+    console.log(this.secondFormGroup.valid)
+    if(this.firstFormGroup.invalid || this.secondFormGroup.invalid) return;
+    this.openDialog()
   }
 }

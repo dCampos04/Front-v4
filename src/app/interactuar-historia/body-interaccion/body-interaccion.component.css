@@ -14,7 +14,7 @@ main {
 .card1{
   max-width: 900px;
   margin: 0 auto;
-  padding: 10px;
+  padding: 100px;
   background-color: white;
   border-radius: 5px;
   border: 1px solid #bbbbbb;
@@ -50,6 +50,13 @@ section {
 img.img-fluid {
   max-width: 100%; /* Cambia este valor al tamaño deseado, por ejemplo, 50% */
   height: max-content; /* Esto mantiene la proporción de la imagen */
-  margin-top: 10px;
+  margin-top: 50px;
+}
+.h5 {
+  width: 50px;
+}
+
+.btn-leave{
+  margin-bottom: -100px;
 }
 

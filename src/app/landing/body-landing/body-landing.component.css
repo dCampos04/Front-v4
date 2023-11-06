@@ -1,8 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=ABeeZee&family=League+Spartan:wght@100;300&family=Sen:wght@700&display=swap');
-
-* {
+main {
   font-family: 'League Spartan', sans-serif;
 }
+
+body {
+  background: #ffffff;
+  color: #000;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+header {
+  padding: 0px;
+  margin-bottom: 0px;
+
+}
+
+.texto {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/*********BODY**********/
 
 .caratula {
   margin-top: -150px;
@@ -19,13 +40,12 @@
 }
 
 .doTexto {
-  font-size: x-large;
-  font-weight: bolder;
+  font-size: 30px;
+
 }
 
 .roTexto {
   font-size: large;
-  font-weight: bolder;
   margin-top: 10px;
 }
 
@@ -38,17 +58,13 @@
   width: 150px;
 }
 
-
 /**/
+
 .info {
   background-color: #91D2EE;
   margin-top: 40px;
   height: fit-content;
-  flex: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 15px;
+
 }
 
 .objetivos {
@@ -67,6 +83,12 @@
   overflow: visible;
 }
 
+.aaa{
+  background: linear-gradient(to right, #c9e167 50%, #E870A6 50%);
+
+
+}
+
 .cont3 {
   background-color: #E870A6 ;
 }
@@ -74,19 +96,7 @@
 .fotoinfo1 {
   transform: scale(1.2);
 }
+fotoinfo{
+  margin-right: 100px;
+}
 
-.carousel {
-  width: 40%;
-  margin-top: -30px;
-}
-.objetivocontainer{
-  flex: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 15px;
-}
-.margenes{
-  margin-left: -40%;
-  margin-right: -40%;
-}

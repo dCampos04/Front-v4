@@ -1,4 +1,4 @@
-import {Input, NgModule} from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import {AdministracionHistoriasComponent} from "./administracion-historias.component";
@@ -12,7 +12,7 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { BodyQuestionComponent } from './body-question/body-question.component';
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from '@angular/forms';
-import {AppComponent} from "../app.component";
+import { AppComponent } from "../app.component";
 
 
 

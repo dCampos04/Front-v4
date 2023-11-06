@@ -81,6 +81,12 @@ button.btn-orange {
   margin-bottom: 10px;
 }
 
+.input-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
 
 
 .input-group input::placeholder {

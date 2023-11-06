@@ -1,38 +1,37 @@
-
 <main class="main">
-    <h1 class="titulo">Mis historias creadas</h1>
-    <div class="filtro">
-        <label for="filtro">Filtrar por:</label>
-        <select id="filtro" class="select-filtro">
-            <option>Seleccionar filtro</option>
-            <option>Alfabeticamente</option>
-            <option>Más recientes</option>
-        </select>
+  <h1 class="titulo">Mis historias creadas</h1>
+  <div class="filtro">
+    <label for="filtro">Filtrar por:</label>
+    <select id="filtro" class="select-filtro">
+      <option>Seleccionar filtro</option>
+      <option>Alfabeticamente</option>
+      <option>MÃ¡s recientes</option>
+    </select>
+  </div>
+  <div class="cards-container">
+    <div class="card">
+      <img src="ruta_a_la_imagen" alt="Imagen de la historia">
+      <h2>Titulo de la historia</h2>
+      <p>Creado el xx/xx/xxxx</p>
+      <button routerLink="/iniciar" href="iniciar-historia.html" class="btn-orange">Iniciar</button>
+      <button class="btn-verde">Editar</button>
+      <button class="btn-gris">Eliminar</button>
     </div>
-    <div class="cards-container">
-        <div class="card">
-            <img src="ruta_a_la_imagen" alt="Imagen de la historia">
-            <h2>Titulo de la historia</h2>
-            <p>Creado el xx/xx/xxxx</p>
-            <a routerLink="/iniciar" href="iniciar-historia.html" class="btn-orange">Iniciar</a>
-            <button class="btn-verde">Editar</button>
-            <button class="btn-gris">Eliminar</button>
-        </div>
-        <div class="card">
-            <img src="ruta_a_la_imagen" alt="Imagen de la historia">
-            <h2>Titulo de la historia</h2>
-            <p>Creado el xx/xx/xxxx</p>
-            <a routerLink="/iniciar" href="iniciar-historia.html" class="btn-orange">Iniciar</a>
-            <button class="btn-verde">Editar</button>
-            <button class="btn-gris">Eliminar</button>
-        </div>
-        <div class="card">
-            <img src="ruta_a_la_imagen" alt="Imagen de la historia">
-            <h2>Titulo de la historia</h2>
-            <p>Creado el xx/xx/xxxx</p>
-            <a routerLink="/iniciar" href="iniciar-historia.html" class="btn-orange">Iniciar</a>
-            <button class="btn-verde">Editar</button>
-            <button class="btn-gris">Eliminar</button>
-        </div>
+    <div class="card">
+      <img src="ruta_a_la_imagen" alt="Imagen de la historia">
+      <h2>Titulo de la historia</h2>
+      <p>Creado el xx/xx/xxxx</p>
+      <button routerLink="/iniciar" href="iniciar-historia.html" class="btn-orange">Iniciar</button>
+      <button class="btn-verde">Editar</button>
+      <button class="btn-gris">Eliminar</button>
     </div>
+    <div class="card">
+      <img src="ruta_a_la_imagen" alt="Imagen de la historia">
+      <h2>Titulo de la historia</h2>
+      <p>Creado el xx/xx/xxxx</p>
+      <button routerLink="/iniciar" href="iniciar-historia.html" class="btn-orange">Iniciar</button>
+      <button class="btn-verde">Editar</button>
+      <button class="btn-gris">Eliminar</button>
+    </div>
+  </div>
 </main>

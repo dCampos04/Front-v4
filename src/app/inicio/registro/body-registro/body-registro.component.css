@@ -1,5 +1,7 @@
-body {
+main{
   background-color: #ECECEC;
+  text-align: center;
+  padding: 60px;
 }
 
 .page-title {
@@ -7,11 +9,13 @@ body {
   margin-bottom: 0px;
 }
 
-.page-title h1 {
-  font-size: 35px;
+h1 {
+  font-size: 55px;
   font-weight: bold;
-  color: #004AAD;
-  margin-top: -5px;
+  color: #0049ac;
+  margin-bottom: -100px;
+  margin-top: 30px;
+  font-family: 'League Spartan', sans-serif;
 }
 
 /* Estilos para el MatStepper */
@@ -24,12 +28,14 @@ body {
 
 .mat-step-label {
   margin-top: 5px; /* Ajusta el margen superior del texto debajo del indicador según sea necesario */
+  font-family: 'League Spartan', sans-serif;
 }
 
 .stepper-container {
   max-width: 550px; /* Establece el ancho máximo que deseas para el stepper */
   margin: 0 auto; /* Centra el stepper en el contenedor */
   background-color: #ECECEC;
+  margin-top: 100px;
 }
 
 .stepper {
@@ -60,6 +66,7 @@ body {
 .input-group label {
   display: block; /* Hace que las etiquetas (títulos) ocupen todo el ancho disponible */
   margin-bottom: 5px; /* Agrega un pequeño espacio entre las etiquetas y los campos de texto */
+  font-family: 'League Spartan', sans-serif;
 }
 
 .input-group input {
@@ -72,37 +79,42 @@ body {
 }
 
 .buttons {
+
   display: flex;
   justify-content: center;
   margin-top: 50px;
+  margin-bottom: 50px;
   color: white;
 }
 
 .next-button, .back-button {
-  background-color: #ff9800;
+  background-color: #fd7900;
   color: white;
   margin-top: 50px;
   border: none;
-  padding: 25px 50px;
+  padding: 15px 40px;
   border-radius: 30px;
   cursor: pointer;
   margin: 0 20px;
   font-size: 20px;
+  font-family: 'League Spartan', sans-serif;
 }
 
 /* Estilos para el contenedor verde */
 .form-container {
   background-color: #c9e1679d; /* Color verde */
-  margin-top: 100px;
+  margin-top: 50px;
   padding: 20px; /* Espaciado interior */
   border-radius: 30px; /* Bordes redondeados */
   margin-bottom: 20px; /* Espaciado en la parte inferior */
+  font-family: 'League Spartan', sans-serif;
 }
 
 /* Estilos para los campos de texto y títulos dentro del contenedor verde */
 .form-container .input-group {
   margin-bottom: 20px; /* Espaciado entre campos de texto */
   color: white; /* Texto blanco */
+  font-family: 'League Spartan', sans-serif;
 }
 
 .form-container .input-group label {

@@ -5,6 +5,7 @@
 
 
 <main>
+  <div class="card">
    <div class="card">
 
      <div class="d-flex justifly-content-between mt-3 mb-10">
@@ -16,6 +17,7 @@
          <img src="./assets/startup.png" width="70" alt="logo" >
        </div>
      </div>
+
      <ng-container *ngFor="let question of questions; let i = index">
        <div *ngIf="page === i + 1">
          <div class="formulario">
@@ -41,14 +43,16 @@
        </div>
 
 </ng-container>
-
+     </div>
 
 
      <div class="btns">
        <div class="column d-flex justify-content-between mb-5 mt-5">
-         <button [disabled]="page === 1" (click)="prevpage()" class="btn"><i class="fa text-primary fa-chevron-left fa-2x" aria-hidden="true"></i></button>
-         <button *ngIf="page >= 5" (click)="generateJSON()" class="btn btn-primary">Guardar</button>
-         <button [disabled]="page === 5" (click)="nextpage()" class="btn"><i class="fa text-primary fa-chevron-right fa-2x" aria-hidden="true"></i></button>
+         <button [disabled]="page === 1" (click)="prevpage()" class="btn move-rigt"><i class="fa text-primary fa-chevron-left fa-2x" aria-hidden="true"></i></button>
+         <button routerLink="/crea" *ngIf="page<5"  class="btn btn-primary">Cancelar</button>
+         <button routerLink="/historial" *ngIf="page >= 5" (click)="generateJSON()" class="btn btn-primary">Guardar</button>
+         <button [disabled]="page === 5" (click)="nextpage()" class="btn move-left"><i class="fa text-primary fa-chevron-right fa-2x" aria-hidden="true"></i></button>
+
 
        </div>
      </div>

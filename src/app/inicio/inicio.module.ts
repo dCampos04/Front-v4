@@ -31,6 +31,7 @@ import {
 import { Body2InteractuaComponent } from './interactua/body2-interactua/body2-interactua.component';
 import { MatCardModule } from "@angular/material/card";
 import { MatButtonModule } from "@angular/material/button";
+import { ModalConfRegComponent } from './registro/modal-conf-reg/modal-conf-reg.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { MatButtonModule } from "@angular/material/button";
     BodyInteractuaComponent,
     HeaderInteractuaComponent,
     Body2InteractuaComponent,
+
   ],
   imports: [
     CommonModule,
@@ -66,6 +68,7 @@ import { MatButtonModule } from "@angular/material/button";
     MatCardModule,
     MatButtonModule,
     ButtonDirective,
+    ModalConfRegComponent,
   ]
 })
 export class InicioModule { }

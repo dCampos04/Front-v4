@@ -1,68 +1,42 @@
 body {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
-/**********************HEADER********************/
-.header {
-    background-color: white;
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    padding: 10px 20px;
-    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
-}
-
-.logo img {
-    width: 150px; /* Ajusta el ancho de la imagen según tu preferencia */
-    height: 80px; /* Ajusta la altura de la imagen según tu preferencia */
-}
-
-.nav a {
-    text-decoration: none;
-    color: black;
-    font-weight: normal;
-    font-size: 30px;
-    margin-left: 30px; /* Espacio entre los elementos de la navegación */
-    transition: all 0.3s ease;
-}
-
-.nav a.active {
-    font-weight: bold;
-}
-
-/**********************HEADER********************/
-
-/**********************DOCENTE-INICIO********************/
 
 .main {
-    background-color: #f2f2f2; /* Color de fondo gris */
-    text-align: center; /* Centra el texto */
-    padding: 20px; /* Espaciado interior del contenedor */
+  background-color: #f2f2f2; /* Color de fondo gris */
+  text-align: center; /* Centra el texto */
+  padding:80px; /* Espaciado interior del contenedor */
+  font-family: 'League Spartan', sans-serif;
+
 }
 
 .main h1 {
-    font-size: 36px; /* Tamaño del texto en negrita */
-    font-weight: bold; /* Grosor del texto */
-    color: #007bff; /* Color del texto azul */
+  font-size: 36px; /* Tamaño del texto en negrita */
+  font-weight: bold; /* Grosor del texto */
+  color: #0049ac; /* Color del texto azul */
+  font-family: 'League Spartan', sans-serif;
+  margin-bottom: 50px;
+  margin-top: -100px;
 }
 
 .main p {
-    font-size: 18px; /* Tamaño del texto normal */
-    margin-bottom: 20px; /* Margen inferior */
+  font-size: 18px; /* Tamaño del texto normal */
+  margin-bottom: 20px; /* Margen inferior */
 }
 
 .btn-register, .btn-login {
-    background-color: #000; /* Color de fondo negro */
-    color: #fff; /* Color del texto blanco */
-    border: none; /* Sin borde */
-    padding: 15px 30px; /* Espaciado interno del botón */
-    font-size: 18px; /* Tamaño del texto del botón */
-    margin-bottom: 20px; /* Margen inferior */
-    border-radius: 30px;
+  background-color: #000; /* Color de fondo negro */
+  color: #fff; /* Color del texto blanco */
+  border: none; /* Sin borde */
+  padding: 15px 30px; /* Espaciado interno del botón */
+  font-size: 18px; /* Tamaño del texto del botón */
+  margin-bottom: 20px; /* Margen inferior */
+  border-radius: 30px;
 }
 
 .btn-login {
-    background-color: #000; /* Puedes cambiar el color si lo deseas */
+  background-color: #000; /* Puedes cambiar el color si lo deseas */
 }
 
 /**********************DOCENTE-INICIO********************/
@@ -70,341 +44,130 @@ body {
 /**********************ESTUDIANTE-INTERACTUA********************/
 
 .input-group {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .input-group input {
-    width: 15%;
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 30px;
-    margin-bottom: 20px;
+  width: 15%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 30px;
+  margin-bottom: 20px;
 }
 
 .btn-orange {
-    background-color: #ff9800; /* Color de fondo naranja */
-    color: white; /* Color del texto blanco */
-    border: none; /* Sin borde */
-    padding: 15px 30px; /* Espaciado interno del botón */
-    font-size: 18px; /* Tamaño del texto del botón */
-    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
-    transition: background-color 0.3s ease; /* Transición suave del color de fondo */
-    border-radius: 30px;
+  background-color: #fd7900; /* Color de fondo naranja */
+  color: white; /* Color del texto blanco */
+  border: none; /* Sin borde */
+  padding: 15px 30px; /* Espaciado interno del botón */
+  font-size: 18px; /* Tamaño del texto del botón */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+  border-radius: 30px;
+  margin-bottom: 80px;
 }
 
 .btn-orange:hover {
-    background-color: #f57c00; /* Cambia el color de fondo al pasar sobre el botón */
+  background-color: #fd7900; /* Cambia el color de fondo al pasar sobre el botón */
 }
 
 /**********************ESTUDIANTE-INTERACTUA********************/
 
-/**********************ESTUDIANTE-INGRESA-NOMBRE********************/
-
-.main p.recomendacion {
-    color: rgba(128, 128, 128, 0.691);
-}
-
-/**********************ESTUDIANTE-INGRESA-NOMBRE********************/
-
-/**********************INGRESO-HISTORIA********************/
-
-.back-button {
-    position: relative;
-    top: 10px;
-    left: -700px;
-    background-color: #007bff; /* Color de fondo azul */
-    color: white; /* Color del texto blanco */
-    border: none; /* Sin borde */
-    padding: 10px 20px; /* Espaciado interno del botón */
-    font-weight: bold; /* Texto en negrita */
-    cursor: pointer; /* Cursor de puntero al pasar el mouse */
-}
-
-.titulo {
-    font-size: 20px; /* Tamaño del texto del título */
-    color: black; /* Color del texto azul */
-    margin-bottom: 15px; /* Margen inferior entre los párrafos */
-}
-
-.autor {
-    font-size: 20px; /* Tamaño del texto del autor */
-    color: black; /* Color del texto verde */
-    margin-bottom: 15px; /* Margen inferior entre los párrafos */
-}
-
-.esperando {
-    font-size: 50px; /* Tamaño del texto */
-    font-weight: bold; /* Texto en negrita */
-    color: black; /* Color del texto negro */
-    margin-bottom: 15px; /* Margen inferior entre los párrafos */
-    margin-top: 50px; /* Margen superior */
-}
-
 .titulo-grande {
-    font-weight: bold; /* Texto en negrita */
-    font-size: 24px; /* Tamaño de fuente para "Risitos de Oro en el Bosque" */
-    color: black;
+  font-weight: bold; /* Texto en negrita */
+  font-size: 24px; /* Tamaño de fuente para "Risitos de Oro en el Bosque" */
+  color: black;
+  margin-bottom: 50px;
+  margin-left: 20px;
 }
-
-/**********************INGRESO-HISTORIA********************/
-
-/**********************INTERACTUA********************/
-
-.btn-exit {
-    background-color: transparent; /* Fondo transparente */
-    border: none; /* Sin borde */
-    color: black; /* Color del texto negro */
-    font-size: 50px; /* Tamaño de la fuente */
-    position: relative; /* Posición absoluta para estar en la esquina superior izquierda */
-    top: -600px; /* Distancia desde la parte superior */
-    left: -300px; /* Distancia desde la izquierda */
-    cursor: pointer; /* Cambia el cursor al pasar el mouse */
-}
-
-.new-btn-orange {
-    background-color: orange; /* Fondo naranja */
-    color: white; /* Color del texto blanco */
-    border: none; /* Sin borde */
-    padding: 15px 30px; /* Espaciado interno del botón */
-    font-size: 18px; /* Tamaño del texto del botón */
-    margin: 20px auto 0; /* Margen superior, centrado horizontalmente y sin margen inferior */
-    display: block; /* Hace que el botón sea un bloque ocupando todo el ancho del contenedor */
-    cursor: pointer; /* Cambia el cursor al pasar el mouse */
-    border-radius: 30px;
-    width: 150px;
-}
-
-/**********************INTERACTUA********************/
 
 /**********************RESULTADO********************/
 
 .tabla {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50px;
+  margin-top: 50px;
+}
+
+.tabla .fila:first-child .columna {
+  color: rgb(128, 128, 128);
 }
 
 .fila {
-    display: flex;
-    width: 80%;
-    justify-content: space-between;
-    margin-bottom: 10px;
+  display: flex;
+  width: 80%;
+  justify-content: space-between;
+  margin-bottom: 10px;
 }
 
 .columna {
-    flex: 1;
-    padding: 10px;
-    border: 1px solid black;
+  flex: 1;
+  padding: 10px;
+  border-bottom: 1px solid black;
 }
 
 /**********************RESULTADO********************/
-
-/**********************INICIAR SESIÓN*******************/
-
-.formulario-container {
-    width: 300px;
-    margin: 0 auto;
-    background-color: #c9e16787; /* Verde */
-    padding: 20px;
-    border-radius: 30px;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-    margin-bottom: 50px;
-}
-
-/* Clase para el contenedor del campo de entrada */
-.input-group-custom {
-    margin-bottom: 15px;
-    text-align: left;
-}
-
-/* Clase para el campo de entrada */
-.input-custom {
-    width: 100%;
-    padding: 8px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 30px;
-    box-sizing: border-box;
-}
-
-/* Clase para las etiquetas de los campos de entrada */
-.label-custom {
-    color: black;
-    font-weight: bold;
-    margin-bottom: 5px;
-    display: block;
-}
-
-/* Clase para el asterisco rojo */
-.required {
-    color: red;
-    margin-left: 5px;
-}
-input {
-    width: 100%;
-    padding: 8px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.forgot-password {
-    color: #004AAD;
-    text-decoration: underline;
-    display: block;
-    margin-top: 10px;
-}
-
-/* Estilos Personalizados para el Header Original */
-.header-custom {
-    background-color: white;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 10px 20px;
-    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
-}
-
-.logo-custom img {
-    width: 150px; /* Ajusta el ancho de la imagen según tu preferencia */
-    height: 80px; /* Ajusta la altura de la imagen según tu preferencia */
-}
-
-.nav-custom a {
-    text-decoration: none;
-    color: black;
-    font-weight: normal;
-    font-size: 30px;
-    margin-left: 30px; /* Espacio entre los elementos de la navegación */
-    transition: all 0.3s ease;
-}
-
-.nav-custom a.active {
-    font-weight: bold;
-}
-
-.right-content {
-    display: flex;
-    align-items: center;
-    margin-left: auto; /* Mueve los elementos hacia el lado derecho */
-}
-
-.right-content p {
-    margin: 0;
-    margin-right: 10px;
-    color: black;
-    font-weight: bold;
-}
-
-.btn-black {
-    background-color: black;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-left: auto; /* Mueve el botón hacia el lado derecho */
-}
-
-/**********************INICIAR SESIÓN*******************/
-
-/**********************VER HISTORIAS*******************/
-
-.filtro {
-    text-align: left;
-    margin-bottom: 20px;
-}
-
-.select-filtro {
-    font-size: 16px;
-    padding: 10px;
-}
-
-.cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-}
-
-.card {
-    background-color: #f9f9f9;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    padding: 20px;
-    width: 250px;
-    text-align: center;
-    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
-}
-
-.card img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
-
-.btn-verde, .btn-gris {
-    background-color: transparent;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 10px;
-    border-radius: 5px;
-    margin-right: 5px;
-}
-
-.btn-verde {
-    background-color: #4caf50; /* Verde */
-}
-
-.btn-gris {
-    background-color: #ccc; /* Gris */
-}
-
-/**********************VER HISTORIAS*******************/
 
 /**********************DOCENTE RESULTADOS*******************/
 
 /* Estilos para el botón "Guardar resultados" */
 .guardar-btn {
-    position: relative;
-    top: 10px;
-    left: 650px;
-    background-color: orange;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  position: relative;
+  left: 550px;
+  bottom: -60px;
+  background-color: #fd7900;
+  color: white;
+  border: none;
+  padding: 15px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.row {
+  display: flex;
+  align-items: center; /* Alinea verticalmente los elementos */
+}
+
+.col1 {
+  flex: 1; /* Toma el espacio disponible en la izquierda */
+  text-align: right; /* Alinea el contenido a la derecha */
+  margin-right: -10px;
+}
+
+.col2 {
+  flex: 1; /* Toma el espacio disponible en la derecha */
+  text-align: left; /* Alinea el contenido a la izquierda */
 }
 
 .guardar-btn:hover {
-    background-color: darkorange;
+  background-color: #fd7900;
 }
 
 /* Estilos para el texto "Resultados: 18 Estudiantes" */
 .resultados-info {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  justify-content: center;
 }
 
 .resultados-titulo {
-    color: blue;
-    font-weight: bold;
-    margin-right: 10px;
+  color: #0049ac;
+  font-weight: bold;
+  margin-right: 10px;
+  margin-top: 45px;
 }
 
 .resultados-texto {
-    color: black;
-    font-weight: bold;
+  color: black;
+  font-weight: bold;
+  margin-top: 65px;
+}
+
+lastbtn {
+  margin-bottom: 100px;
 }
 
 /**********************DOCENTE RESULTADOS*******************/

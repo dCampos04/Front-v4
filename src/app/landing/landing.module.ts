@@ -8,6 +8,7 @@ import { HeaderLandingComponent } from './header-landing/header-landing.componen
 import { BodyLandingComponent } from './body-landing/body-landing.component';
 
 import { FooterLandingComponent } from './footer-landing/footer-landing.component';
+import { CarouselComponent } from './carousel/carousel.component';
 
 
 
@@ -18,6 +19,8 @@ import { FooterLandingComponent } from './footer-landing/footer-landing.componen
     BodyLandingComponent,
 
     FooterLandingComponent,
+     CarouselComponent,
+
   ],
   imports: [
     CommonModule,

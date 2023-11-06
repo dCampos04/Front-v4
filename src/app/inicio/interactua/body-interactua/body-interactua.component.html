@@ -4,9 +4,9 @@
   <h1>Ingresa el Código</h1>
 
   <div class="input-group">
-    <input type="text" placeholder="Ejm: Arbolrojo" required>
+    <input [(ngModel)]="text" type="text"id="text" name="text" placeholder="Ejm: Arbolrojo" required>
   </div>
-  <button routerLink="/nombre" class="btn-orange">Comenzar</button>
+  <button (click)="enviarCodigo()" class="btn-orange">Comenzar</button>
 
 </main>
 

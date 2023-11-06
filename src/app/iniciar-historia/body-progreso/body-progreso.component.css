@@ -37,13 +37,14 @@ body {
 .main {
     background-color: #f2f2f2; /* Color de fondo gris */
     text-align: center; /* Centra el texto */
-    padding: 20px; /* Espaciado interior del contenedor */
+    padding: 120px; /* Espaciado interior del contenedor */
 }
 
 .main h1 {
     font-size: 36px; /* Tamaño del texto en negrita */
     font-weight: bold; /* Grosor del texto */
-    color: #007bff; /* Color del texto azul */
+    color: #0049ac; /* Color del texto azul */
+  margin-bottom: 30px;
 }
 
 .main p {
@@ -82,7 +83,7 @@ body {
 }
 
 .btn-orange {
-    background-color: #ff9800; /* Color de fondo naranja */
+    background-color: #fb7900; /* Color de fondo naranja */
     color: white; /* Color del texto blanco */
     border: none; /* Sin borde */
     padding: 15px 30px; /* Espaciado interno del botón */
@@ -93,7 +94,7 @@ body {
 }
 
 .btn-orange:hover {
-    background-color: #f57c00; /* Cambia el color de fondo al pasar sobre el botón */
+  background-color: #fb7900; /* Cambia el color de fondo al pasar sobre el botón */
 }
 
 /**********************ESTUDIANTE-INTERACTUA********************/
@@ -112,7 +113,7 @@ body {
     position: relative;
     top: 10px;
     left: -700px;
-    background-color: #007bff; /* Color de fondo azul */
+    background-color: #0049ac; /* Color de fondo azul */
     color: white; /* Color del texto blanco */
     border: none; /* Sin borde */
     padding: 10px 20px; /* Espaciado interno del botón */
@@ -123,7 +124,7 @@ body {
 .titulo {
     font-size: 20px; /* Tamaño del texto del título */
     color: black; /* Color del texto azul */
-    margin-bottom: 15px; /* Margen inferior entre los párrafos */
+    margin-bottom: 30px; /* Margen inferior entre los párrafos */
 }
 
 .autor {
@@ -162,16 +163,18 @@ body {
 }
 
 .new-btn-orange {
-    background-color: orange; /* Fondo naranja */
+  background-color: #fb7900; /* Fondo naranja */
     color: white; /* Color del texto blanco */
     border: none; /* Sin borde */
-    padding: 15px 30px; /* Espaciado interno del botón */
-    font-size: 18px; /* Tamaño del texto del botón */
+    padding: 15px 15px; /* Espaciado interno del botón */
+    font-size: 20px; /* Tamaño del texto del botón */
     margin: 20px auto 0; /* Margen superior, centrado horizontalmente y sin margen inferior */
     display: block; /* Hace que el botón sea un bloque ocupando todo el ancho del contenedor */
     cursor: pointer; /* Cambia el cursor al pasar el mouse */
     border-radius: 30px;
-    width: 150px;
+    width: 280px;
+    margin-bottom: 80px;
+    margin-top: 50px;
 }
 
 /**********************INTERACTUA********************/
@@ -250,7 +253,7 @@ input {
 }
 
 .forgot-password {
-    color: #004AAD;
+  color: #0049ac;
     text-decoration: underline;
     display: block;
     margin-top: 10px;
@@ -397,7 +400,7 @@ input {
 }
 
 .resultados-titulo {
-    color: blue;
+  color: #0049ac;
     font-weight: bold;
     margin-right: 10px;
 }

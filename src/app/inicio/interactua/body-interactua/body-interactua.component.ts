@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -9,18 +10,24 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class BodyInteractuaComponent {
   nombre: string = "";
+  public text: string= "";
   // @ts-ignore
     formulario: FormGroup;
 
   submitted: boolean = false;
 
-    constructor(private fb: FormBuilder) { }
+    constructor(private fb: FormBuilder, private router:Router) { }
 
     ngOnInit(){
         this.formulario = this.fb.group({
             Code: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(12)]]
         });
     }
+  public enviarCodigo(){
+    console.log(this.text)
+    if(!this.text) return;
+    this.router.navigateByUrl("/nombre")
+  }
 
     get f() {return this.formulario.controls; }
     onSubmit(){
