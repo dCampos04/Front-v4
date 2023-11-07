@@ -1,11 +1,11 @@
 {
   "vocabularys": [
     {
-      "palabraText": "palabra1","significado": "significado1", "casouso": "casouso1"},
+      "palabraText": "palabra 1","significado": "significado 1", "casouso": "casouso 1"},
     {
-      "palabraText": "palabra2","significado": "significado2", "casouso": "casouso2"},
+      "palabraText": "palabra 2","significado": "significado 2", "casouso": "casouso 2"},
     {
-      "palabraText": "palabra3","significado": "significado3", "casouso": "casouso3"}
+      "palabraText": "palabra 3","significado": "significado 3", "casouso": "casouso 3"}
   ]
 }
 

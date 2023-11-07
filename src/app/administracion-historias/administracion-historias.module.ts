@@ -14,6 +14,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from "../app.component";
 import { BodyVocabularyComponent } from './body-vocabulary/body-vocabulary.component';
+import { BodyIdTitleComponent } from './body-id-title/body-id-title.component';
 
 
 
@@ -26,6 +27,7 @@ import { BodyVocabularyComponent } from './body-vocabulary/body-vocabulary.compo
     ApiComponent,
     BodyQuestionComponent,
     BodyVocabularyComponent,
+    BodyIdTitleComponent,
   ],
     imports: [
       CommonModule,

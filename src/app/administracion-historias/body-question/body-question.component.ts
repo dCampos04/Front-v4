@@ -7,11 +7,6 @@ import {Component} from '@angular/core';
   styleUrls: ['./body-question.component.css'],
 })
 export class BodyQuestionComponent {
-  idStory = [
-    {
-      id: "",
-    },
-  ];
   questions = [
     {
       questionText: '',
