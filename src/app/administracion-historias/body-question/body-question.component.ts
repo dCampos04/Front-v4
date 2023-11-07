@@ -7,7 +7,11 @@ import {Component} from '@angular/core';
   styleUrls: ['./body-question.component.css'],
 })
 export class BodyQuestionComponent {
-  idStory = [''];
+  idStory = [
+    {
+      id: "",
+    },
+  ];
   questions = [
     {
       questionText: '',
@@ -73,7 +77,7 @@ export class BodyQuestionComponent {
   }
 
   submitForm(index: number) {
-    console.log('Datos del formulario:', this.questions[index]);
+    console.log('Datos del formulario(Preguntas):', this.questions[index]);
   }
   generateJSON() {
     // Construir el objeto JSON deseado

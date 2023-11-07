@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { BodyQuestionComponent } from './body-question.component';
 
 describe('BodyQuestionComponent', () => {

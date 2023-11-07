@@ -41,8 +41,7 @@
            </form>
          </div>
        </div>
-
-</ng-container>
+     </ng-container>
      </div>
 
 
@@ -50,11 +49,9 @@
        <div class="column d-flex justify-content-between mb-5 mt-5">
          <button [disabled]="page === 1" (click)="prevpage()" class="btn move-rigt"><i class="fa text-primary fa-chevron-left fa-2x" aria-hidden="true"></i></button>
          <button routerLink="/crea" *ngIf="page<5"  class="btn btn-primary">Cancelar</button>
-         <button routerLink="/historial" *ngIf="page >= 5" (click)="generateJSON()" class="btn btn-primary">Guardar</button>
+         <button routerLink="/vocabulario" *ngIf="page >= 5" (click)="generateJSON()" class="btn btn-primary">Guardar</button>
          <button [disabled]="page === 5" (click)="nextpage()" class="btn move-left"><i class="fa text-primary fa-chevron-right fa-2x" aria-hidden="true"></i></button>
-
-
        </div>
      </div>
     </div>
-  </main>
+</main>

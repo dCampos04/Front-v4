@@ -6,6 +6,7 @@ import {BodyCrearComponent} from "./body-crear/body-crear.component";
 import {BodyHistorialComponent} from "./body-historial/body-historial.component";
 import {ApiComponent} from "./api/api.component";
 import {BodyQuestionComponent} from "./body-question/body-question.component";
+import {BodyVocabularyComponent} from "./body-vocabulary/body-vocabulary.component";
 
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'historial', component: AdministracionHistoriasComponent, children: [ {path: '', component: BodyHistorialComponent}]},
   { path: 'api', component: AdministracionHistoriasComponent, children: [ {path: '', component: ApiComponent}]},
   { path: 'quiz', component: AdministracionHistoriasComponent, children: [ {path: '', component: BodyQuestionComponent}]},
+  { path: 'vocabulario', component: AdministracionHistoriasComponent, children: [ {path: '', component: BodyVocabularyComponent}]},
 ];
 
 @NgModule({

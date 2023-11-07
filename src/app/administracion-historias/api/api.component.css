@@ -1,0 +1,6 @@
+main {
+  background-color: #eaeaea; /* Color de fondo gris */
+  display: flex;
+  justify-content: center; /* Centrado horizontal */
+  font-family: 'League Spartan', sans-serif;
+}
