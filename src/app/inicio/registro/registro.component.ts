@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HttpClient, HttpClientModule} from "@angular/common/http";
 
 @Component({
   selector: 'app-registro',
@@ -6,5 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./registro.component.css']
 })
 export class RegistroComponent {
+  token="";
+  constructor( private http: HttpClient ) {
+  }
+
+  ngOnInit (){
+
+
+
+
+  }
 
 }

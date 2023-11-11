@@ -3,10 +3,10 @@ body {
   padding: 0;
 }
 
-.main {
+main {
   background-color: #eaeaea; /* Color de fondo gris */
   text-align: center; /* Centra el texto */
-  padding: 120px; /* Espaciado interior del contenedor */
+  padding: 220px; /* Espaciado interior del contenedor */
   font-family: 'League Spartan', sans-serif;
 }
 

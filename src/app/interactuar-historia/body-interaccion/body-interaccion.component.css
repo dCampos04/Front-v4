@@ -4,6 +4,12 @@ main {
   padding:  1px; /* Espaciado interior del contenedor */
   font-family: 'League Spartan', sans-serif;
 }
+.main2 {
+  background-color: #d4d9df;
+  text-align: center; /* Centra el texto */
+  padding: 100px; /* Espaciado interior del contenedor */
+  font-family: 'League Spartan', sans-serif;
+}
 
 .card{
   max-width: 500px;
