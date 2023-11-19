@@ -1,22 +1,46 @@
 main {
   background-color: #eaeaea; /* Color de fondo gris */
-  padding: 120px; /* Espaciado interior del contenedor */
+}
+.row{
+  background-color: #ffffff; /* Color de fondo gris */
   font-family: 'League Spartan', sans-serif;
 }
-
-
 .card{
-  max-width: 800px;
-  max-height: 800px;
+  width: 1800px;
+  height: 1000px;
   margin: 0 auto;
   padding: 10px;
+  border: 1px solid #989898;
+  background-color: #ffffff;
+
+}
+.card3{
+  margin-left: 200px;
+  width: 600px;
+  height: 800px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #989898; /* Añade esta línea para el borde negro */
+  background-color: #ffffff;
+
+}
+.card2 {
+  margin-left: 50px;
+  width: 1000px;
+  height: 800px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #989898; /* Añade esta línea para el borde negro */
+  background-color: #ffffff; /* Color de fondo gris */
+
 }
 .resp-group {
   margin-bottom: 40px;
 }
 
 .formulario {
-  width: 50%;
+  max-width: 450px;
+  max-height: 800px;
   margin: 0 auto;
 }
 
@@ -91,8 +115,8 @@ btns {
 }
 
 textarea.cuestionInput {
-  width: 390px; /* Ancho personalizado */
-  height: 100px;
+  width: 450px; /* Ancho personalizado */
+  height: 150px;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -102,6 +126,6 @@ textarea.cuestionInput {
   margin-right: 150px; /* Ajusta el margen derecho según tu preferencia */
 }
 .move-rigt {
-  margin-left: 150px; /* Ajusta el margen derecho según tu preferencia */
+  margin-right: 50px; /* Ajusta el margen derecho según tu preferencia */
 }
 

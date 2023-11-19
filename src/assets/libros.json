@@ -1,0 +1,47 @@
+{
+  "libros": [
+    {
+      "codigo": "AquelArbolito1",
+      "titulo": "Los tres ositos y el arbolito cariñosito",
+      "portada": ""
+    },
+    {
+      "codigo": "AquelArbolito2",
+      "titulo": "Los tres ositos y el arbolito cariñosito",
+      "portada": ""
+    },
+    {
+      "codigo": "AquelArbolito3",
+      "titulo": "Los tres ositos y el arbolito cariñosito",
+      "portada": "" },
+    {
+      "codigo": "AquelArbolito4",
+      "titulo": "Los tres ositos y el arbolito cariñosito",
+      "portada": ""
+    },
+    {
+      "codigo": "AquelArbolito5",
+      "titulo": "Los tres ositos y el arbolito cariñosito",
+      "portada": ""
+    },
+    {
+      "codigo": "AquelArbolito3",
+      "titulo": "Los tres ositos y el arbolito cariñosito",
+      "portada": "" },
+    {
+      "codigo": "AquelArbolito4",
+      "titulo": "Los tres ositos y el arbolito cariñosito",
+      "portada": ""
+    },
+    {
+      "codigo": "AquelArbolito5",
+      "titulo": "Los tres ositos y el arbolito cariñosito",
+      "portada": ""
+    },
+    {
+      "codigo": "AquelArbolito6",
+      "titulo": "Los tres ositos y el arbolito cariñosito",
+      "portada": ""
+    }
+  ]
+}

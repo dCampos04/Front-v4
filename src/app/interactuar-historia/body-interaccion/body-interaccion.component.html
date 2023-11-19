@@ -1,38 +1,31 @@
-
-
-
-
-<main>
-
-    <ng-container *ngIf="!isQuizCompleted">
-
-      <div class="container">
-        <div class="column">
-          <div #cesdk_container [style.height.vh]="'60'" [style.width.vh]="'80'"></div>
-        </div>
-        <div class="column">
-          <div class="row-80">
-            <div class="card">
-              <div class="d-flex justifly-content-between mt-1 mb-5">
+<main class="main-container">
+  <ng-container *ngIf="!isQuizCompleted">
+    <div class="container ">
+      <div class="card mt-5">
+        <div class="d-flex justifly-content-between mt-1 mb-1">
                 <div class="image">
                   <img src="./assets/startup.png" width="70" alt="logo">
                 </div>
                 <div class="quiz-header">
-                  <h4 style="font-style: italic; margin-left: 160px;"> Rsponde las preguntas </h4>
-                  <span style="font-style: italic; margin-left: 160px;"> Bienvenido {{nameStudent}}!</span>
+                  <h4 style="font-style: italic; margin-left: 440px;"> Responde las preguntas</h4>
+                  <span style="font-style: italic; margin-left: 280px;"> Bienvenido {{nameStudent}}!</span>
                 </div>
-              </div>
-              <div class="d-flex justifly-content-around py-3">
+        </div>
+        <div #cesdk_container [style.height.vh]="'50'" [style.width.vh]="'80'"></div>
+
+
+              <div class="d-flex justifly-center py-3" >
                 <div class="score">
-                  <h5 style="font-style: italic; margin-left: 50px;">{{points}} Puntos</h5>
+                  <h5 style="font-style: italic; ; margin-left: 120px;">{{points}} Puntos</h5>
                 </div>
                 <div class="question-remain">
-                  <span style="font-style: italic; margin-left: 50px;">Pregunta {{currentQuestion+1}} de {{questionList.length}}</span>
+                  <span style="font-style: italic; margin-left: 120px;">Pregunta {{currentQuestion+1}} de {{questionList.length}}</span>
                 </div>
                 <div class="timer">
-                  <h5 style="font-style: italic; margin-left: 50px;">{{counter}} seg ⏰</h5>
+                  <h5 style="font-style: italic; margin-left: 120px;">{{counter}} seg ⏰</h5>
                 </div>
               </div>
+
 
               <div class="progress mb-3" role="progressbar" aria-label="Default striped example" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
                 <div class="progress-bar progress-bar-striped" [ngStyle]="{'width':progress+'%'}"></div>
@@ -58,13 +51,14 @@
               <div class="btnend mt-3 mb-3">
                 <!--<button [disabled]="currentQuestion===0" class="btn" (click)="previusQuestion()"><i class="fa text-primary fa-chevron-left fa-2x" aria-hidden="true"></i></button>-->
                 <!--<button class="btn" (click)="resetQuiz()"><i class="fa text-primary fa-refresh fa-2x" aria-hidden="true"></i></button>-->
-                <button  *ngIf="currentQuestion < 4" class="btn" (click)="nextQuestion()"><i class="fa text-primary fa-chevron-right fa-2x" aria-hidden="true"></i></button>
-                <button *ngIf="currentQuestion >= 4" class="btn btn-primary" (click)="endQuiz()">FINALIZAR</button>
+                <button *ngIf="currentQuestion < imageCodes.length - 1" class="btn" (click)="nextQuestion()">
+                  <i class="fa text-primary fa-chevron-right fa-2x" aria-hidden="true"></i>
+                </button>
+                <button *ngIf="currentQuestion >= imageCodes.length - 1" class="btn btn-primary" (click)="endQuiz()">FINALIZAR</button>
               </div>
-            </div>
-          </div>
-          <div class="row-20">
-            <div class="panel">
+      </div>
+    </div>
+    <div class="panel">
 
 
               <button (click)="clickv1()" class="btn btn-primary aa">{{vocabularyList[0]?.palabraText}}</button>
@@ -77,38 +71,37 @@
                 <p *ngIf="click3===3">* Aqui se muestra el {{vocabularyList[2]?.significado}}</p>
 
 
+
                 <p *ngIf="click3===1">* Aqui se muestra el {{vocabularyList[0]?.casouso}}</p>
                 <p *ngIf="click3===2">* Aqui se muestra el {{vocabularyList[1]?.casouso}}</p>
                 <p *ngIf="click3===3">* Aqui se muestra el {{vocabularyList[2]?.casouso}}</p>
+
               </div>
 
-            </div>
-          </div>
-        </div>
-      </div>
-    </ng-container>
-
-  </main>
-
-<main class="main2">
-  <ng-container *ngIf="isQuizCompleted">
-
-  <div class="card1 justify-content-center">
-    <div class="row d-flex justify-content-between">
-      <img style="width: 50%" class="img-fluid col-sm-12 mx-auto mt-auto" src="./assets/ScoreEstudiante.jpg">
-      <div class="result col-md-6 col-sm-12">
-        <br>
-        <h3>Felicidades! <br> La evaluacion a terminado conrrectamente.. <br> Estos son tus resultados: </h3>
-        <p> Total de preguntas formuladas: {{questionList.length}}</p>
-        <p> Total de preguntas correctas: {{correctAnswer}}</p>
-        <p> Total de preguntas incorrectas: {{inCorrectAnswer}}</p>
-        <h5> Tu puntaje: {{points}}/20 Puntos</h5>
-      </div>
     </div>
-    <button routerLink="/interactua" class="btn-leave btn btn-primary">Salir</button>
-  </div>
   </ng-container>
 
+<ng-container *ngIf="isQuizCompleted">
+  <div class="card4">
+    <div class="row">
+      <div class="col-md-6 text-center">
+        <img style="width: 100%;" class="img-fluid mt-auto" src="./assets/ScoreEstudiante.jpg">
+      </div>
+      <div class="col-md-6">
+        <div class="result">
+          <br>
+          <h3>Felicidades! <br> La evaluación ha terminado </h3>
+          <h5>Estos son tus resultados:</h5>
+          <p> Total de preguntas formuladas: {{questionList.length}}</p>
+          <p> Total de preguntas correctas: {{correctAnswer}}</p>
+          <p> Total de preguntas incorrectas: {{inCorrectAnswer}}</p>
+          <h5> Tu puntaje: {{points}}/20 Puntos</h5>
+        </div>
+        <button routerLink="/interactua" class="btn btn-danger">Salir</button>
+      </div>
+    </div>
+  </div>
+</ng-container>
 </main>
 
 

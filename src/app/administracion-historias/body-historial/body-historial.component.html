@@ -5,29 +5,14 @@
     <select id="filtro" class="select-filtro">
       <option>Seleccionar filtro</option>
       <option>Alfabeticamente</option>
-      <option>MÃ¡s recientes</option>
+      <option>Mas recientes</option>
     </select>
   </div>
   <div class="cards-container">
-    <div class="card">
+    <!-- Utiliza *ngFor en la card individual -->
+    <div *ngFor="let libro of librosList" class="card" >
       <img src="ruta_a_la_imagen" alt="Imagen de la historia">
-      <h2>Titulo de la historia</h2>
-      <p>Creado el xx/xx/xxxx</p>
-      <button routerLink="/iniciar" href="iniciar-historia.html" class="btn-orange">Iniciar</button>
-      <button class="btn-verde">Editar</button>
-      <button class="btn-gris">Eliminar</button>
-    </div>
-    <div class="card">
-      <img src="ruta_a_la_imagen" alt="Imagen de la historia">
-      <h2>Titulo de la historia</h2>
-      <p>Creado el xx/xx/xxxx</p>
-      <button routerLink="/iniciar" href="iniciar-historia.html" class="btn-orange">Iniciar</button>
-      <button class="btn-verde">Editar</button>
-      <button class="btn-gris">Eliminar</button>
-    </div>
-    <div class="card">
-      <img src="ruta_a_la_imagen" alt="Imagen de la historia">
-      <h2>Titulo de la historia</h2>
+      <h2>{{ libro.titulo }}</h2>
       <p>Creado el xx/xx/xxxx</p>
       <button routerLink="/iniciar" href="iniciar-historia.html" class="btn-orange">Iniciar</button>
       <button class="btn-verde">Editar</button>

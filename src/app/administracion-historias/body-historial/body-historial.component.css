@@ -43,6 +43,7 @@
   margin-left: 720px;
 }
 
+
 .select-filtro {
   font-size: 16px;
   padding: 10px;
@@ -50,39 +51,46 @@
 }
 
 .cards-container {
+  padding: 10%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+  justify-content: space-between;
+  gap: 40px;
+  margin-top: -180px;
 }
 
 .card {
   background-color: #f9f9f9;
   border: 1px solid #ccc;
-  border-radius: 30px;
-  padding: 20px;
-  width: auto;
+  border-radius: 15px; /* Reduje el radio del borde para hacer las tarjetas más pequeñas */
+  padding: 10px; /* Reduje el espacio interno de las tarjetas */
+  flex: 0 0 calc(30% - 1px); /* Ajusta el ancho para 3 columnas con 20px de espacio entre ellas */
+  box-sizing: border-box; /* Asegura que el padding no afecte al ancho total */
   text-align: center;
   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
 }
 
 .card img {
   width: 100%;
-  height: 150px;
+  height: 100px; /* Reduje la altura de la imagen */
   object-fit: cover;
   border-radius: 5px;
-  margin-bottom: 10px;
+  margin-bottom: 5px; /* Reduje el margen inferior de la imagen */
+}
+
+
+.btn-orange, .btn-verde, .btn-gris {
+  padding: 4px 16px; /* Reduje el espaciado interno de los botones */
+  font-size: 14px; /* Reduje el tamaño del texto de los botones */
+  border-radius: 20px; /* Reduje el radio del borde de los botones */
 }
 
 .btn-verde, .btn-gris {
   background-color: transparent;
   color: white;
   border: none;
-  padding: 10px 20px;
-  font-size: 16px;
   cursor: pointer;
   margin-top: 10px;
-  border-radius: 30px;
   margin-right: 5px;
   font-family: 'League Spartan', sans-serif;
 }
@@ -99,7 +107,7 @@
   background-color: #fd7900;
   color: white; /* Color del texto blanco */
   border: none; /* Sin borde */
-  padding: 15px 30px; /* Espaciado interno del botón */
+  padding: 5px 2px; /* Espaciado interno del botón */
   font-size: 18px; /* Tamaño del texto del botón */
   cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
   transition: background-color 0.3s ease; /* Transición suave del color de fondo */

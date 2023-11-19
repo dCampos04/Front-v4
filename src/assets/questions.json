@@ -1,19 +1,35 @@
 {
   "questions": [
-
     {
-    "questionText": "Pregunta 1","options": [{"text": "Respuesta1", "correct": true}, {"text": "Respuesta2"}, {"text": "Respuesta3"}, {"text": "Respuesta4"}]},
+    "questionText": "Pregunta 1",
+      "palabraText": "palabra 1",
+      "significado": "significado 1",
+      "casouso": "casouso 1",
+      "options": [{"text": "Respuesta1", "correct": true}, {"text": "Respuesta2"}, {"text": "Respuesta3"}, {"text": "Respuesta4"}]},
     {
     "questionText": "Pregunta 2",
+      "palabraText": "palabra 2",
+      "significado": "significado 2",
+      "casouso": "casouso 2",
       "options": [{"text": "Respuesta1", "correct": true}, {"text": "Respuesta2"}, {"text": "Respuesta3"}, {"text": "Respuesta4"}]},
     {
     "questionText": "Pregunta 3",
+      "palabraText": "palabra 3",
+      "significado": "significado 3",
+      "casouso": "casouso 3",
       "options": [{"text": "Respuesta1", "correct": true}, {"text": "Respuesta2"}, {"text": "Respuesta3"}, {"text": "Respuesta4"}]},
     {
     "questionText": "Pregunta 4",
+      "palabraText": "palabra 4",
+      "significado": "significado 4",
+      "casouso": "casouso 4",
       "options": [{"text": "Respuesta1", "correct": true}, {"text": "Respuesta2"}, {"text": "Respuesta3"}, {"text": "Respuesta4"}]},
     {
     "questionText": "Pregunta 5",
+      "palabraText": "palabra 5",
+      "significado": "significado 5",
+      "casouso": "casouso 5",
       "options": [{"text": "Respuesta1", "correct": true}, {"text": "Respuesta2"}, {"text": "Respuesta3"}, {"text": "Respuesta4"}]}
   ]
 }
+

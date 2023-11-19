@@ -43,7 +43,6 @@ import { ModalConfRegComponent } from './registro/modal-conf-reg/modal-conf-reg.
     HeaderLoginComponent,
     BodyInicioComponent,
     BodyLoginComponent,
-
     BodyInteractuaComponent,
     HeaderInteractuaComponent,
     Body2InteractuaComponent,
