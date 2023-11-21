@@ -1,127 +1,165 @@
-main{
-  background-color: #ECECEC;
-  text-align: center;
-  padding: 60px;
-}
-
-.page-title {
-  text-align: center;
-  margin-bottom: 0px;
-}
-
-h1 {
-  font-size: 55px;
-  font-weight: bold;
-  color: #0049ac;
-  margin-bottom: -100px;
-  margin-top: 30px;
-  font-family: 'League Spartan', sans-serif;
-}
-
-/* Estilos para el MatStepper */
-.mat-stepper-horizontal .mat-step-header {
-  flex-direction: column;
+main {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  text-align: center;
+  flex-direction: column;
+  background-color: #eaeaea;
+  height: 58pc;
 }
 
-.mat-step-label {
-  margin-top: 5px; /* Ajusta el margen superior del texto debajo del indicador según sea necesario */
-  font-family: 'League Spartan', sans-serif;
-}
-
-.stepper-container {
-  max-width: 550px; /* Establece el ancho máximo que deseas para el stepper */
-  margin: 0 auto; /* Centra el stepper en el contenedor */
-  background-color: #ECECEC;
-  margin-top: 100px;
-}
-
-.stepper {
-  background-color: #ECECEC;
-  padding: 20px;
-  border-radius: 100px;
+.step-container {
+  margin-top: 10px;
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
 }
 
 .step {
-  background-color: #ECECEC;
-  padding: 20px;
-  border-radius: 10px;
-  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.form {
-  width: 100%;
+.circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #d7d7d7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 5px;
 }
 
-.field-label {
-  color: rgb(0, 0, 0); /* Cambia el color de todas las etiquetas con la clase field-label a verde */
+.separator {
+  height: 2px;
+  width: 200px;
+  background-color: #ccc;
+  margin: 0 -40px;
+  margin-bottom: 30px;
 }
 
-.input-group {
-  margin-bottom: 20px;
+.step p {
+  margin: 0;
+  color: #333;
 }
 
-.input-group label {
-  display: block; /* Hace que las etiquetas (títulos) ocupen todo el ancho disponible */
-  margin-bottom: 5px; /* Agrega un pequeño espacio entre las etiquetas y los campos de texto */
+h1 {
+  margin-top: 10px;
+  font-size: 50px;
+  font-weight: bold;
+  color: #0049ac;
   font-family: 'League Spartan', sans-serif;
+  margin-bottom: 30px; /* Ajusta el margen inferior según tus necesidades */
 }
 
-.input-group input {
-  width: 100%; /* Hace que los campos de texto ocupen todo el ancho disponible */
+.card {
+  height: 300px;
+  width: 600px;
+  border-radius: 50px;
+  overflow: hidden;
+  background-color: #d9e5a9;
+}
+
+.card2 {
+  height: 440px;
+  width: 600px;
+  border-radius: 50px;
+  overflow: hidden;
+  background-color: #d9e5a9;
+}
+
+.card-header {
+  padding: 15px;
+  color: #000000;
+}
+
+.card-body {
+  margin-top: 30px;
+  padding: 20px;
+  font-weight: bold;
+  font-size: 20px
+}
+.card-body2 {
+  margin-top: 30px;
+  padding: 20px;
+  font-weight: bold;
+  font-size: 20px
+}
+
+.form-group {
+  margin-bottom: 15px;
+  width: 450px;
+  align-items: center;
+  margin-left: 50px;
+}
+
+.checkbox{
+  margin-left: 50px;
+  font-weight: bold;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ffffff; /* Borde rojo para los inputs */
   border-radius: 30px;
+  box-sizing: border-box;
 }
 
 .required {
   color: red;
 }
 
-.buttons {
-
-  display: flex;
-  justify-content: center;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  color: white;
+.form-check {
+  margin-top: 10px;
 }
 
-.next-button, .back-button {
+.btn {
+  padding: 10px;
+  cursor: pointer;
+  justify-content: center;
+}
+
+.btn-primary {
   background-color: #fd7900;
   color: white;
-  margin-top: 50px;
   border: none;
-  padding: 15px 40px;
-  border-radius: 30px;
-  cursor: pointer;
-  margin: 0 20px;
-  font-size: 20px;
-  font-family: 'League Spartan', sans-serif;
-}
-
-/* Estilos para el contenedor verde */
-.form-container {
-  background-color: #c9e1679d; /* Color verde */
-  margin-top: 50px;
-  padding: 20px; /* Espaciado interior */
-  border-radius: 30px; /* Bordes redondeados */
-  margin-bottom: 20px; /* Espaciado en la parte inferior */
-  font-family: 'League Spartan', sans-serif;
-}
-
-/* Estilos para los campos de texto y títulos dentro del contenedor verde */
-.form-container .input-group {
-  margin-bottom: 20px; /* Espaciado entre campos de texto */
-  color: white; /* Texto blanco */
-  font-family: 'League Spartan', sans-serif;
-}
-
-.form-container .input-group label {
   display: block;
-  margin-bottom: 5px; /* Espaciado entre el título y el campo de texto */
+  border-radius: 20px;
+  margin: 50px auto 0 auto; /* Margen automático arriba y abajo, y centrado horizontalmente */
+  text-align: center; /* Alinea el contenido del bloque al centro */
+  font-size: 25px; /* Ajusta el tamaño de la letra según tus necesidades */
+  padding: 15px 40px; /* Ajusta el padding para aumentar el tamaño del área de clic */
+  margin-left: 150px; /* Ajusta el margen izquierdo según tus necesidades */
 }
 
-.form-container .mat-checkbox {
-  color: white; /* Texto blanco para el checkbox */
+
+
+
+/* Estilo para el checkbox "Mostrar contraseña" */
+#mostrarContrasena {
+  margin-left: 5px;
+}
+
+/* Estilo para el mensaje "Acepto que envíen a mi correo Novedades sobre iRead" */
+.form-check label {
+  display: inline;
+  margin-left: 5px;
+  color: #333;
+}
+
+.btn {
+  color: #2f2f2f;
+  margin-top: 40px;
+  margin-right: 1750px;
+
 }

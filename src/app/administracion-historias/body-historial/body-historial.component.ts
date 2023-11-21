@@ -29,12 +29,4 @@ export class BodyHistorialComponent  implements OnInit{
         }
       });
   }
-
-
-  getAllLibros() {
-    this.questionService.getLibrosJson()
-      .subscribe(res => {
-        this.librosList = res.libros;
-      })
-  }
 }

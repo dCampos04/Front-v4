@@ -42,6 +42,8 @@ export class BodyInteractuaComponent {
         }
         alert('Información Correcta')
     }
+
+
 }
 
 /*

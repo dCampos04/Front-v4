@@ -5,18 +5,37 @@ main {
   font-family: 'League Spartan', sans-serif;
 }
 .main2 {
-  background-color: #05588d;
+   background-color: #05588d;
+   text-align: center; /* Centra el texto */
+   padding: 100px; /* Espaciado interior del contenedor */
+   font-family: 'League Spartan', sans-serif;
+ }
+.main3 {
+  background-color: #e8e8e8;
   text-align: center; /* Centra el texto */
-  padding: 100px; /* Espaciado interior del contenedor */
+  padding: 150px; /* Espaciado interior del contenedor */
   font-family: 'League Spartan', sans-serif;
+}
+
+h2 {
+  margin-top: 80px;
+}
+h3 {
+  margin-top: 20px;
+}
+h5 {
+  margin-top: 20px;
 }
 
 .card{
   max-width: 800px;
   margin: 0 auto;
   padding: 10px;
-  background-color: #d4d9df;
+  background-color: #ffffff;
 }
+
+
+
 .card3{
   max-width: 500px;
   margin: 0 auto;
@@ -53,18 +72,15 @@ section {
 
 /* Estilo CSS para hacer la imagen más pequeña */
 img.img-fluid {
-  max-width: 100%; /* Cambia este valor al tamaño deseado, por ejemplo, 50% */
-  height: max-content; /* Esto mantiene la proporción de la imagen */
+  width: 460px; /* Cambia este valor al tamaño deseado, por ejemplo, 50% */
+  height: 500px; /* Esto mantiene la proporción de la imagen */
   margin-top: 50px;
 }
-.h5 {
-  width: 50px;
-}
+
 
 .btn-leave{
   margin-bottom: -100px;
 }
-
 
 
 .container {
@@ -80,11 +96,38 @@ button.aa{
 }
 
 .panel {
-  max-width: 500px;
-  margin: 0 auto;
+  margin-top: 50px;
+  width: 300px;
+  height: 400px;
+  margin-left: -220px; /* Empujará la card hacia la derecha */
+  margin-right: -50px;
+  background-color: #e8e8e8;
+  border: 1px solid #969696;
+}
+.panel2 {
+  margin-top: 50px;
+  width: 300px;
+  height: 80px;
+  margin-left: -220px; /* Empujará la card hacia la derecha */
+  margin-right: -50px;
+  background-color: #e8e8e8;
+  border: 1px solid #969696;
+}
+
+.panel button {
+  width: 220px;
+  margin: 5px;
   padding: 10px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin-left: 28px;
+}
+
+.panel-content {
+  color: #000000;
   margin-top: 10px;
-  background-color: #dadada;
+  background-color: #f1eeee;
 }
 
 .panel1 {
@@ -103,7 +146,7 @@ button.aa{
 
 
 .card4 {
-  max-width: 900px;
+  width: 1200px;
   margin: 0 auto;
   padding: 60px;
   background-color: #ffffff;
@@ -114,7 +157,8 @@ button.aa{
 }
 
 .result {
-  padding: 20px;
+  padding: 80px;
+  width: 30pc;
 }
 
 

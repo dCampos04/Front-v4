@@ -24,7 +24,7 @@ import { BodyIdTitleComponent } from './body-id-title/body-id-title.component';
     HeaderAdministrarComponent,
     BodyCrearComponent,
     BodyHistorialComponent,
-    ApiComponent,
+
     BodyQuestionComponent,
     BodyVocabularyComponent,
     BodyIdTitleComponent,
@@ -34,8 +34,8 @@ import { BodyIdTitleComponent } from './body-id-title/body-id-title.component';
       AdministracionHistoriasRoutingModule,
       MatToolbarModule,
       HttpClientModule,
-      FormsModule
-
+      FormsModule,
+      ApiComponent,
 
 ],
     providers: [],

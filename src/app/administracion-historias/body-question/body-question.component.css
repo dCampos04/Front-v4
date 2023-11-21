@@ -1,5 +1,6 @@
 main {
-  background-color: #eaeaea; /* Color de fondo gris */
+  background-color: #eaeaea;
+  height: 1200px;
 }
 .row{
   background-color: #ffffff; /* Color de fondo gris */
@@ -7,17 +8,17 @@ main {
 }
 .card{
   width: 1800px;
-  height: 1000px;
+  height: 1100px;
   margin: 0 auto;
   padding: 10px;
-  border: 1px solid #989898;
-  background-color: #ffffff;
+  border: 1px solid #e8e8e8;
+  background-color: #e8e8e8;
 
 }
 .card3{
   margin-left: 200px;
   width: 600px;
-  height: 800px;
+  height: 920px;
   padding: 10px;
   border-radius: 10px;
   border: 1px solid #989898; /* Añade esta línea para el borde negro */
@@ -27,7 +28,7 @@ main {
 .card2 {
   margin-left: 50px;
   width: 1000px;
-  height: 800px;
+  height: 920px;
   padding: 10px;
   border-radius: 10px;
   border: 1px solid #989898; /* Añade esta línea para el borde negro */
@@ -108,24 +109,54 @@ btns {
   text-align: right;
   margin-left: 10px;
 }
+.palabraText {
+  text-align: right;
+  margin-left: 10px;
+}
 
 .answer {
   display: flex;
   align-items: center;
 }
 
+.sigcas{
+  margin-left: 10px;
+}
+.responseInput2 {
+  width: 350px; /* Ancho personalizado */
+  height: 40px; /* Alto personalizado */
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+
+  margin-top: 5px;
+}
+
+textarea.significadoInput {
+  margin-left: 8px;
+  width: 442px;
+  height: 60px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+
 textarea.cuestionInput {
   width: 450px; /* Ancho personalizado */
-  height: 150px;
+  height: 100px;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
 
 .move-left {
+  margin-top: -20px;
   margin-right: 150px; /* Ajusta el margen derecho según tu preferencia */
+
 }
 .move-rigt {
+  margin-top: -20px;
   margin-right: 50px; /* Ajusta el margen derecho según tu preferencia */
+
 }
 

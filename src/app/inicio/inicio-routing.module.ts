@@ -13,8 +13,7 @@ const routes: Routes = [
   { path: '', component: InicioComponent},
   { path: 'login', component: LoginComponent},
   { path: 'registro', component: RegistroComponent},
-  { path: 'interactua', component: InteractuaComponent, children: [ {path: '', component: BodyInteractuaComponent}]},
-  { path: 'nombre', component: InteractuaComponent, children: [ {path: '', component: Body2InteractuaComponent}]},
+  { path: 'interactua', component: InteractuaComponent, children: [ {path: '', component: Body2InteractuaComponent}]},
   { path: 'unete', component: InicioComponent},
 ];
 

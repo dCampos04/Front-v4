@@ -1,17 +1,16 @@
-<div class="container-fluid">
+
   <main>
-        <div class="card mb-5 mt-5">
+        <div class="card mb-5">
           <div class="d-flex">
             <div class="izqui col-lg-6">
               <!-- Parte izquierda -->
               <div class="card2 mt-5 mb-5">
-                <div class="apipanel " #cesdk_container [style.height.vh]="80" [style.width.vw]="50"></div>
+                <div class="apipanel" #cesdk_container [style.height.vh]="92" [style.width.vw]="51"></div>
               </div>
             </div>
             <div class="dere col-lg-6">
             <!-- Parte derecha -->
               <div class="card3 mt-5 mb-5">
-
                 <div class="d-flex justifly-content-between mt-3 mb-2">
                   <div class="quiz-header">
                     <h4 style="font-style: italic; margin-left: 10px; margin-right: 260px;"> Realiza tus preguntas</h4>
@@ -34,7 +33,7 @@
                           <label for="questionText{{ i + 1 }}">Pregunta {{ i + 1 }}:</label>
                           <textarea class="cuestionInput" id="questionText{{ i + 1 }}" name="questionText{{ i + 1 }}" [(ngModel)]="questions[i].questionText" required rows="3"></textarea>
 
-                          <div class="d-flex justifly-content-between mt-3 mb-2">
+                          <div class="d-flex justifly-content-between mt-2 mb-2">
                             <label class="answer-label">RESPUESTAS</label>
                             <label class="correct-label">CORRECTA</label>
                           </div>
@@ -42,43 +41,54 @@
                             <label class="answer-number">R{{ j + 1 }}:  </label>
                             <input class="responseInput" type="text" name="option{{ j }}" [(ngModel)]="questions[i].options[j].text" required>
                             <input class="option" type="radio" [id]="'correct-' + i + '-' + j" name="correct{{ i }}" [value]="j" [checked]="questions[i].options[j].correct" (change)="updateCorrectOption(i, j)">
+
                           </div>
-                          <div class="palab-group ">
-                            <label for="palabraText{{ i + 1 }}">Palabra {{ i + 1 }}:</label>
-                            <input class="palabraInput" id="palabraText{{ i + 1 }}" name="palabraText{{ i + 1 }}" [(ngModel)]="questions[i].palabraText" required>
+                          <div class="title mt-4 mb-3" style="margin-left: 100px">
+                            <h2>VOCABULARIO {{ i + 1 }}:</h2>
                           </div>
-                          <div class="sign-group ">
-                            <label for="significado{{ i + 1 }}">Significado {{ i + 1 }}:</label>
+                          <div class="response">
+                            <label  class="sigcas" for="palabraText{{ i + 1 }}">Palabra {{ i + 1 }}:</label>
+                            <input class="responseInput2" type="text" id="palabraText{{ i + 1 }}" name="palabraText{{ i + 1 }}" [(ngModel)]="questions[i].palabraText" required>
+                          </div>
+                          <div class="sign-group">
+                            <label class="sigcas" for="significado{{ i + 1 }}">Significado {{ i + 1 }}:</label>
                             <textarea class="significadoInput" id="significado{{ i + 1 }}" name="significado{{ i + 1 }}" [(ngModel)]="questions[i].significado" required rows="3"></textarea>
                           </div>
                           <div class="casou-group ">
-                            <label for="casouso{{ i + 1 }}">Caso de Uso {{ i + 1 }}:</label>
-                            <textarea class="casousoInput" id="casouso{{ i + 1 }}" name="casouso{{ i + 1 }}" [(ngModel)]="questions[i].casouso" required rows="3"></textarea>
+                            <label class="sigcas" for="casouso{{ i + 1 }}">Caso de Uso {{ i + 1 }}:</label>
+                            <textarea class="significadoInput" id="casouso{{ i + 1 }}" name="casouso{{ i + 1 }}" [(ngModel)]="questions[i].casouso" required rows="3"></textarea>
                           </div>
                         </div>
                       </form>
                     </div>
                   </div>
+
                 </ng-container>
+                <div class="botones d-flex justify-content-end ">
+                  <!---<button [disabled]="page === 1" (click)="prevpage()" class="btn move-rigt"><i class="fa text-primary fa-chevron-left fa-2x" aria-hidden="true"></i></button>--->
+                  <button routerLink="/crea" *ngIf="page<5"  class="btn btn-secondary move-rigt">Cancelar</button>
+                  <button  *ngIf="page >= 5" (click)="generateJSON()" class="btn btn-primary move-left">Guardar</button>
+                  <button *ngIf="page<5" (click)="nextpage()"  class="btn btn-primary move-left">Siguiente</button>
+                </div>
               </div>
             </div>
           </div>
 
 
-            <div class="botones d-flex justify-content-end mt-1">
-              <!---<button [disabled]="page === 1" (click)="prevpage()" class="btn move-rigt"><i class="fa text-primary fa-chevron-left fa-2x" aria-hidden="true"></i></button>--->
-              <button routerLink="/crea" *ngIf="page<5"  class="btn btn-secondary btn move-rigt">Cancelar</button>
-              <button routerLink="/historial" *ngIf="page >= 5" (click)="generateJSON()" (click)="convertirJsonACadena()" class="btn btn-primary move-left">Guardar</button>
-              <button *ngIf="page<5" (click)="nextpage()"  class="btn btn-primary move-left">Siguiente</button>
-            </div>
+
 
           <div>
+            <p>Contenido convertido:</p>
+            <p>{{jsonConvertido}}</p>
+
             <p>Contenido de jsonapi:</p>
             <ul>
               <li *ngFor="let item of imageCodes">{{ item }}</li>
             </ul>
+
+
           </div>
         </div>
   </main>
-</div>
+
 

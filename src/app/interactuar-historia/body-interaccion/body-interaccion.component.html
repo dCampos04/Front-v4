@@ -1,7 +1,7 @@
-<main class="main-container">
+<main>
   <ng-container *ngIf="!isQuizCompleted">
     <div class="container ">
-      <div class="card mt-5">
+      <div class="card mt-5 mb-5">
         <div class="d-flex justifly-content-between mt-1 mb-1">
                 <div class="image">
                   <img src="./assets/startup.png" width="70" alt="logo">
@@ -33,13 +33,14 @@
 
               <div class="question">
                 <div class="card">
-                  <h3>{{questionList[currentQuestion]?.questionText}}</h3>
+                  <h3>{{jsonDecodificado.questions[currentQuestion]?.questionText}}</h3>
+
                 </div>
               </div>
 
 
               <div class="options">
-                <ol *ngFor="let option of questionList[currentQuestion]?.options">
+                <ol *ngFor="let option of jsonDecodificado.questions[currentQuestion]?.options">
                   <li (click)="answer(currentQuestion+1, option)">
                     <div  appChangeBg [isCorrect]="option.correct" class="card">
                       {{option.text}}
@@ -51,56 +52,49 @@
               <div class="btnend mt-3 mb-3">
                 <!--<button [disabled]="currentQuestion===0" class="btn" (click)="previusQuestion()"><i class="fa text-primary fa-chevron-left fa-2x" aria-hidden="true"></i></button>-->
                 <!--<button class="btn" (click)="resetQuiz()"><i class="fa text-primary fa-refresh fa-2x" aria-hidden="true"></i></button>-->
-                <button *ngIf="currentQuestion < imageCodes.length - 1" class="btn" (click)="nextQuestion()">
+                <button *ngIf="currentQuestion < 4" class="btn" (click)="nextQuestion()">
                   <i class="fa text-primary fa-chevron-right fa-2x" aria-hidden="true"></i>
                 </button>
-                <button *ngIf="currentQuestion >= imageCodes.length - 1" class="btn btn-primary" (click)="endQuiz()">FINALIZAR</button>
+                <button *ngIf="currentQuestion >= 4" class="btn btn-primary" (click)="endQuiz()">FINALIZAR</button>
               </div>
       </div>
-    </div>
-    <div class="panel">
-
-
-              <button (click)="clickv1()" class="btn btn-primary aa">{{vocabularyList[0]?.palabraText}}</button>
-              <button (click)="clickv2()" class="btn btn-primary aa">{{vocabularyList[1]?.palabraText}}</button>
-              <button (click)="clickv3()" class="btn btn-primary aa">{{vocabularyList[2]?.palabraText}}</button>
-
-              <div class="panel">
-                <p *ngIf="click3===1">* Aqui se muestra el {{vocabularyList[0]?.significado}}</p>
-                <p *ngIf="click3===2">* Aqui se muestra el {{vocabularyList[1]?.significado}}</p>
-                <p *ngIf="click3===3">* Aqui se muestra el {{vocabularyList[2]?.significado}}</p>
-
-
-
-                <p *ngIf="click3===1">* Aqui se muestra el {{vocabularyList[0]?.casouso}}</p>
-                <p *ngIf="click3===2">* Aqui se muestra el {{vocabularyList[1]?.casouso}}</p>
-                <p *ngIf="click3===3">* Aqui se muestra el {{vocabularyList[2]?.casouso}}</p>
-
-              </div>
-
+      <div class="card panel2" *ngIf="click3==0">
+      <button (click)="clickv1()" class="btn btn-secondary aa">Ver palabra clave</button>
+      </div>
+      <div class="card panel" *ngIf="click3===1">
+        <button (click)="clickv1()" class="btn btn-primary aa">{{jsonDecodificado.questions[currentQuestion]?.palabraText}}</button>
+        <div class="card-body panel-content">
+          <p >* Aquí se muestra el {{jsonDecodificado.questions[currentQuestion]?.significado}}</p>
+          <p >* Aquí se muestra el {{jsonDecodificado.questions[currentQuestion]?.casouso}}</p>
+        </div>
+      </div>
     </div>
   </ng-container>
 
+
+
 <ng-container *ngIf="isQuizCompleted">
+  <main class="main3">
   <div class="card4">
     <div class="row">
       <div class="col-md-6 text-center">
-        <img style="width: 100%;" class="img-fluid mt-auto" src="./assets/ScoreEstudiante.jpg">
+        <img class="img-fluid" src="./assets/ScoreEstudiante.jpg">
       </div>
       <div class="col-md-6">
-        <div class="result">
           <br>
-          <h3>Felicidades! <br> La evaluación ha terminado </h3>
-          <h5>Estos son tus resultados:</h5>
-          <p> Total de preguntas formuladas: {{questionList.length}}</p>
-          <p> Total de preguntas correctas: {{correctAnswer}}</p>
-          <p> Total de preguntas incorrectas: {{inCorrectAnswer}}</p>
-          <h5> Tu puntaje: {{points}}/20 Puntos</h5>
-        </div>
-        <button routerLink="/interactua" class="btn btn-danger">Salir</button>
+          <h2>Felicidades! <br> La evaluación ha terminado </h2>
+          <h3>Estos son tus resultados:</h3>
+          <h5> Total de preguntas formuladas: {{questionList.length}}</h5>
+          <h5> Total de preguntas correctas: {{correctAnswer}}</h5>
+          <h5> Total de preguntas incorrectas: {{inCorrectAnswer}}</h5>
+          <h3> Tu puntaje: {{points}}/20 Puntos</h3>
+          <button routerLink="/interactua" class="btn btn-danger mt-5">Salir</button>
+
+
       </div>
     </div>
   </div>
+  </main>
 </ng-container>
 </main>
 
