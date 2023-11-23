@@ -39,15 +39,17 @@
               </div>
 
 
-              <div class="options">
-                <ol *ngFor="let option of jsonDecodificado.questions[currentQuestion]?.options">
-                  <li (click)="answer(currentQuestion+1, option)">
-                    <div  appChangeBg [isCorrect]="option.correct" class="card">
-                      {{option.text}}
-                    </div>
-                  </li>
-                </ol>
+        <div class="options">
+          <ol>
+            <li *ngFor="let option of jsonDecodificado.questions[currentQuestion]?.options">
+              <div
+                (click)="selectOption(option)"
+                [ngClass]="{'selected': option.selected, 'card': true, 'correct': option.correct}">
+                {{option.text}}
               </div>
+            </li>
+          </ol>
+        </div>
 
               <div class="btnend mt-3 mb-3">
                 <!--<button [disabled]="currentQuestion===0" class="btn" (click)="previusQuestion()"><i class="fa text-primary fa-chevron-left fa-2x" aria-hidden="true"></i></button>-->

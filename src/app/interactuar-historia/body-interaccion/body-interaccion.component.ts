@@ -22,10 +22,10 @@ export class BodyInteraccionComponent implements OnInit, AfterViewInit, OnDestro
   public questionList: any = [];
   public currentQuestion: number = 0;
   public currentlienzo: number = 0;
-  public points: number = 0;
+  public points: any = 0;
   counter = 120;
-  correctAnswer: number = 0;
-  inCorrectAnswer: number = 0;
+  public correctAnswer: any = 0;
+  public inCorrectAnswer: any = 0;
   interval$: any;
   progress: string = "0";
   isQuizCompleted: boolean = false;
@@ -37,6 +37,35 @@ export class BodyInteraccionComponent implements OnInit, AfterViewInit, OnDestro
   public jsonDecodificado: any = "";
 
 
+  interaccion = [
+    {
+      cantidadPreguntas: "",
+      cantidadCorrectas: "",
+      cantidadIorrectas: "",
+      cantidadPuntos: "",
+    },
+  ];
+
+  generateJSON() {
+    // Construir el objeto JSON deseado
+
+    const jsonidInteraccion = this.interaccion.map((intr, i) => {
+      return {
+        cantidadPreguntas: intr.cantidadPreguntas,
+        cantidadCorrectas: intr.cantidadCorrectas,
+        cantidadIorrectas: intr.cantidadIorrectas,
+        cantidadPuntos: intr.cantidadPuntos,
+      };
+    });
+
+    const jsonData = {
+      interaccion: jsonidInteraccion,
+    };
+
+    const jsonString = JSON.stringify(jsonData, null, 2);
+    console.log('JSON generado:', jsonString);
+    // Puedes guardar jsonString en un archivo o enviarlo a través de una solicitud HTTP según tus necesidades.
+  }
 
   config: Configuration = {
     locale: 'es',
@@ -225,6 +254,25 @@ export class BodyInteraccionComponent implements OnInit, AfterViewInit, OnDestro
   }
 
   nextQuestion() {
+    if (this.selectedOption) {
+      // Verificar si la opción seleccionada es la correcta
+      if (this.selectedOption.correct) {
+        this.correctAnswer++;this.points=this.points+4;
+      } else {
+        this.inCorrectAnswer++;
+      }
+    } else {
+      // En caso de que no se haya seleccionado ninguna opción
+      this.inCorrectAnswer++;
+    }
+
+    this.selectedOption = null;
+
+    console.log("Correctas:",this.correctAnswer)
+    console.log("incorrectas:",this.inCorrectAnswer)
+    this.cont = false;
+    this.cont2 = false;
+    this.cont3 = false;
     this.currentQuestion++;
     this.jsonDecodificado.questions[this.currentlienzo+1].lienzo
     this.vocabclick1 = false;
@@ -235,13 +283,11 @@ export class BodyInteraccionComponent implements OnInit, AfterViewInit, OnDestro
     this.hasAnswered = false;
     this.qscli = false;
     this.getProgressPorcent();
-    if (!this.qscli) {
-      this.inCorrectAnswer++;
-    }
     if (this.currentQuestion === this.questionList.length) {
       this.isQuizCompleted = true;
       this.stopCounter();
     }
+
   }
 
   previusQuestion() {
@@ -249,47 +295,25 @@ export class BodyInteraccionComponent implements OnInit, AfterViewInit, OnDestro
     this.getProgressPorcent();
   }
 
+  selectedOption: any;
+  selectOption(option: any) {
+    if (!this.hasAnswered) {
+      // Desmarcar la opción previamente seleccionada (si hay alguna)
+      if (this.selectedOption) {
+        this.selectedOption.selected = false;
+      }
+
+      // Marcar la nueva opción como seleccionada
+      option.selected = true;
+      this.selectedOption = option;
+    }
+  }
+
   answer(currentQno: number, option: any) {
     this.getProgressPorcent();
-    if (option.correct) {
-      if (!this.cont3){
-        if (!this.cont){
-          this.points += 4;
-          this.correctAnswer++;
-          this.cont=true;
-          this.cont3=true;
-          console.log("Preguntas correctas:",this.correctAnswer)
-          console.log("Preguntas incorrectas:",this.inCorrectAnswer)
-        } else {
-          this.points -= 4;
-          this.correctAnswer--;
-          this.cont=false;
-          this.cont3=false;
-          console.log("Preguntas correctas:",this.correctAnswer)
-          console.log("Preguntas incorrectas:",this.inCorrectAnswer)
-        }
-      }
 
-    }
-    if (!option.correct) {
-      if (!this.cont3){
-        if (!this.cont2){
-          this.inCorrectAnswer++;
-          this.cont2=true;
-          this.cont3=true;
-          console.log("Preguntas correctas:",this.correctAnswer)
-          console.log("Preguntas incorrectas:",this.inCorrectAnswer)
-        } else {
-          this.inCorrectAnswer--;
-          this.cont2=false;
-          this.cont3=false;
-          console.log("Preguntas correctas:",this.correctAnswer)
-          console.log("Preguntas incorrectas:",this.inCorrectAnswer)
-        }
-      }
+    //almacenar la respuesta en el array y sumarle 1 para el posterior
 
-
-    }
 
     if (currentQno === this.questionList.length) {
       setTimeout(() => {
@@ -353,9 +377,27 @@ export class BodyInteraccionComponent implements OnInit, AfterViewInit, OnDestro
   }
 
   endQuiz() {
-    if (!this.qscli) {
+
+    if (this.selectedOption) {
+      // Verificar si la opción seleccionada es la correcta
+      if (this.selectedOption.correct) {
+        this.correctAnswer++;
+        this.points=this.points+4;
+      } else {
+        this.inCorrectAnswer++;
+      }
+    } else {
+      // En caso de que no se haya seleccionado ninguna opción
       this.inCorrectAnswer++;
     }
+    this.selectedOption = null;
+    console.log("Correctas:",this.correctAnswer)
+    console.log("incorrectas:",this.inCorrectAnswer)
     this.isQuizCompleted = true;
+    this.interaccion[0].cantidadPreguntas = this.questionList.length;
+    this.interaccion[0].cantidadCorrectas = this.correctAnswer;
+    this.interaccion[0].cantidadIorrectas = this.inCorrectAnswer;
+    this.interaccion[0].cantidadPuntos = this.points;
+    this.generateJSON();
   }
 }

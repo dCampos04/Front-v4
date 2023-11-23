@@ -1,9 +1,15 @@
-.main {
+main {
   background-color: #f2f2f2; /* Color de fondo gris */
   text-align: center; /* Centra el texto */
   padding: 100px; /* Espaciado interior del contenedor */
   font-family: 'League Spartan', sans-serif;
 }
+
+. main {
+  display: flex;
+}
+
+
 
 .main h1 {
   font-size: 45px; /* Tamaño del texto en negrita */
@@ -11,7 +17,6 @@
   color: #0049ac; /* Color del texto azul */
   font-family: 'League Spartan', sans-serif;
   margin-bottom: 50px;
-  margin-right: 500px;
 }
 
 .main p {
@@ -35,16 +40,19 @@
 }
 
 .filtro {
+  margin-left: 1150px;
+  font-size: 15px;
+  font-weight: bold;
   text-align: left;
-  margin-bottom: 50px;
-  margin-top: 20px;
-  text-align: center; /* Centra el texto */
   font-family: 'League Spartan', sans-serif;
-  margin-left: 720px;
+
 }
 
 
+
+
 .select-filtro {
+  margin-left: 20px;
   font-size: 16px;
   padding: 10px;
   font-family: 'League Spartan', sans-serif;
@@ -60,9 +68,9 @@
 }
 
 .card {
-  background-color: #f9f9f9;
+  background-color: #eaeaea;
   border: 1px solid #ccc;
-  border-radius: 15px; /* Reduje el radio del borde para hacer las tarjetas más pequeñas */
+  border-radius: 30px; /* Reduje el radio del borde para hacer las tarjetas más pequeñas */
   padding: 10px; /* Reduje el espacio interno de las tarjetas */
   flex: 0 0 calc(30% - 1px); /* Ajusta el ancho para 3 columnas con 20px de espacio entre ellas */
   box-sizing: border-box; /* Asegura que el padding no afecte al ancho total */
@@ -70,44 +78,59 @@
   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
 }
 
+
+.circles-container {
+  display: flex;
+  align-items: center;
+  margin-left: 10px; /* Ajusta el margen según sea necesario */
+}
+
+.circle {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin-right: 5px;  /* Ajusta el margen según sea necesario */
+  /* Otros estilos según sea necesario */
+}
+
 .card img {
   width: 100%;
   height: 100px; /* Reduje la altura de la imagen */
   object-fit: cover;
-  border-radius: 5px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
   margin-bottom: 5px; /* Reduje el margen inferior de la imagen */
 }
 
+.btn-verde,
+.btn-gris {
 
-.btn-orange, .btn-verde, .btn-gris {
+  background-color: transparent;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-family: 'League Spartan', sans-serif;
+}
+.btn-verde {
+  background-color: #c7df66; /* Verde */
+}
+
+.btn-gris {
+  background-color: #7e7d7d; /* Gris */
+}
+
+.btn-orange {
   padding: 4px 16px; /* Reduje el espaciado interno de los botones */
   font-size: 14px; /* Reduje el tamaño del texto de los botones */
   border-radius: 20px; /* Reduje el radio del borde de los botones */
 }
 
-.btn-verde, .btn-gris {
-  background-color: transparent;
-  color: white;
-  border: none;
-  cursor: pointer;
-  margin-top: 10px;
-  margin-right: 5px;
-  font-family: 'League Spartan', sans-serif;
-}
-
-.btn-verde {
-  background-color: #4caf50; /* Verde */
-}
-
-.btn-gris {
-  background-color: #ccc; /* Gris */
-}
 
 .btn-orange {
   background-color: #fd7900;
   color: white; /* Color del texto blanco */
   border: none; /* Sin borde */
-  padding: 5px 2px; /* Espaciado interno del botón */
+  padding: 5px 40px; /* Espaciado interno del botón */
   font-size: 18px; /* Tamaño del texto del botón */
   cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
   transition: background-color 0.3s ease; /* Transición suave del color de fondo */

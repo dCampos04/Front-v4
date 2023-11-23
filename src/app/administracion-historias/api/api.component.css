@@ -1,0 +1,12 @@
+body {
+  margin: 0;
+  overflow: hidden;
+}
+html {
+  overscroll-behavior-x: contain;
+}
+
+#root {
+  width: 1024px;
+  height: 720px;
+}

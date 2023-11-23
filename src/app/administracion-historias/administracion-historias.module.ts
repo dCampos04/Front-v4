@@ -7,7 +7,6 @@ import {AdministracionHistoriasRoutingModule} from "./administracion-historias-r
 import { HeaderAdministrarComponent } from './header-administrar/header-administrar.component';
 import { BodyCrearComponent } from './body-crear/body-crear.component';
 import { BodyHistorialComponent } from './body-historial/body-historial.component';
-import { ApiComponent } from './api/api.component';
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { BodyQuestionComponent } from './body-question/body-question.component';
 import { HttpClientModule } from "@angular/common/http";
@@ -35,7 +34,6 @@ import { BodyIdTitleComponent } from './body-id-title/body-id-title.component';
       MatToolbarModule,
       HttpClientModule,
       FormsModule,
-      ApiComponent,
 
 ],
     providers: [],

@@ -161,5 +161,30 @@ button.aa{
   width: 30pc;
 }
 
+.options ol {
+  list-style-type: none;
+  padding: 0;
+}
 
+.options li {
+  margin-bottom: 10px;
+}
+
+.options div {
+  cursor: pointer;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.options div.selected {
+  background-color: #05588d; /* Color de fondo cuando está seleccionado */
+  color: #fff; /* Color del texto cuando está seleccionado */
+  border: 2px solid grey;
+}
+
+.options div.correct {
+  /* Estilos adicionales para la opción correcta si es necesario */
+  border-color: #2ecc71; /* Cambiar color del borde para respuestas correctas */
+}
 
