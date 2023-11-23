@@ -97,16 +97,26 @@ export class BodyQuestionComponent implements AfterViewInit {
         // Obtén el Blob de la imagen
         const imageBlob = blobs[0];
 
-        // Convierte el Blob a un objeto de tipo File para facilitar su manipulación
-        const imageFile = new File([imageBlob], 'nombre-de-la-imagen.png', { type: 'image/png' });
+        // Convierte el Blob a base64
+        const base64String = await new Promise<string>((resolve) => {
+          const reader = new FileReader();
+          reader.onloadend = () => {
+            resolve(reader.result as string);
+          };
+          reader.readAsDataURL(imageBlob);
+        });
+
+        // Muestra el código base64 en la consola
+        console.log('Código base64 de la imagen:', base64String);
 
         // Puedes guardar el archivo, mostrarlo al usuario o realizar otras operaciones según tus necesidades
         // Ejemplo de cómo mostrar la imagen en una nueva ventana/tab:
-        const imageUrl = URL.createObjectURL(imageFile);
+        const imageUrl = URL.createObjectURL(imageBlob);
         window.open(imageUrl);
 
         return Promise.resolve();
-      },
+      }
+
 
 
     },
