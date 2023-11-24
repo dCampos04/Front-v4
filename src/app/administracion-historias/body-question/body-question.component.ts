@@ -15,6 +15,7 @@ export class BodyQuestionComponent implements AfterViewInit {
 
   title = 'Integrate CreativeEditor SDK with Angular';
   page: number = 1;
+  prevCode: String = '';
   imageCodes: string[] = [];
   bbb: boolean= false;
   private instance: any;
@@ -48,6 +49,8 @@ export class BodyQuestionComponent implements AfterViewInit {
   }
 
 
+
+
   config: Configuration = {
     // Serve assets from IMG.LY cdn or locally
     baseURL: 'https://cdn.img.ly/packages/imgly/cesdk-js/1.17.0/assets',
@@ -58,8 +61,6 @@ export class BodyQuestionComponent implements AfterViewInit {
     },
     callbacks: {
       onUpload: 'local',
-
-
       onUnsupportedBrowser: () => {
         /* This is the default window alert which will be shown in case an unsupported
          * browser tries to run CE.SDK */
@@ -76,6 +77,7 @@ export class BodyQuestionComponent implements AfterViewInit {
       onSave: (scene) => {
         window.alert('Save callback!');
         console.info(scene);
+
         if (this.imageCodes.length >= this.imageCodeIndex + 1) {
           // Si hay un elemento en la posición actual, sobrescríbelo
           this.imageCodes[this.imageCodeIndex] = scene;
@@ -84,12 +86,12 @@ export class BodyQuestionComponent implements AfterViewInit {
           this.imageCodes.push(scene);
         }
         this.bbb = true;
-
       },
       onLoad: () => {
         window.alert('Load callback!');
         const scene = '...'; // Fill with sene
         return Promise.resolve(scene);
+
       },
       onExport: async (blobs, options) => {
         window.alert('Export callback!');
@@ -112,7 +114,10 @@ export class BodyQuestionComponent implements AfterViewInit {
         // Puedes guardar el archivo, mostrarlo al usuario o realizar otras operaciones según tus necesidades
         // Ejemplo de cómo mostrar la imagen en una nueva ventana/tab:
         const imageUrl = URL.createObjectURL(imageBlob);
-        window.open(imageUrl);
+        //window.open(imageUrl);
+        this.prevCode=base64String;
+
+        console.log('variable', this.prevCode);
 
         return Promise.resolve();
       }
@@ -135,13 +140,13 @@ export class BodyQuestionComponent implements AfterViewInit {
           action: {
             close: false, // true or false
             back: false, // true or false
-            load: true, // true or false
+            load: false, // true or false
             save: true, // true or false
             export: {
               show: true,
               format: ["image/png"]
             },
-            download: true, // true  or false
+            download: false, // true  or false
             // docs-ui-actions
             // docs-ui-custom-actions
             custom: [
@@ -236,7 +241,6 @@ export class BodyQuestionComponent implements AfterViewInit {
       // No navegar si bbb es falso
     }
   }
-
 
   questions = [
     {

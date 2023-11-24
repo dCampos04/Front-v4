@@ -104,15 +104,9 @@ body {
 
 /**********************INGRESO-HISTORIA********************/
 .custom-input {
-  background-color: white; /* Fondo blanco */
-  color: black; /* Color del texto negro */
-  border: 1px solid black; /* Borde negro */
-  padding: 10px 20px; /* Espaciado interno del "input" */
-  font-size: 16px; /* Tamaño del texto */
-  cursor: pointer; /* Cambia el cursor al pasar el mouse */
-  border-radius: 5px; /* Bordes redondeados */
-  display: inline-block; /* Para que se comporte como un elemento en línea */
-  margin-bottom: 20px; /* Margen inferior de 20px */
+  font-weight: bold; /* Texto en negrita */
+  font-size: 24px; /* Tamaño de fuente para "Risitos de Oro en el Bosque" */
+  color: black;
 }
 
 .btn {

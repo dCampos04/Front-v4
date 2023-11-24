@@ -21,14 +21,10 @@
       <div class="columna nombre">Nombre del estudiante</div>
       <div class="columna puntaje">Puntaje</div>
     </div>
-    <div class="fila">
-      <div class="columna nombre">XXXXXXXXXXXXXXX</div>
-      <div class="columna puntaje">XX/XX</div>
+    <div class="fila" *ngFor="let resultados of resultadosList">
+      <div class="columna nombre">{{resultados.nombre}}</div>
+      <div class="columna puntaje">{{resultados.puntaje}}/20</div>
     </div>
-    <div class="fila">
-      <div class="columna nombre">XXXXXXXXXXXXXXX</div>
-      <div class="columna puntaje">XX/XX</div>
-    </div>
-  </div>
+   </div>
     <button class="btn-orange" routerLink="/historial">Volver a mis historias</button>
 </main>

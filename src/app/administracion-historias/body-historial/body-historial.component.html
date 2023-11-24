@@ -1,22 +1,21 @@
-<div #cesdk_container [style.height.vh]="'50'" [style.width.vh]="'80'"></div>
-
 <main>
   <main class="main">
     <h1 class="titulo">Mis historias creadas</h1>
     <div class="filtro">
       <label for="filtro">Filtrar por:</label>
-      <select id="filtro" class="select-filtro">
+      <select id="filtro" class="select-filtro" (change)="onFiltroChange($event)">
         <option>Seleccionar filtro</option>
         <option>Alfabeticamente</option>
         <option>Mas recientes</option>
       </select>
     </div>
+
   </main>
 
   <div class="cards-container">
     <!-- Utiliza *ngFor en la card individual -->
     <div *ngFor="let libro of librosList" class="card">
-      <img src="./assets/logo_squina.png" alt="Imagen de la historia">
+      <img [src]="libro.portadaUrl" alt="Imagen de la historia">
       <h2>{{ libro.titulo }}</h2>
       <p>Creado el xx/xx/xxxx</p>
       <div class="botones-container">
@@ -30,6 +29,7 @@
       </div>
     </div>
   </div>
+
 
 
 </main>
