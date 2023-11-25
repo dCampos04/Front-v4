@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
-import {Router} from "@angular/router";
+import { Component} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import { AuthService } from "../../../services/auth.service";
+import { Router } from "@angular/router";
+
 
 @Component({
   selector: 'app-body-login',
@@ -8,46 +11,36 @@ import {Router} from "@angular/router";
 })
 export class BodyLoginComponent {
 
-  Login = [
-    {
-      correo: "",
-      contrasena: "",
-    },
-  ];
-  public email:string="";
-  public password:string="";
+  loginTeacherForm: FormGroup;
 
-  constructor(private router:Router) {
+
+  constructor(private teacherService: AuthService,
+              private fb: FormBuilder,
+              private router: Router) {
+    this.loginTeacherForm = this.fb.group({})
   }
 
-  public enviarFormulario(){
-    console.log(this.email, this.password)
-    this.Login[0].correo = this.email;
-    this.Login[0].contrasena = this.password;
-    if(!this.email || !this.password) return;
-    this.router.navigateByUrl("/admin")
-    this.generateJSON();
+  ngOnInit() {
+    this.loginTeacherForm = this.fb.group({
+      email: [null, [Validators.required, Validators.email]],
+      password: [null, [Validators.required]],
+    })
   }
 
-
-  generateJSON() {
-
-    // Construir el objeto JSON deseado
-    const jsonLogin = this.Login.map((log, i) => {
-      return {
-        correo: log.correo,
-        contrasena: log.contrasena
-      };
-    });
-
-    const jsonData = {
-      login: jsonLogin,
-    };
-
-    const jsonString = JSON.stringify(jsonData, null, 2);
-    console.log('JSON generado:', jsonString);
-    // Puedes guardar jsonString en un archivo o enviarlo a través de una solicitud HTTP según tus necesidades.
+  login() {
+    console.log(this.loginTeacherForm.value);
+    this.teacherService.authenticate(this.loginTeacherForm.value).subscribe((res) => {
+        console.log(res);
+        if (res) {
+          // Asegúrate de que res es verdadero (autenticación exitosa) antes de intentar acceder a res.token
+          localStorage.setItem('token', res.token || ''); // Usa un valor predeterminado en caso de que res.token sea undefined
+          this.router.navigate(['/crea']);
+        }
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
   }
-
 
 }

@@ -8,16 +8,17 @@ import {BodyQuestionComponent} from "./body-question/body-question.component";
 import {BodyVocabularyComponent} from "./body-vocabulary/body-vocabulary.component";
 import {BodyIdTitleComponent} from "./body-id-title/body-id-title.component";
 import {ApiComponent} from "./api/api.component";
+import {AuthGuard} from "../auth.guard";
 
 
 const routes: Routes = [
-  { path: '', component: AdministracionHistoriasComponent, children: [ {path: '', component: BodyCrearComponent}]},
-  { path: 'crea', component: AdministracionHistoriasComponent, children: [ {path: '', component: BodyCrearComponent}]},
-  { path: 'api', component: AdministracionHistoriasComponent, children: [ {path: '', component: ApiComponent}]},
-  { path: 'historial', component: AdministracionHistoriasComponent, children: [ {path: '', component: BodyHistorialComponent}]},
-  { path: 'idtitulo', component: AdministracionHistoriasComponent, children: [ {path: '', component: BodyIdTitleComponent}]},
-  { path: 'quiz', component: AdministracionHistoriasComponent, children: [ {path: '', component: BodyQuestionComponent}]},
-  { path: 'vocabulario', component: AdministracionHistoriasComponent, children: [ {path: '', component: BodyVocabularyComponent}]},
+  { path: '', component: AdministracionHistoriasComponent, children: [ {path: '', component: BodyCrearComponent}], canActivate: [AuthGuard]},
+  { path: 'crea', component: AdministracionHistoriasComponent, children: [ {path: '', component: BodyCrearComponent}], canActivate: [AuthGuard]},
+  { path: 'api', component: AdministracionHistoriasComponent, children: [ {path: '', component: ApiComponent}], canActivate: [AuthGuard]},
+  { path: 'historial', component: AdministracionHistoriasComponent, children: [ {path: '', component: BodyHistorialComponent}], canActivate: [AuthGuard]},
+  { path: 'idtitulo', component: AdministracionHistoriasComponent, children: [ {path: '', component: BodyIdTitleComponent}], canActivate: [AuthGuard]},
+  { path: 'quiz', component: AdministracionHistoriasComponent, children: [ {path: '', component: BodyQuestionComponent}], canActivate: [AuthGuard]},
+  { path: 'vocabulario', component: AdministracionHistoriasComponent, children: [ {path: '', component: BodyVocabularyComponent}], canActivate: [AuthGuard]},
 ];
 
 @NgModule({

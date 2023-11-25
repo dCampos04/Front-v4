@@ -1,137 +1,162 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'League Spartan', sans-serif;
-
-}
-
 main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   background-color: #eaeaea;
-  text-align: center;
-  padding: 100px;
-  font-family: 'League Spartan', sans-serif;
+  height: 50pc;
 }
 
-.main h1 {
-  font-size: 55px;
+.step-container {
+  margin-top: 10px;
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #d7d7d7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-weight: bold;
-  color: #0049ac;
-  margin-bottom: 50px;
-  margin-top: -10px;
-  font-family: 'League Spartan', sans-serif;
+  font-size: 20px;
+  margin-bottom: 5px;
 }
 
-
-.btn-orange {
-  background-color: #fd7900;
-  color: white;
-  border: none;
-  padding: 15px 30px;
-  font-size: 25px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  border-radius: 30px;
-  font-family: 'League Spartan', sans-serif;
+.separator {
+  height: 2px;
+  width: 200px;
+  background-color: #ccc;
+  margin: 0 -40px;
   margin-bottom: 30px;
 }
 
-.btn-orange:hover {
-  background-color: #fd7900;
+.step p {
+  margin: 0;
+  color: #333;
 }
 
-.formulario-container {
-  width: 500px;
-  margin: 0 auto;
-  background-color: #c9e16787;
+h1 {
+  margin-top: 100px;
+  font-size: 50px;
+  font-weight: bold;
+  color: #0049ac;
+  font-family: 'League Spartan', sans-serif;
+  margin-bottom: 30px; /* Ajusta el margen inferior según tus necesidades */
+}
+
+.card {
+  height: 330px;
+  width: 600px;
+  border-radius: 50px;
+  overflow: hidden;
+  background-color: #d9e5a9;
+}
+
+.card2 {
+  height: 340px;
+  width: 600px;
+  border-radius: 50px;
+  overflow: hidden;
+  background-color: #d9e5a9;
+}
+
+.card-header {
+  padding: 15px;
+  color: #000000;
+}
+
+.card-body {
+  margin-top: 30px;
   padding: 20px;
-  border-radius: 30px;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-  margin-bottom: 50px;
-
+  font-weight: bold;
+  font-size: 20px
+}
+.card-body2 {
+  margin-top: 30px;
+  padding: 20px;
+  font-weight: bold;
+  font-size: 20px
 }
 
-.input-group-custom {
+.form-group {
   margin-bottom: 15px;
-  text-align: left;
+  width: 450px;
+  align-items: center;
+  margin-left: 50px;
 }
 
-.input-custom {
+.forgot{
+  margin-left: 150px;
+  font-weight: bold;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+input {
   width: 100%;
   padding: 8px;
-  font-size: 16px;
-  border: 1px solid #ccc;
+  margin-top: 5px;
+  border: 1px solid #ffffff; /* Borde rojo para los inputs */
   border-radius: 30px;
   box-sizing: border-box;
-  font-family: 'League Spartan', sans-serif;
-}
-
-.label-custom {
-  color: black;
-  font-weight: bold;
-  margin-bottom: 5px;
-  display: block;
-  font-family: 'League Spartan', sans-serif;
 }
 
 .required {
   color: red;
+}
+
+.form-check {
+  margin-top: 10px;
+}
+
+.btn {
+  color: white;
+  margin-top: 40px;
+  margin-right: 1750px;
+
+}
+
+
+
+.btn-primary {
+  background-color: #fd7900;
+  color: white;
+  border: none;
+  display: block;
+  border-radius: 20px;
+  margin: 50px auto 0 auto; /* Margen automático arriba y abajo, y centrado horizontalmente */
+  text-align: center; /* Alinea el contenido del bloque al centro */
+  font-size: 25px; /* Ajusta el tamaño de la letra según tus necesidades */
+  padding: 15px 40px; /* Ajusta el padding para aumentar el tamaño del área de clic */
+  margin-left: 100px; /* Ajusta el margen izquierdo según tus necesidades */
+}
+
+
+
+
+/* Estilo para el checkbox "Mostrar contraseña" */
+#mostrarContrasena {
   margin-left: 5px;
 }
 
-.forgot-password {
-  color: #004AAD;
-  text-decoration: underline;
-  display: block;
-  margin-top: 10px;
-  font-family: 'League Spartan', sans-serif;
+/* Estilo para el mensaje "Acepto que envíen a mi correo Novedades sobre iRead" */
+.form-check label {
+  display: inline;
+  margin-left: 5px;
+  color: #333;
 }
 
-.header-custom {
-  background-color: white;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 10px 20px;
-  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
-}
-
-.logo-custom img {
-  width: 150px;
-  height: 80px;
-}
-
-.nav-custom a {
-  text-decoration: none;
-  color: black;
-  font-weight: normal;
-  font-size: 30px;
-  margin-left: 30px;
-  transition: all 0.3s ease;
-}
-
-.nav-custom a.active {
-  font-weight: bold;
-}
-
-.right-content {
-  display: flex;
-  align-items: center;
-  margin-left: auto;
-}
-
-.right-content p {
-  margin: 0;
-  margin-right: 10px;
-  color: black;
-  font-weight: bold;
-}
-
-.btn-black {
-  background-color: black;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  margin-left: auto;
-}
