@@ -10,7 +10,7 @@ import { BodyHistorialComponent } from './body-historial/body-historial.componen
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { BodyQuestionComponent } from './body-question/body-question.component';
 import { HttpClientModule } from "@angular/common/http";
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppComponent } from "../app.component";
 import { BodyVocabularyComponent } from './body-vocabulary/body-vocabulary.component';
 import { BodyIdTitleComponent } from './body-id-title/body-id-title.component';
@@ -23,19 +23,19 @@ import { BodyIdTitleComponent } from './body-id-title/body-id-title.component';
     HeaderAdministrarComponent,
     BodyCrearComponent,
     BodyHistorialComponent,
-
     BodyQuestionComponent,
     BodyVocabularyComponent,
     BodyIdTitleComponent,
   ],
     imports: [
-      CommonModule,
-      AdministracionHistoriasRoutingModule,
-      MatToolbarModule,
-      HttpClientModule,
-      FormsModule,
+        CommonModule,
+        AdministracionHistoriasRoutingModule,
+        MatToolbarModule,
+        HttpClientModule,
+        FormsModule,
+        ReactiveFormsModule,
 
-],
+    ],
     providers: [],
     bootstrap: [AppComponent]
   })

@@ -21,7 +21,6 @@ export class BodyQuestionComponent implements AfterViewInit {
   private instance: any;
   private imageCodeIndex: number = 0;
   jsonConvertido: string = '';
-  jsonDesconvertido: any;
 
 
   constructor(private router: Router) {}
@@ -29,13 +28,6 @@ export class BodyQuestionComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     this.initializeCreativeEditor();
-  }
-
-  ngOnDestroy() {
-    // Limpieza de CreativeEditorSDK
-    if (this.instance && this.instance.destroy) {
-      this.instance.destroy();
-    }
   }
 
   private async initializeCreativeEditor() {
@@ -232,16 +224,6 @@ export class BodyQuestionComponent implements AfterViewInit {
 
   protected readonly open = open;
 
-  validonSave() {
-    if (this.bbb) {
-      // Navegar al enlace "/quiz" si bbb es verdadero
-      this.router.navigate(['/quiz']);
-    } else {
-      window.alert('Guardar antes de seguir!');
-      // No navegar si bbb es falso
-    }
-  }
-
   questions = [
     {
       lienzo: '',
@@ -321,17 +303,6 @@ export class BodyQuestionComponent implements AfterViewInit {
       this.bbb=false;
     }
 
-  }
-
-
-  prevpage() {
-    this.page--;
-  }
-  nextQuestion(index: number) {
-    if (index < this.questions.length - 1) {
-      // Solo avanza si no es la última pregunta
-      index++;
-    }
   }
 
   submitForm(index: number) {

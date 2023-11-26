@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { AuthService } from "../../../services/auth.service";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router, RouterModule} from "@angular/router";
@@ -12,7 +12,7 @@ import { ModalConfRegComponent} from "../modal-conf-reg/modal-conf-reg.component
   templateUrl: './body-registro.component.html',
   styleUrls: ['./body-registro.component.css']
 })
-export class BodyRegistroComponent {
+export class BodyRegistroComponent implements OnInit{
   postTeacherForm: FormGroup;
   public paso = 1;
 
@@ -44,15 +44,21 @@ export class BodyRegistroComponent {
     }
   }
 
-
-
-  register(){
+  register() {
     console.log(this.postTeacherForm.value);
-    this.teacherService.register(this.postTeacherForm.value).subscribe((res) => {
-      console.log(res)
-      this.openDialog()
-    })
+    this.teacherService.register(this.postTeacherForm.value).subscribe(
+      (res) => {
+        console.log(res);
+        this.openDialog();
+      },
+      (error) => {
+        console.error('Error en el registro:', error);
+        // Aquí puedes manejar el error, por ejemplo, mostrar un mensaje al usuario.
+      }
+    );
   }
+
+
 
   openDialog() {
     const dialogRef = this.dialog.open(ModalConfRegComponent);
