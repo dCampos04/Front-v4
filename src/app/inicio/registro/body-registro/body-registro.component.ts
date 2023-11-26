@@ -45,17 +45,22 @@ export class BodyRegistroComponent implements OnInit{
   }
 
   register() {
-    console.log(this.postTeacherForm.value);
-    this.teacherService.register(this.postTeacherForm.value).subscribe(
-      (res) => {
-        console.log(res);
-        this.openDialog();
-      },
-      (error) => {
-        console.error('Error en el registro:', error);
-        // Aquí puedes manejar el error, por ejemplo, mostrar un mensaje al usuario.
-      }
-    );
+    if (this.postTeacherForm.valid) {
+      // Llama al servicio para registrar al profesor
+      const nuevoProfesor = this.postTeacherForm.value;
+      this.openDialog();
+      this.teacherService.register(nuevoProfesor).subscribe(
+        (response) => {
+          console.log('Profesor registrado exitosamente', response);
+          // Puedes hacer algo adicional aquí si es necesario
+
+        },
+        (error) => {
+          console.error('Error al registrar el profesor', error);
+          // Maneja el error según tus necesidades
+        }
+      );
+    }
   }
 
 

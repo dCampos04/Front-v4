@@ -1,7 +1,9 @@
-export interface Teacher {
-  id:number;
-  name:string;
-  surname:string;
-  email:string;
-  password:string;
+export class Teacher {
+
+    id:number;
+    name:string;
+    surname:string;
+    email:string;
+    password:string;
+
 }
