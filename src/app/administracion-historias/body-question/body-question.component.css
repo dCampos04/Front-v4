@@ -13,8 +13,8 @@ main {
   padding: 10px;
   border: 1px solid #e8e8e8;
   background-color: #e8e8e8;
-
 }
+
 .card3{
   margin-left: 200px;
   width: 600px;
@@ -151,12 +151,14 @@ textarea.cuestionInput {
 
 .move-left {
   margin-top: -20px;
-  margin-right: 150px; /* Ajusta el margen derecho según tu preferencia */
+  margin-right: 140px; /* Ajusta el margen derecho según tu preferencia */
 
 }
 .move-rigt {
   margin-top: -20px;
-  margin-right: 50px; /* Ajusta el margen derecho según tu preferencia */
+  margin-right: 110px; /* Ajusta el margen derecho según tu preferencia */
 
 }
+
+
 

@@ -12,12 +12,13 @@
 
   </main>
 
+
   <div class="cards-container">
     <!-- Utiliza *ngFor en la card individual -->
-    <div *ngFor="let libro of librosList" class="card">
-      <img [src]="libro.portadaUrl" alt="Imagen de la historia">
-      <h2>{{ libro.titulo }}</h2>
-      <p>Creado el xx/xx/xxxx</p>
+    <div class="card" *ngFor="let story of stories">
+      <img [src]="story.imgPreview" alt="Imagen de la historia">
+      <h2>{{ story.title }}</h2>
+      <p>Creado el {{ story.dateCreation }}</p>
       <div class="botones-container">
         <button routerLink="/iniciar" href="iniciar-historia.html" class="btn-orange">Iniciar</button>
 

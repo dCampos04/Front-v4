@@ -1,8 +1,12 @@
+import {Teacher} from "./Teacher";
+import {Activity} from "./Activity";
+
 export class Story {
 
   id: number;
   title: string;
   accessWord: string;
-  teacherId: number; // Asegúrate de tener este campo para asociar la historia al profesor
+  teacherId: Teacher;
+  activities: Activity;
 
 }

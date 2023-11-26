@@ -1,0 +1,38 @@
+
+<main>
+  <div class="card">
+    <div class="card0">
+
+      <div class="d-flex justifly-content-between mt-3 mb-5">
+        <div class="quiz-header">
+          <h4 style="font-style: italic; margin-left: 10px; margin-right: 60px;"> INGRESA UN TITULO Y UN CODIGO</h4>
+          <span style="font-style: italic; margin-left: 10px;"> Bienvenido ___!</span>
+        </div>
+        <div class="image">
+          <img src="./assets/startup.png" width="70" alt="logo" >
+        </div>
+      </div>
+      <div class="title mt-3 mb-3">
+        <h4 style="font-style: italic; margin-left: 10px">Agrega un titulo para tu historia y un codigo para que tus alumnos la busquen y puedan ingresar</h4>
+      </div>
+      <form [formGroup]="postStoryForm">
+        <div class="title-group ">
+          <label >Titulo:</label>
+          <input class="titleInput" id="title" name="title" required formControlName="title" rows="3">
+        </div>
+        <div class="idSty-group ">
+          <label >Palabra Clave:</label>
+          <input class="idStyInput" id="idSty" name="idSty" required formControlName="accessWord" rows="3">
+        </div>
+      </form>
+    <div class="btns">
+      <div class="column d-flex justify-content-between mb-5 mt-5">
+        <button routerLink="/crea"  class="btn move-rigt"><i class="btn btn-secondary">Cancelar</i></button>
+        <button routerLink="/quiz" (click)="crearHistoria()" class="btn move-left"><i class="btn btn-primary">Siguiente</i></button>
+      </div>
+
+
+    </div>
+    </div>
+  </div>
+</main>

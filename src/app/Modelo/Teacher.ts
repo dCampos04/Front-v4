@@ -1,3 +1,5 @@
+import {Story} from "./Story";
+
 export class Teacher {
 
     id:number;
@@ -5,5 +7,6 @@ export class Teacher {
     surname:string;
     email:string;
     password:string;
+    stories:Story[];
 
 }

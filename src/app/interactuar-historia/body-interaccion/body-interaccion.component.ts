@@ -39,7 +39,6 @@ export class BodyInteraccionComponent implements OnInit, AfterViewInit, OnDestro
 
   interaccion = [
     {
-      cantidadPreguntas: "",
       cantidadCorrectas: "",
       cantidadIorrectas: "",
       cantidadPuntos: "",
@@ -51,7 +50,6 @@ export class BodyInteraccionComponent implements OnInit, AfterViewInit, OnDestro
 
     const jsonidInteraccion = this.interaccion.map((intr, i) => {
       return {
-        cantidadPreguntas: intr.cantidadPreguntas,
         cantidadCorrectas: intr.cantidadCorrectas,
         cantidadIorrectas: intr.cantidadIorrectas,
         cantidadPuntos: intr.cantidadPuntos,
@@ -394,7 +392,6 @@ export class BodyInteraccionComponent implements OnInit, AfterViewInit, OnDestro
     console.log("Correctas:",this.correctAnswer)
     console.log("incorrectas:",this.inCorrectAnswer)
     this.isQuizCompleted = true;
-    this.interaccion[0].cantidadPreguntas = this.questionList.length;
     this.interaccion[0].cantidadCorrectas = this.correctAnswer;
     this.interaccion[0].cantidadIorrectas = this.inCorrectAnswer;
     this.interaccion[0].cantidadPuntos = this.points;

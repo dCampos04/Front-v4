@@ -1,7 +1,11 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import CreativeEditorSDK, { Configuration } from '@cesdk/cesdk-js';
 import { Router } from '@angular/router';
-
+import { StoriesService } from "../../services/stories.service";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {AuthService} from "../../services/auth.service";
+import { Activity} from "../../Modelo/Activity";
+import { SharedService} from "../../services/shared.service";
 
 
 @Component({
@@ -9,13 +13,14 @@ import { Router } from '@angular/router';
   templateUrl: './body-question.component.html',
   styleUrls: ['./body-question.component.css'],
 })
-export class BodyQuestionComponent implements AfterViewInit {
+export class BodyQuestionComponent implements AfterViewInit, OnInit {
 
   @ViewChild('cesdk_container') containerRef: ElementRef = {} as ElementRef;
-
+  aa:string ="sdssdfsd";
+  vv:string ="hola";
   title = 'Integrate CreativeEditor SDK with Angular';
   page: number = 1;
-  prevCode: String = '';
+  prevCode: string = ''; // Declarar prevCode como una cadena vacía
   imageCodes: string[] = [];
   bbb: boolean= false;
   private instance: any;
@@ -23,11 +28,24 @@ export class BodyQuestionComponent implements AfterViewInit {
   jsonConvertido: string = '';
 
 
-  constructor(private router: Router) {}
+  postStoryForm: FormGroup;
+
+  constructor( private storiesService: StoriesService, private fb: FormBuilder, private router: Router, private authService: AuthService, private sharedService: SharedService // Agrega el servicio compartido
+  ) {
+    this.postStoryForm = this.fb.group({});
+  }
+
+  ngOnInit() {
+    this.postStoryForm = this.fb.group({
+      title: [null, [Validators.required]],
+      accessWord: [null, [Validators.required]],
+    });
+  }
+
 
 
   ngAfterViewInit() {
-    this.initializeCreativeEditor();
+      this.initializeCreativeEditor();
   }
 
   private async initializeCreativeEditor() {
@@ -39,8 +57,6 @@ export class BodyQuestionComponent implements AfterViewInit {
     await this.instance.addDemoAssetSources({ sceneMode: "Design" });
     this.instance.createDesignScene();
   }
-
-
 
 
   config: Configuration = {
@@ -311,6 +327,9 @@ export class BodyQuestionComponent implements AfterViewInit {
 
   generateJSON() {
     if (this.bbb) {
+      // Obtén la ID de la historia desde el servicio compartido
+      const storyId = this.sharedService.getStoryId();
+
       // Iterar sobre las preguntas y asignar el valor de "imageCodes" a la propiedad "lienzo"
       for (let i = 0; i < this.questions.length; i++) {
         // Obtener el valor correspondiente de "imageCodes" (asegúrate de que haya suficientes elementos en el array)
@@ -326,9 +345,8 @@ export class BodyQuestionComponent implements AfterViewInit {
           })),
           palabraText: this.questions[i].palabraText,
           significado: this.questions[i].significado,
-          casouso: this.questions[i].casouso
+          casouso: this.questions[i].casouso,
         };
-
         // Asignar la pregunta modificada de nuevo al arreglo de preguntas
         this.questions[i] = question;
       }
@@ -348,12 +366,24 @@ export class BodyQuestionComponent implements AfterViewInit {
       this.jsonConvertido = base64String;
       console.log('Contenido codificado en base64:', this.jsonConvertido);
 
-      this.router.navigate(['/historial']);
+      const activity: Activity = {
+        jsonConverted: this.jsonConvertido,
+        imgPreview: this.prevCode,
+        storyId: storyId, // Usar la ID de la historia obtenida del servicio compartido
+      };
 
-      // Puedes guardar jsonString en un archivo o enviarlo a través de una solicitud HTTP según tus necesidades.
+      this.storiesService.assignActivityToStory(activity).subscribe(
+        (assignedStory) => {
+          console.log('Actividad asignada exitosamente a la historia:', assignedStory);
+          this.router.navigate(['/historial']);
+        },
+        (error) => {
+          console.error('Error al asignar actividad a la historia:', error);
+        }
+      );
     } else {
       window.alert('Guardar antes de seguir!');
-      this.bbb=false;
+      this.bbb = false;
     }
   }
   // Establece la propiedad 'correct' en true para la opción seleccionada
@@ -372,6 +402,8 @@ export class BodyQuestionComponent implements AfterViewInit {
     // Puedes reiniciar la escena o realizar las operaciones necesarias para tener un lienzo en blanco.
     this.instance.createDesignScene();
   }
+
+
 }
 
 
