@@ -27,17 +27,22 @@ export class StoriesService {
 
   assignActivityToStory(activity: Activity): Observable<Activity> {
     const url = `${base_url}/${activity.storyId}/activity`;
-    return this.httpClient.post<Activity>(url, activity);
+    return this.httpClient.put<Activity>(url, activity);
   }
+
+  // assignActivityToStory(storyId: number, activity: Activity): Observable<Story> {
+  //   const url = `${base_url}/${storyId}/activity`;
+  //   return this.httpClient.put<Story>(url, activity);
+  // }
 
   getStoriesByTeacherId(teacherId: number): Observable<StoryDTO[]> {
     const url = `${base_url}/byTeacher/${teacherId}`;
     return this.httpClient.get<StoryDTO[]>(url);
   }
 
-
-
-
-
+  activateStory(storyId: number): Observable<any> {
+    const url = `${base_url}/activate/${storyId}`;
+    return this.httpClient.put(url, null);
+  }
 
 }

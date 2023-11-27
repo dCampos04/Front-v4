@@ -1,9 +1,13 @@
 import { Component, OnInit} from '@angular/core';
 import { QuestionService } from "../../service/question.service";
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
-import {StoriesService} from "../../services/stories.service";
-import {StoryDTO} from "../../Modelo/StoryDTO";
-import {AuthService} from "../../services/auth.service";
+import { StoriesService} from "../../services/stories.service";
+import { StoryDTO} from "../../Modelo/StoryDTO";
+import { AuthService} from "../../services/auth.service";
+import { Router } from '@angular/router';
+import { SharedService } from '../../services/shared.service';
+
+
 
 
 @Component({
@@ -15,10 +19,13 @@ export class BodyHistorialComponent implements OnInit {
 
   private instance: any;
   stories: StoryDTO[] = [];
+  historiaSeleccionada: StoryDTO | null = null;
 
 
-
-  constructor(private questionService: QuestionService, private sanitizer: DomSanitizer, private storiesService: StoriesService, private authService:AuthService) {
+  constructor(private questionService: QuestionService, private sanitizer: DomSanitizer,
+              private storiesService: StoriesService, private authService:AuthService,
+              private router: Router, private sharedService: SharedService,
+  ) {
   }
 
   ngOnInit() {
@@ -50,7 +57,6 @@ export class BodyHistorialComponent implements OnInit {
 
 
 
-
   onFiltroChange(event: any) {
     const filtroSeleccionado = event.target.value;
 
@@ -65,6 +71,14 @@ export class BodyHistorialComponent implements OnInit {
       // Si se selecciona "Seleccionar filtro" o cualquier otro caso, restaurar la lista a su estado original
       this.ngOnInit();
     }
+  }
+
+  iniciarHistoria(story: StoryDTO) {
+    // Almacena la historia seleccionada en el servicio compartido
+    this.sharedService.setSelectedStory(story);
+
+    // Redirige a la página de inicio de la historia
+    this.router.navigate(['/iniciar']);
   }
 
 }

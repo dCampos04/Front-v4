@@ -20,7 +20,9 @@
       <h2>{{ story.title }}</h2>
       <p>Creado el {{ story.dateCreation }}</p>
       <div class="botones-container">
-        <button routerLink="/iniciar" href="iniciar-historia.html" class="btn-orange">Iniciar</button>
+
+        <button (click)="iniciarHistoria(story)" class="btn-orange">Iniciar</button>
+
 
         <!-- Contenedor para los últimos dos botones -->
         <div class="circles-container">

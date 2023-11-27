@@ -114,6 +114,7 @@ export class BodyQuestionComponent implements AfterViewInit, OnInit {
             resolve(reader.result as string);
           };
           reader.readAsDataURL(imageBlob);
+
         });
 
         // Muestra el código base64 en la consola
@@ -315,10 +316,11 @@ export class BodyQuestionComponent implements AfterViewInit, OnInit {
       this.bbb = false;
       this.imageCodeIndex++; // Incrementar el índice cuando avanzas a la siguiente página
     } else {
-      window.alert('Guardar antes de seguir!');
-      this.bbb=false;
-    }
 
+        window.alert('Guardar antes de seguir!');
+        this.bbb=false;
+
+    }
   }
 
   submitForm(index: number) {

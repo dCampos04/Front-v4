@@ -1,10 +1,9 @@
 <main class="main">
   <button routerLink="/historial" class="btn"><i class="fa fas fa-arrow-left fa-2x" aria-hidden="true"></i></button>
-
   <h1>Has iniciado la historia</h1>
-  <p class="titulo">Titulo: <span class="titulo-grande">XXXXXXXXXXX</span></p>
+  <p class="titulo">Titulo: <span class="titulo-grande">{{ selectedStory?.title }}</span></p>
   <h2>Palabra clave</h2>
-  <p class="custom-input">XXXXXXXXX</p>
+  <p class="custom-input">{{ selectedStory?.accessWord }}</p>
   <p class="esperando">Comparte esta palabra clave con tus <br> estudiantes para que se unan a la historia...</p>
-  <button routerLink="/progreso" class="btn-orange">Comenzar</button>
+  <button (click)="comenzarHistoria()" routerLink="/progreso" class="btn-orange">Comenzar</button>
 </main>

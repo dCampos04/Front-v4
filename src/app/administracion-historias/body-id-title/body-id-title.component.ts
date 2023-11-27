@@ -47,7 +47,7 @@ export class BodyIdTitleComponent implements OnInit {
           this.sharedService.setStoryId(createdStory.id);
 
           // Redirigir o realizar otras acciones después de crear la historia
-          this.router.navigate(['/quiz']); // Cambia esto según tus necesidades
+          this.router.navigate(['/quiz']);
         },
         (error) => {
           console.error('Error al crear la historia:', error);
