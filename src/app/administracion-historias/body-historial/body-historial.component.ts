@@ -16,11 +16,10 @@ import { SharedService } from '../../services/shared.service';
 })
 export class BodyHistorialComponent implements OnInit {
 
-  private instance: any;
   stories: StoryDTO[] = [];
   public filtro:boolean=false;
 
-  constructor(private questionService: QuestionService, private sanitizer: DomSanitizer,
+  constructor( private sanitizer: DomSanitizer,
               private storiesService: StoriesService, private authService:AuthService,
               private router: Router, private sharedService: SharedService,
   ) {
