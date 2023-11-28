@@ -5,6 +5,14 @@ main {
   background-color: #eaeaea;
   height: 50pc;
 }
+.main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: #eaeaea;
+  height: 10px;
+}
+
 
 .step-container {
   margin-top: 10px;
@@ -160,3 +168,10 @@ input {
   color: #333;
 }
 
+
+.btn2 {
+  color: #333333;
+  margin-top: 40px;
+  margin-right: 1750px;
+
+}

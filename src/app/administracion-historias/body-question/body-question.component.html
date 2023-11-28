@@ -5,7 +5,7 @@
             <div class="izqui col-lg-6">
               <!-- Parte izquierda -->
               <div class="card2 mt-5 mb-5">
-                <div class="apipanel" #cesdk_container [style.height.vh]="92" [style.width.vw]="51"></div>
+                <div class="apipanel" #cesdk_container [style.height.vh]="90" [style.width.vw]="51"></div>
               </div>
             </div>
             <div class="dere col-lg-6">
@@ -18,6 +18,9 @@
                   </div>
                   <div class="image">
                     <img src="./assets/startup.png" width="70" alt="logo" >
+
+
+
                   </div>
                 </div>
 
@@ -67,7 +70,7 @@
                 <div class="botones d-flex justify-content-end ">
                   <!---<button [disabled]="page === 1" (click)="prevpage()" class="btn move-rigt"><i class="fa text-primary fa-chevron-left fa-2x" aria-hidden="true"></i></button>--->
                   <button routerLink="/crea" *ngIf="page<5"  class="btn btn-secondary move-rigt">Cancelar</button>
-                  <button  *ngIf="page >= 5" (click)="generateJSON()" class="btn btn-primary move-left">Guardar</button>
+                  <button *ngIf="page >= 5" (click)="generateJSON()" class="btn btn-primary move-center">Guardar</button>
                   <button *ngIf="page<5" (click)="nextpage()"  class="btn btn-primary move-left">Siguiente</button>
                 </div>
               </div>

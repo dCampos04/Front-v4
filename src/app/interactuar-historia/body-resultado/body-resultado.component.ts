@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {SharedService} from "../../services/shared.service";
+import {StudentDetails} from "../../Modelo/studentDetails";
 
 @Component({
   selector: 'app-body-resultado',
@@ -6,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./body-resultado.component.css']
 })
 export class BodyResultadoComponent {
+
+
 
 }

@@ -1,80 +1,43 @@
-body {
-  margin: 0;
-  padding: 0;
+main {
+  background-color: #eaeaea;
+  text-align: center;
+  height: 50pc;
+  font-family: 'League Spartan', sans-serif;
+  position: relative;
 }
 
-main {
-  background-color: #eaeaea; /* Color de fondo gris */
-  text-align: center; /* Centra el texto */
-  padding: 250px; /* Espaciado interior del contenedor */
-  font-family: 'League Spartan', sans-serif;
+.animet {
+  top: 70%; /* Centra verticalmente */
+  left: 50%; /* Centra horizontalmente */
+  height: 200px;
+  width: 200px;
 }
+
 
 h1 {
-  margin-top: 10px;
+  margin-bottom: 50px;
+  margin-top: 80px;
   font-size: 45px; /* Tamaño del texto en negrita */
   font-weight: bold; /* Grosor del texto */
   color: #0049ac; /* Color del texto azul */
-  margin-bottom: 50px;
   font-family: 'League Spartan', sans-serif;
 }
 
-.btn-register, .btn-login {
-  background-color: #000; /* Color de fondo negro */
-  color: #fff; /* Color del texto blanco */
-  border: none; /* Sin borde */
-  padding: 15px 30px; /* Espaciado interno del botón */
-  font-size: 18px; /* Tamaño del texto del botón */
-  margin-bottom: 20px; /* Margen inferior */
-  border-radius: 30px;
-}
-
-/**********************DOCENTE-INICIO********************/
-
-/**********************INGRESO-HISTORIA********************/
-
-.back-button {
-  position: relative;
-  top: -100px;
-  left: -750px;
-  background-color: #007bff; /* Color de fondo azul */
-  color: white; /* Color del texto blanco */
-  border: none; /* Sin borde */
-  padding: 10px 20px; /* Espaciado interno del botón */
-  font-weight: bold; /* Texto en negrita */
-  cursor: pointer; /* Cursor de puntero al pasar el mouse */
-}
-
-.titulo {
-  font-size: 30px; /* Tamaño del texto del título */
-  color: black; /* Color del texto azul */
-  margin-bottom: 15px; /* Margen inferior entre los párrafos */
-}
-
-.autor {
-  font-size: 30px; /* Tamaño del texto del autor */
-  color: black; /* Color del texto verde */
-  margin-bottom: 15px; /* Margen inferior entre los párrafos */
-}
 
 .esperando {
   font-size: 30px; /* Tamaño del texto */
   font-weight: bold; /* Texto en negrita */
   color: black; /* Color del texto negro */
   margin-bottom: 15px; /* Margen inferior entre los párrafos */
-  margin-top: 50px; /* Margen superior */
+  margin-top: 80px;
+
 }
 
-.titulo-grande {
-  font-weight: bold; /* Texto en negrita */
-  font-size: 35px; /* Tamaño de fuente para "Risitos de Oro en el Bosque" */
-  color: black;
-  margin-left: 20px;
-}
+
 
 .btn {
   color: #2f2f2f;
-  margin-top: -360px;
+  margin-top: 40px;
   margin-left: -850px; /* Ajusta el valor según sea necesario */
   margin-right: 850px;
 }

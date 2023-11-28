@@ -9,6 +9,7 @@ import {BodyVocabularyComponent} from "./body-vocabulary/body-vocabulary.compone
 import {BodyIdTitleComponent} from "./body-id-title/body-id-title.component";
 import {ApiComponent} from "./api/api.component";
 import {AuthGuard} from "../auth.guard";
+import {IniciarHistoriaComponent} from "../iniciar-historia/iniciar-historia.component";
 
 
 const routes: Routes = [
@@ -16,8 +17,8 @@ const routes: Routes = [
   { path: 'crea', component: AdministracionHistoriasComponent, children: [ {path: '', component: BodyCrearComponent}], canActivate: [AuthGuard]},
   { path: 'api', component: AdministracionHistoriasComponent, children: [ {path: '', component: ApiComponent}], canActivate: [AuthGuard]},
   { path: 'historial', component: AdministracionHistoriasComponent, children: [ {path: '', component: BodyHistorialComponent}], canActivate: [AuthGuard]},
-  { path: 'idtitulo', component: AdministracionHistoriasComponent, children: [ {path: '', component: BodyIdTitleComponent}], canActivate: [AuthGuard]},
-  { path: 'quiz', component: AdministracionHistoriasComponent, children: [ {path: '', component: BodyQuestionComponent}], canActivate: [AuthGuard]},
+  { path: 'idtitulo', component: IniciarHistoriaComponent, children: [ {path: '', component: BodyIdTitleComponent}]},
+  { path: 'quiz', component: IniciarHistoriaComponent, children: [ {path: '', component: BodyQuestionComponent}]},
   { path: 'vocabulario', component: AdministracionHistoriasComponent, children: [ {path: '', component: BodyVocabularyComponent}], canActivate: [AuthGuard]},
 ];
 

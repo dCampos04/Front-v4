@@ -50,7 +50,8 @@ export class BodyIdTitleComponent implements OnInit {
           this.router.navigate(['/quiz']);
         },
         (error) => {
-          console.error('Error al crear la historia:', error);
+            console.error('Error al crear la historia:', error);
+            window.alert("Campos invalidos o vacios")
           // Manejar el error según tus necesidades
         }
       );

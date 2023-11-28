@@ -9,6 +9,7 @@ import { BodyProgresoComponent } from './body-progreso/body-progreso.component';
 import { BodyFinalizadoComponent } from './body-finalizado/body-finalizado.component';
 import {HeaderVacioComponent} from "./header-vacio/header-vacio.component";
 import {MatToolbarModule} from "@angular/material/toolbar";
+import { BodyPreFinComponent } from './body-pre-fin/body-pre-fin.component';
 
 
 
@@ -21,6 +22,7 @@ import {MatToolbarModule} from "@angular/material/toolbar";
         BodyProgresoComponent,
         BodyFinalizadoComponent,
         HeaderVacioComponent,
+        BodyPreFinComponent,
     ],
   exports: [
     BodyIniciandoComponent,

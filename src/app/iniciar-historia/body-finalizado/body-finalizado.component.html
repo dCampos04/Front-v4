@@ -1,30 +1,23 @@
 
 <main class="main">
-  <button class="btn-orange guardar-btn">
-    <div class="row">
-      <div class="col1">
-        <i class="fa fas fa-rocket fa-2x" aria-hidden="true"></i>
-      </div>
-      <div class="col2">
-        <span>Guardar<br>Resultados</span>
-      </div>
-    </div>
-  </button>
   <h1>La historia ha Finalizado</h1>
-  <p class="titulo">Titulo: <span class="titulo-grande">XXXXXXXXXXXX</span></p>
+  <p class="titulo">Titulo: <span class="titulo-grande">{{students.title}}</span></p>
   <div class="resultados-info">
     <h2 class="resultados-titulo">Resultados:</h2>
-    <p class="resultados-texto">xx Estudiantes</p>
+    <p class="resultados-texto">{{students.totalStudents}} Estudiantes</p>
   </div>
   <div class="tabla">
     <div class="fila">
       <div class="columna nombre">Nombre del estudiante</div>
       <div class="columna puntaje">Puntaje</div>
     </div>
-    <div class="fila" *ngFor="let resultados of resultadosList">
-      <div class="columna nombre">{{resultados.nombre}}</div>
-      <div class="columna puntaje">{{resultados.puntaje}}/20</div>
+    <div *ngFor="let student of students.students" class="fila">
+      <div class="columna nombre">{{ student.nameStudent }}</div>
+      <div class="columna puntaje">{{ student.correctAnswer }}/20</div>
     </div>
    </div>
     <button class="btn-orange" routerLink="/historial">Volver a mis historias</button>
 </main>
+
+
+

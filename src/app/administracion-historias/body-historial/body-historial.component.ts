@@ -9,7 +9,6 @@ import { SharedService } from '../../services/shared.service';
 
 
 
-
 @Component({
   selector: 'app-body-historial',
   templateUrl: './body-historial.component.html',
@@ -19,8 +18,7 @@ export class BodyHistorialComponent implements OnInit {
 
   private instance: any;
   stories: StoryDTO[] = [];
-  historiaSeleccionada: StoryDTO | null = null;
-
+  public filtro:boolean=false;
 
   constructor(private questionService: QuestionService, private sanitizer: DomSanitizer,
               private storiesService: StoriesService, private authService:AuthService,
@@ -39,9 +37,17 @@ export class BodyHistorialComponent implements OnInit {
       this.storiesService.getStoriesByTeacherId(teacherId).subscribe(
         (stories) => {
           console.log('Historias obtenidas exitosamente:', stories);
-
+          console.log('Historias obtenidas exitosamente:', stories.length);
           // Asigna los datos al arreglo 'stories'
           this.stories = stories;
+          if(this.stories.length===0){
+            this.filtro=false;
+            console.log('estado:', this.filtro);
+
+          } else {
+            this.filtro=true;
+            console.log('estado:', this.filtro);
+          }
         },
         (error) => {
           console.error('Error al obtener historias:', error);
@@ -55,7 +61,15 @@ export class BodyHistorialComponent implements OnInit {
     }
   }
 
+  transformarFecha(fecha: string): string {
+    const fechaFormateada = new Date(fecha).toLocaleDateString('es-ES', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric'
+    });
 
+    return fechaFormateada;
+  }
 
   onFiltroChange(event: any) {
     const filtroSeleccionado = event.target.value;

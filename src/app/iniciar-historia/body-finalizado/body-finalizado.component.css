@@ -6,7 +6,7 @@ body {
 .main {
   background-color: #f2f2f2; /* Color de fondo gris */
   text-align: center; /* Centra el texto */
-  padding:80px; /* Espaciado interior del contenedor */
+  padding:160px; /* Espaciado interior del contenedor */
   font-family: 'League Spartan', sans-serif;
 
 }

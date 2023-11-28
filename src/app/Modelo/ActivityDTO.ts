@@ -1,9 +1,9 @@
+export class ActivityDTO {
 
-export class Activity {
-
-  id?: number; // Hacer id opcional con '?'
+  id: number;
   imgPreview: string;
   jsonConverted: string;
   storyId: number;
+  studentActivities:any[];
 
 }

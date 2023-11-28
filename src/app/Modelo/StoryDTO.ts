@@ -1,10 +1,10 @@
-import {Story} from "./Story";
+export class StoryDTO {
 
-export interface StoryDTO {
   id: number;
   title: string;
-  dateCreation: string; // Puedes ajustar el tipo de dato según cómo se serializa en el backend
+  dateCreation: string;
   accessWord: string;
   imgPreview: string;
+  active: boolean;
 
 }

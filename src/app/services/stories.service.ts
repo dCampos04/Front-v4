@@ -10,6 +10,7 @@ import { StoryDTO } from "../Modelo/StoryDTO";
 
 
 const base_url=['http://localhost:8080/api/stories']
+
 @Injectable({
   providedIn: 'root'
 })
@@ -30,10 +31,6 @@ export class StoriesService {
     return this.httpClient.put<Activity>(url, activity);
   }
 
-  // assignActivityToStory(storyId: number, activity: Activity): Observable<Story> {
-  //   const url = `${base_url}/${storyId}/activity`;
-  //   return this.httpClient.put<Story>(url, activity);
-  // }
 
   getStoriesByTeacherId(teacherId: number): Observable<StoryDTO[]> {
     const url = `${base_url}/byTeacher/${teacherId}`;
@@ -44,5 +41,24 @@ export class StoriesService {
     const url = `${base_url}/activate/${storyId}`;
     return this.httpClient.put(url, null);
   }
+
+  getAllActivities(storyId: number): Observable<Activity> {
+    const url = `${base_url}/${storyId}/activity`;
+    return this.httpClient.get<Activity>(url);
+  }
+
+
+  deactivateStory(storyId: number|undefined): Observable<any> {
+    const url = `${base_url}/deactivate/${storyId}`;
+    return this.httpClient.put(url, null);
+  }
+
+
+
+  deleteAllStudentActivities(storyId: number): Observable<any> {
+    const url = `${base_url}/${storyId}/activity/deleteStudentActivities`;
+    return this.httpClient.delete(url);
+  }
+
 
 }

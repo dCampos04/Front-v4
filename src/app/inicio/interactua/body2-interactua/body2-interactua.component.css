@@ -5,9 +5,16 @@ main {
   font-family: 'League Spartan', sans-serif;
 }
 
+.main5 {
+  background-color: #eaeaea; /* Color de fondo gris */
+  text-align: center; /* Centra el texto */
+  padding: 1px; /* Espaciado interior del contenedor */
+  font-family: 'League Spartan', sans-serif;
+}
+
 main h1 {
   font-size: 45px; /* Tamaño del texto en negrita */
-
+margin-top: -50px;
   color: #0049ac; /* Color del texto azul */
   margin-bottom: 40px;
   font-weight: bolder;
@@ -92,4 +99,11 @@ button.btn-orange {
 .input-group input::placeholder {
   text-align: center;
   font-size: 30px; /* Cambia el tamaño del texto del placeholder */
+}
+
+.btn2 {
+  color: #333333;
+  margin-top: 40px;
+  margin-right: 1750px;
+
 }

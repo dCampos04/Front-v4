@@ -160,5 +160,29 @@ textarea.cuestionInput {
 
 }
 
+.move-center {
+  margin-top: -20px;
+  margin-right: 250px; /* Ajusta el margen derecho según tu preferencia */
+
+}
+
+.btn-primary.move-left {
+  background-color: #fb7800;
+  border-color: #fb7800;
+  color: white; /* Cambia el color del texto según tus preferencias */
+}
+
+.btn-primary.move-rigt {
+  background-color: #fb7800;
+  border-color: #fb7800;
+  color: white; /* Cambia el color del texto según tus preferencias */
+}
+
+.btn-primary.move-center {
+  background-color: #fb7800;
+  border-color: #fb7800;
+  color: white; /* Cambia el color del texto según tus preferencias */
+}
+
 
 

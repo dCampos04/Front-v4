@@ -14,13 +14,15 @@ import { ChangeBg2Directive } from "./change-bg2.directive";
 
 
 
+
 @NgModule({
   declarations: [
     InteractuarHistoriaComponent,
     BodyEsperaComponent,
     BodyInteraccionComponent,
     BodyResultadoComponent,
-    ChangeBg2Directive
+    ChangeBg2Directive,
+
 
   ],
   imports: [

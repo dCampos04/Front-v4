@@ -20,13 +20,15 @@ export class BodyQuestionComponent implements AfterViewInit, OnInit {
   vv:string ="hola";
   title = 'Integrate CreativeEditor SDK with Angular';
   page: number = 1;
-  prevCode: string = ''; // Declarar prevCode como una cadena vacía
+  prevCode: string[] = [];
   imageCodes: string[] = [];
   bbb: boolean= false;
+  ccc: boolean=false;
   private instance: any;
   private imageCodeIndex: number = 0;
   jsonConvertido: string = '';
-
+  imgPrincipal: string = '';
+  private imageblobIndex: number = 0;
 
   postStoryForm: FormGroup;
 
@@ -68,7 +70,7 @@ export class BodyQuestionComponent implements AfterViewInit, OnInit {
       es: {}
     },
     callbacks: {
-      onUpload: 'local',
+      onUpload:'local',
       onUnsupportedBrowser: () => {
         /* This is the default window alert which will be shown in case an unsupported
          * browser tries to run CE.SDK */
@@ -97,15 +99,20 @@ export class BodyQuestionComponent implements AfterViewInit, OnInit {
       },
       onLoad: () => {
         window.alert('Load callback!');
-        const scene = '...'; // Fill with sene
+        const scene = ''; // Fill with sene
         return Promise.resolve(scene);
 
       },
       onExport: async (blobs, options) => {
         window.alert('Export callback!');
+        this.ccc = true;
+
+        console.log('index callback', this.imageblobIndex);
 
         // Obtén el Blob de la imagen
         const imageBlob = blobs[0];
+        console.log('index', this.imageblobIndex);
+        console.log('blob', imageBlob);
 
         // Convierte el Blob a base64
         const base64String = await new Promise<string>((resolve) => {
@@ -117,17 +124,15 @@ export class BodyQuestionComponent implements AfterViewInit, OnInit {
 
         });
 
-        // Muestra el código base64 en la consola
         console.log('Código base64 de la imagen:', base64String);
 
-        // Puedes guardar el archivo, mostrarlo al usuario o realizar otras operaciones según tus necesidades
-        // Ejemplo de cómo mostrar la imagen en una nueva ventana/tab:
-        const imageUrl = URL.createObjectURL(imageBlob);
-        //window.open(imageUrl);
-        this.prevCode=base64String;
+        this.prevCode[this.imageblobIndex]=base64String;
 
-        console.log('variable', this.prevCode);
+        console.log('index', this.imageblobIndex);
 
+        console.log('imagen', this.prevCode[this.imageblobIndex]);
+
+        console.log('index', this.imageblobIndex);
         return Promise.resolve();
       }
 
@@ -150,7 +155,7 @@ export class BodyQuestionComponent implements AfterViewInit, OnInit {
             close: false, // true or false
             back: false, // true or false
             load: false, // true or false
-            save: true, // true or false
+            save: false, // true or false
             export: {
               show: true,
               format: ["image/png"]
@@ -310,17 +315,22 @@ export class BodyQuestionComponent implements AfterViewInit, OnInit {
   ];
 
   nextpage() {
-    if (this.bbb) {
+
+    if (this.ccc) {
+      this.imageblobIndex=this.imageblobIndex+1;
       this.limpiarLienzo();
       this.page++;
-      this.bbb = false;
       this.imageCodeIndex++; // Incrementar el índice cuando avanzas a la siguiente página
+      this.ccc=false;
+      console.log("index nuevo= ", this.imageblobIndex)
     } else {
-
-        window.alert('Guardar antes de seguir!');
-        this.bbb=false;
+       if (!this.ccc){
+        window.alert('guardar antes de continuar!');
+        this.ccc=false;
+      }
 
     }
+
   }
 
   submitForm(index: number) {
@@ -328,14 +338,14 @@ export class BodyQuestionComponent implements AfterViewInit, OnInit {
   }
 
   generateJSON() {
-    if (this.bbb) {
+    if (this.ccc) {
       // Obtén la ID de la historia desde el servicio compartido
       const storyId = this.sharedService.getStoryId();
 
       // Iterar sobre las preguntas y asignar el valor de "imageCodes" a la propiedad "lienzo"
       for (let i = 0; i < this.questions.length; i++) {
         // Obtener el valor correspondiente de "imageCodes" (asegúrate de que haya suficientes elementos en el array)
-        const imageCode = this.imageCodes[i] || '';
+        const imageCode = this.prevCode[i] || '';
 
         // Construir la pregunta con la propiedad "lienzo"
         const question = {
@@ -367,10 +377,11 @@ export class BodyQuestionComponent implements AfterViewInit, OnInit {
       // Asignar el resultado a la variable jsonConvertido
       this.jsonConvertido = base64String;
       console.log('Contenido codificado en base64:', this.jsonConvertido);
+      console.log('prev code', this.prevCode[0])
 
       const activity: Activity = {
         jsonConverted: this.jsonConvertido,
-        imgPreview: this.prevCode,
+        imgPreview: this.prevCode[0],
         storyId: storyId, // Usar la ID de la historia obtenida del servicio compartido
       };
 
@@ -385,7 +396,7 @@ export class BodyQuestionComponent implements AfterViewInit, OnInit {
       );
     } else {
       window.alert('Guardar antes de seguir!');
-      this.bbb = false;
+      this.ccc = false;
     }
   }
   // Establece la propiedad 'correct' en true para la opción seleccionada

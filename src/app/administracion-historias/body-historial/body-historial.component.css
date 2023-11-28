@@ -9,9 +9,18 @@ main {
   display: flex;
 }
 
+.datosdehistoria .h2{
+  font-family: 'League Spartan', sans-serif;
+  font-size: 25px; /* Tamaño del texto en negrita */
+
+}
+h2{
+  font-weight: inherit; /* Grosor del texto */
 
 
-.main h1 {
+}
+
+main h1 {
   font-size: 45px; /* Tamaño del texto en negrita */
   font-weight: bold; /* Grosor del texto */
   color: #0049ac; /* Color del texto azul */
@@ -39,20 +48,28 @@ main {
   background-color: #000; /* Puedes cambiar el color si lo deseas */
 }
 
-.filtro {
-  margin-left: 1150px;
-  font-size: 15px;
-  font-weight: bold;
-  text-align: left;
-  font-family: 'League Spartan', sans-serif;
 
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
+.titulo {
+  font-size: 45px;
+  font-weight: bold;
+  color: #0049ac;
+  margin-left: 150px;
+  font-family: 'League Spartan', sans-serif;
+  margin-bottom: 20px;
+}
 
-.select-filtro {
-  margin-left: 20px;
-  font-size: 16px;
-  padding: 10px;
+.filtro {
+  margin-right: 170px;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: right;
+  margin-top: 10px;
   font-family: 'League Spartan', sans-serif;
 }
 
@@ -61,7 +78,8 @@ main {
   display: grid; /* Cambia a una cuadrícula flexible */
   grid-template-columns: repeat(auto-fill, minmax(calc(30% - 20px), 1fr)); /* Crea columnas flexibles */
   gap: 40px;
-  margin-top: -180px;
+  margin-top: -150px;
+  margin-bottom: -150px;
 }
 
 .card {
@@ -141,7 +159,7 @@ main {
 .botones-container {
   display: flex;
   justify-content: center;
-  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .boton-imagen {
@@ -162,3 +180,5 @@ main {
   width: 10px; /* Ajusta el ancho de las imágenes según sea necesario */
   height: 10px; /* Ajusta la altura de las imágenes según sea necesario */
 }
+
+

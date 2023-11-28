@@ -7,13 +7,23 @@
                   <img src="./assets/startup.png" width="70" alt="logo">
                 </div>
                 <div class="quiz-header">
-                  <h4 style="font-style: italic; margin-left: 440px;"> Responde las preguntas</h4>
-                  <span style="font-style: italic; margin-left: 280px;"> Bienvenido {{nameStudent}}!</span>
+                  <h4 style="font-style: italic; margin-left: 400px;"> Responde las preguntas...</h4>
+                  <span style="font-style: italic; margin-left: 280px;"> Bienvenido {{nombreEstudiante}}!</span>
                 </div>
         </div>
-        <div #cesdk_container [style.height.vh]="'50'" [style.width.vh]="'80'"></div>
+
+       <div>
+
+         <div class="cards-container-7">
+
+           <div class="card-7">
+             <img [src]="jsonDecodificado.questions[currentQuestion]?.lienzo" >
+
+           </div>
+         </div>
 
 
+       </div>
               <div class="d-flex justifly-center py-3" >
                 <div class="score">
                   <h5 style="font-style: italic; ; margin-left: 120px;">{{points}} Puntos</h5>
@@ -42,6 +52,8 @@
         <div class="options">
           <ol>
             <li *ngFor="let option of jsonDecodificado.questions[currentQuestion]?.options">
+
+
               <div
                 (click)="selectOption(option)"
                 [ngClass]="{'selected': option.selected, 'card': true, 'correct': option.correct}">
@@ -64,10 +76,10 @@
       <button (click)="clickv1()" class="btn btn-secondary aa">Ver palabra clave</button>
       </div>
       <div class="card panel" *ngIf="click3===1">
-        <button (click)="clickv1()" class="btn btn-primary aa">{{jsonDecodificado.questions[currentQuestion]?.palabraText}}</button>
+        <button (click)="clickv1()" class="btn btn-primary aa">{{jsonDecodificado.questions[currentQuestion]?.palabraText  || 'No se registró'}}</button>
         <div class="card-body panel-content">
-          <p >* Aquí se muestra el {{jsonDecodificado.questions[currentQuestion]?.significado}}</p>
-          <p >* Aquí se muestra el {{jsonDecodificado.questions[currentQuestion]?.casouso}}</p>
+          <p >* {{jsonDecodificado.questions[currentQuestion]?.significado || 'No se registró'}}</p>
+          <p >* {{jsonDecodificado.questions[currentQuestion]?.casouso  || 'No se registró'}}</p>
         </div>
       </div>
     </div>
@@ -84,13 +96,15 @@
       </div>
       <div class="col-md-6">
           <br>
+
+
           <h2>Felicidades! <br> La evaluación ha terminado </h2>
           <h3>Estos son tus resultados:</h3>
-          <h5> Total de preguntas formuladas: {{questionList.length}}</h5>
+          <h5> Total de preguntas formuladas: 5</h5>
           <h5> Total de preguntas correctas: {{correctAnswer}}</h5>
           <h5> Total de preguntas incorrectas: {{inCorrectAnswer}}</h5>
           <h3> Tu puntaje: {{points}}/20 Puntos</h3>
-          <button routerLink="/interactua" class="btn btn-danger mt-5">Salir</button>
+          <button routerLink="/interactua" class="btn btn-danger mt-5" (click)="completarActividad()">Salir</button>
 
 
       </div>

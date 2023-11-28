@@ -1,38 +1,34 @@
+<main class="main">
+  <div  routerLink="/crea" class="btn2">
+    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+      <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+    </svg>
+  </div>
+</main>
+<main>
 
 <main>
-  <div class="card">
-    <div class="card0">
+  <h1>Crea tu Historia</h1>
 
-      <div class="d-flex justifly-content-between mt-3 mb-5">
-        <div class="quiz-header">
-          <h4 style="font-style: italic; margin-left: 10px; margin-right: 60px;"> INGRESA UN TITULO Y UN CODIGO</h4>
-          <span style="font-style: italic; margin-left: 10px;"> Bienvenido ___!</span>
-        </div>
-        <div class="image">
-          <img src="./assets/startup.png" width="70" alt="logo" >
-        </div>
-      </div>
-      <div class="title mt-3 mb-3">
-        <h4 style="font-style: italic; margin-left: 10px">Agrega un titulo para tu historia y un codigo para que tus alumnos la busquen y puedan ingresar</h4>
-      </div>
+  <div class="card">
+    <div class="card-body">
       <form [formGroup]="postStoryForm">
-        <div class="title-group ">
-          <label >Titulo:</label>
-          <input class="titleInput" id="title" name="title" required formControlName="title" rows="3">
+        <div class="form-group">
+          <label for="title">Titulo: <span class="required">*</span></label>
+          <input placeholder=" Ingresa un titulo creativo"class="titleInput" id="title" name="title" required formControlName="title" rows="3">
         </div>
-        <div class="idSty-group ">
-          <label >Palabra Clave:</label>
-          <input class="idStyInput" id="idSty" name="idSty" required formControlName="accessWord" rows="3">
+        <div class="form-group">
+          <label for="idSty">Palabra de acceso: <span class="required">*</span></label>
+          <input placeholder=" Almenos 5 letras" class="idStyInput" id="idSty" name="idSty" required formControlName="accessWord" rows="3">
+        </div>
+        <div>
+          <label class="mensaje" style="margin-left: 80px; color: #3b3b3b">Comparte la clave con tus estudiantes...</label>
         </div>
       </form>
-    <div class="btns">
-      <div class="column d-flex justify-content-between mb-5 mt-5">
-        <button routerLink="/crea"  class="btn move-rigt"><i class="btn btn-secondary">Cancelar</i></button>
-        <button routerLink="/quiz" (click)="crearHistoria()" class="btn move-left"><i class="btn btn-primary">Siguiente</i></button>
-      </div>
-
-
     </div>
-    </div>
+  </div>
+
+  <div class="form-group">
+    <button (click)="crearHistoria()" type="button" class="btn btn-primary">Siguiente</button>
   </div>
 </main>
