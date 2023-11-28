@@ -214,14 +214,10 @@ export class BodyQuestionComponent implements AfterViewInit, OnInit {
         // docs-ui-libraries
         libraries: {
           insert: {
-            entries: (defaultEntries: any) => defaultEntries,
-            floating: true,
-            autoClose: false
+
           },
           replace: {
-            entries: (defaultEntries: any) => defaultEntries,
-            floating: true,
-            autoClose: false
+
           }
         },
         // docs-ui-libraries

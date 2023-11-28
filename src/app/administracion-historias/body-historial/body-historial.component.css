@@ -1,7 +1,7 @@
 main {
-  background-color: #f2f2f2; /* Color de fondo gris */
-  text-align: center; /* Centra el texto */
-  padding: 100px; /* Espaciado interior del contenedor */
+  background-color: #f2f2f2;
+  text-align: center;
+  padding: 100px;
   font-family: 'League Spartan', sans-serif;
 }
 
@@ -11,41 +11,41 @@ main {
 
 .datosdehistoria .h2{
   font-family: 'League Spartan', sans-serif;
-  font-size: 25px; /* Tamaño del texto en negrita */
+  font-size: 25px;
 
 }
 h2{
-  font-weight: inherit; /* Grosor del texto */
+  font-weight: inherit;
 
 
 }
 
 main h1 {
-  font-size: 45px; /* Tamaño del texto en negrita */
-  font-weight: bold; /* Grosor del texto */
-  color: #0049ac; /* Color del texto azul */
+  font-size: 45px;
+  font-weight: bold;
+  color: #0049ac;
   font-family: 'League Spartan', sans-serif;
   margin-bottom: 50px;
 }
 
 .main p {
-  font-size: 18px; /* Tamaño del texto normal */
-  margin-bottom: 20px; /* Margen inferior */
+  font-size: 18px;
+  margin-bottom: 20px;
   font-family: 'League Spartan', sans-serif;
 }
 
 .btn-register, .btn-login {
-  background-color: #000; /* Color de fondo negro */
-  color: #fff; /* Color del texto blanco */
-  border: none; /* Sin borde */
-  padding: 15px 30px; /* Espaciado interno del botón */
-  font-size: 18px; /* Tamaño del texto del botón */
-  margin-bottom: 20px; /* Margen inferior */
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 15px 30px;
+  font-size: 18px;
+  margin-bottom: 20px;
   border-radius: 30px;
 }
 
 .btn-login {
-  background-color: #000; /* Puedes cambiar el color si lo deseas */
+  background-color: #000;
 }
 
 
@@ -75,7 +75,7 @@ main h1 {
 
 .cards-container {
   padding: 10%;
-  display: grid; /* Cambia a una cuadrícula flexible */
+  display: grid;
   grid-template-columns: repeat(auto-fill, minmax(calc(30% - 20px), 1fr)); /* Crea columnas flexibles */
   gap: 40px;
   margin-top: -150px;
@@ -96,24 +96,24 @@ main h1 {
 .circles-container {
   display: flex;
   align-items: center;
-  margin-left: 10px; /* Ajusta el margen según sea necesario */
+  margin-left: 10px;
 }
 
 .circle {
   width: 35px;
   height: 35px;
   border-radius: 50%;
-  margin-right: 5px;  /* Ajusta el margen según sea necesario */
-  /* Otros estilos según sea necesario */
+  margin-right: 5px;
+
 }
 
 .card img {
   width: 100%;
-  height: 200px; /* Reduje la altura de la imagen */
+  height: 200px;
   object-fit: cover;
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
-  margin-bottom: 5px; /* Reduje el margen inferior de la imagen */
+  margin-bottom: 5px;
 }
 
 .btn-verde,
@@ -126,34 +126,34 @@ main h1 {
   font-family: 'League Spartan', sans-serif;
 }
 .btn-verde {
-  background-color: #c7df66; /* Verde */
+  background-color: #c7df66;
 }
 
 .btn-gris {
-  background-color: #7e7d7d; /* Gris */
+  background-color: #7e7d7d;
 }
 
 .btn-orange {
-  padding: 4px 16px; /* Reduje el espaciado interno de los botones */
-  font-size: 14px; /* Reduje el tamaño del texto de los botones */
-  border-radius: 20px; /* Reduje el radio del borde de los botones */
+  padding: 4px 16px;
+  font-size: 14px;
+  border-radius: 20px;
 }
 
 
 .btn-orange {
   background-color: #fd7900;
-  color: white; /* Color del texto blanco */
-  border: none; /* Sin borde */
-  padding: 5px 40px; /* Espaciado interno del botón */
-  font-size: 18px; /* Tamaño del texto del botón */
-  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
-  transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+  color: white;
+  border: none;
+  padding: 5px 40px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
   border-radius: 30px;
   font-family: 'League Spartan', sans-serif;
 }
 
 .btn-orange:hover {
-  background-color: #f57c00; /* Cambia el color de fondo al pasar sobre el botón */
+  background-color: #f57c00;
 }
 
 .botones-container {
@@ -163,22 +163,22 @@ main h1 {
 }
 
 .boton-imagen {
-  width: 10px; /* Ajusta el ancho de las imágenes según sea necesario */
-  height: 10px; /* Ajusta la altura de las imágenes según sea necesario */
-  margin-right: 10px; /* Espaciado entre las imágenes */
+  width: 10px;
+  height: 10px;
+  margin-right: 10px;
   cursor: pointer;
 }
 
 .boton-editar {
-  background-color: #b2dfb7; /* Verde claro */
-  width: 10px; /* Ajusta el ancho de las imágenes según sea necesario */
-  height: 10px; /* Ajusta la altura de las imágenes según sea necesario */
+  background-color: #b2dfb7;
+  width: 10px;
+  height: 10px;
 }
 
 .boton-eliminar {
-  background-color: #ccc; /* Gris */
-  width: 10px; /* Ajusta el ancho de las imágenes según sea necesario */
-  height: 10px; /* Ajusta la altura de las imágenes según sea necesario */
+  background-color: #ccc;
+  width: 10px;
+  height: 10px;
 }
 
 
