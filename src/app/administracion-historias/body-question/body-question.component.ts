@@ -8,6 +8,12 @@ import { Activity} from "../../Modelo/Activity";
 import { SharedService} from "../../services/shared.service";
 
 
+export interface DefaultEntries {
+  someProperty: string;
+  anotherProperty: number;
+}
+
+
 @Component({
   selector: 'app-body-question',
   templateUrl: './body-question.component.html',
@@ -31,6 +37,8 @@ export class BodyQuestionComponent implements AfterViewInit, OnInit {
   private imageblobIndex: number = 0;
 
   postStoryForm: FormGroup;
+
+
 
   constructor( private storiesService: StoriesService, private fb: FormBuilder, private router: Router, private authService: AuthService, private sharedService: SharedService // Agrega el servicio compartido
   ) {
@@ -84,7 +92,7 @@ export class BodyQuestionComponent implements AfterViewInit, OnInit {
       onClose: () => {
         window.alert('Close callback!');
       },
-      onSave: (scene) => {
+      onSave: (scene: any ) => {
         window.alert('Save callback!');
         console.info(scene);
 
@@ -103,7 +111,7 @@ export class BodyQuestionComponent implements AfterViewInit, OnInit {
         return Promise.resolve(scene);
 
       },
-      onExport: async (blobs, options) => {
+      onExport: async (blobs: any[], opciones: any) => {
         window.alert('Export callback!');
         this.ccc = true;
 
@@ -206,14 +214,14 @@ export class BodyQuestionComponent implements AfterViewInit, OnInit {
         // docs-ui-libraries
         libraries: {
           insert: {
-            entries: (defaultEntries) => defaultEntries,
-            floating: true, // true or false
-            autoClose: false // true or false
+            entries: (defaultEntries: any) => defaultEntries,
+            floating: true,
+            autoClose: false
           },
           replace: {
-            entries: (defaultEntries) => defaultEntries,
-            floating: true, // true or false
-            autoClose: false // true or false
+            entries: (defaultEntries: any) => defaultEntries,
+            floating: true,
+            autoClose: false
           }
         },
         // docs-ui-libraries

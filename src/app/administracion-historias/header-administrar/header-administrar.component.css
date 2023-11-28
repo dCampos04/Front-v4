@@ -1,114 +1,66 @@
-navbar {
+nav {
   font-family: 'League Spartan', sans-serif;
 }
+
 .navbar {
   font-family: 'League Spartan', sans-serif;
 }
 
-.container{
-  margin-left: -0px;
+.container {
   font-family: 'League Spartan', sans-serif;
 }
 
-mat-toolbar-row {
-  flex: auto;
-  display: flex;
+.mat-toolbar-row {
   justify-content: center;
   align-items: center;
-  height: 100%;
-  flex-grow: 1;
-  max-width: fit-content;
   font-family: 'League Spartan', sans-serif;
 }
-mat-toolbar-row .navdiv {
-  flex: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-width: fit-content;
-  font-family: 'League Spartan', sans-serif;
-}
-mat-toolbar-row img {
+
+.mat-toolbar-row img {
   background: rgba(255, 255, 255, 0.04);
 }
-mat-toolbar-row img:hover {
+
+.mat-toolbar-row img:hover {
   background: rgba(255, 255, 255, 0.16);
 }
-mat-toolbar-row form {
-  padding: 8px 5px 0 5px;
-  flex: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: 'League Spartan', sans-serif;
-}
+
 .nav a {
   text-decoration: none;
   color: black;
   font-size: 25px;
-  flex: auto ;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   transition: all 0.3s ease;
   font-family: 'League Spartan', sans-serif;
 }
-nav a:hover{
+
+nav a:hover {
   background: rgba(5, 1, 1, 0.03);
   border-radius: .8rem;
-  padding: 1rcap ;
-  display: flex;
-  flex: auto;
-  justify-content: center;
-  align-items: center;
-  font-family: 'League Spartan', sans-serif;
 }
-h1{
+
+h1 {
   margin: 0 40px 0 45px;
   padding: 2rcap 0 2rcap;
   font-family: 'League Spartan', sans-serif;
 }
-h1:hover{
+
+h1:hover {
   border-radius: .8rem;
   padding: -2rcap 0 -2rcap;
-  display: flex;
-  flex: auto;
-  justify-content: center;
-  align-items: center;
-
 }
+
 .nav a.active {
   font-weight: bolder;
   font-family: 'League Spartan', sans-serif;
 }
-a{
-  flex: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+a {
   font-family: 'League Spartan', sans-serif;
 }
-nav{
-  flex: auto ;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: 'League Spartan', sans-serif;
-}
-div img{
-  flex: auto ;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: 'League Spartan', sans-serif;
-}
-div img:hover{
+
+div img,
+div img:hover {
   background: rgba(5, 1, 1, 0.03);
   border-radius: .8rem;
-  display: flex;
-  flex: auto;
-  justify-content: center;
-  align-items: center;
 }
 
 .button-container {
@@ -133,33 +85,26 @@ div img:hover{
 }
 
 .aa {
-  font-size: 40px; /* Cambia el tamaño de la fuente de los enlaces */
+  font-size: 40px;
 }
 
 .bb {
   margin-left: 650px;
-  font-size: 15px; /* Cambia el tamaño de la fuente de los enlaces */
+  font-size: 15px;
   color: black;
-}
-.aaa {
-  font-size: 30px;
 }
 
 .nav-link.activet {
-  background-color: black; /* Cambia el fondo a negro */
-  color: white; /* Cambia el color del texto a blanco */
-  border-radius: 10px; /* Agrega un borde redondeado */
-  padding: 10px 20px; /* Ajusta el espacio interno del botón */
-  font-size: 16px; /* Cambia el tamaño de la fuente */
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s ease; /* Agrega una transición suave al color de fondo */
+  transition: background-color 0.3s ease;
 }
 
 .nav-link.activet:hover {
-  background-color: #000000; /* Cambia el fondo al pasar el mouse */
+  background-color: #000000;
   padding: 10px 20px;
 }
-
-
-
-

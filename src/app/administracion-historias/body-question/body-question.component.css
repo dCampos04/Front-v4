@@ -3,7 +3,7 @@ main {
   height: 1200px;
 }
 .row{
-  background-color: #ffffff; /* Color de fondo gris */
+  background-color: #ffffff;
   font-family: 'League Spartan', sans-serif;
 }
 .card{
@@ -21,7 +21,7 @@ main {
   height: 920px;
   padding: 10px;
   border-radius: 10px;
-  border: 1px solid #989898; /* Añade esta línea para el borde negro */
+  border: 1px solid #989898;
   background-color: #ffffff;
 
 }
@@ -31,8 +31,8 @@ main {
   height: 920px;
   padding: 10px;
   border-radius: 10px;
-  border: 1px solid #989898; /* Añade esta línea para el borde negro */
-  background-color: #ffffff; /* Color de fondo gris */
+  border: 1px solid #989898;
+  background-color: #ffffff;
 
 }
 .resp-group {
@@ -96,8 +96,8 @@ btns {
   border-radius: 5px;
 }
 .responseInput {
-  width: 250px; /* Ancho personalizado */
-  height: 40px; /* Alto personalizado */
+  width: 250px;
+  height: 40px;
   padding: 5px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -123,8 +123,8 @@ btns {
   margin-left: 10px;
 }
 .responseInput2 {
-  width: 350px; /* Ancho personalizado */
-  height: 40px; /* Alto personalizado */
+  width: 350px;
+  height: 40px;
   padding: 5px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -142,7 +142,7 @@ textarea.significadoInput {
 
 
 textarea.cuestionInput {
-  width: 450px; /* Ancho personalizado */
+  width: 450px;
   height: 100px;
   padding: 10px;
   border: 1px solid #ccc;
@@ -151,37 +151,37 @@ textarea.cuestionInput {
 
 .move-left {
   margin-top: -20px;
-  margin-right: 140px; /* Ajusta el margen derecho según tu preferencia */
+  margin-right: 140px;
 
 }
 .move-rigt {
   margin-top: -20px;
-  margin-right: 110px; /* Ajusta el margen derecho según tu preferencia */
+  margin-right: 110px;
 
 }
 
 .move-center {
   margin-top: -20px;
-  margin-right: 250px; /* Ajusta el margen derecho según tu preferencia */
+  margin-right: 250px;
 
 }
 
 .btn-primary.move-left {
   background-color: #fb7800;
   border-color: #fb7800;
-  color: white; /* Cambia el color del texto según tus preferencias */
+  color: white;
 }
 
 .btn-primary.move-rigt {
   background-color: #fb7800;
   border-color: #fb7800;
-  color: white; /* Cambia el color del texto según tus preferencias */
+  color: white;
 }
 
 .btn-primary.move-center {
   background-color: #fb7800;
   border-color: #fb7800;
-  color: white; /* Cambia el color del texto según tus preferencias */
+  color: white;
 }
 
 

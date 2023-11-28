@@ -133,12 +133,12 @@ div img:hover{
 }
 
 .aa {
-  font-size: 40px; /* Cambia el tamaño de la fuente de los enlaces */
+  font-size: 40px;
 }
 
 .bb {
   margin-left: 650px;
-  font-size: 15px; /* Cambia el tamaño de la fuente de los enlaces */
+  font-size: 15px;
   color: black;
 }
 .aaa {
@@ -146,17 +146,17 @@ div img:hover{
 }
 
 .nav-link.activet {
-  background-color: black; /* Cambia el fondo a negro */
-  color: white; /* Cambia el color del texto a blanco */
-  border-radius: 10px; /* Agrega un borde redondeado */
-  padding: 10px 20px; /* Ajusta el espacio interno del botón */
-  font-size: 16px; /* Cambia el tamaño de la fuente */
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s ease; /* Agrega una transición suave al color de fondo */
+  transition: background-color 0.3s ease;
 }
 
 .nav-link.activet:hover {
-  background-color: #000000; /* Cambia el fondo al pasar el mouse */
+  background-color: #000000;
   padding: 10px 20px;
 }
 
