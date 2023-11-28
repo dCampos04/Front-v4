@@ -7,7 +7,6 @@ import {BodyHistorialComponent} from "./body-historial/body-historial.component"
 import {BodyQuestionComponent} from "./body-question/body-question.component";
 import {BodyVocabularyComponent} from "./body-vocabulary/body-vocabulary.component";
 import {BodyIdTitleComponent} from "./body-id-title/body-id-title.component";
-import {ApiComponent} from "./api/api.component";
 import {AuthGuard} from "../auth.guard";
 import {IniciarHistoriaComponent} from "../iniciar-historia/iniciar-historia.component";
 
@@ -15,7 +14,6 @@ import {IniciarHistoriaComponent} from "../iniciar-historia/iniciar-historia.com
 const routes: Routes = [
   { path: '', component: AdministracionHistoriasComponent, children: [ {path: '', component: BodyCrearComponent}], canActivate: [AuthGuard]},
   { path: 'crea', component: AdministracionHistoriasComponent, children: [ {path: '', component: BodyCrearComponent}]},
-  { path: 'api', component: AdministracionHistoriasComponent, children: [ {path: '', component: ApiComponent}], canActivate: [AuthGuard]},
   { path: 'historial', component: AdministracionHistoriasComponent, children: [ {path: '', component: BodyHistorialComponent}], canActivate: [AuthGuard]},
   { path: 'idtitulo', component: IniciarHistoriaComponent, children: [ {path: '', component: BodyIdTitleComponent}]},
   { path: 'quiz', component: IniciarHistoriaComponent, children: [ {path: '', component: BodyQuestionComponent}]},
