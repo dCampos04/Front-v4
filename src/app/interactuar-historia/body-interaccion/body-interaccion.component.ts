@@ -22,7 +22,7 @@ export class BodyInteraccionComponent implements OnInit, AfterViewInit, OnDestro
   accessWord: string = '';
   public estado: boolean = false;
   private destroy$: Subject<void> = new Subject<void>();
-
+  public malas:any =0;
   selectedPanel: number | null = null;
   vocabclick1: boolean = false;
   vocabclick2: boolean = false;
@@ -311,14 +311,6 @@ export class BodyInteraccionComponent implements OnInit, AfterViewInit, OnDestro
     }
   }
 
-  togglePanel(panel: number) {
-    if (this.selectedPanel === panel) {
-      this.selectedPanel = null;
-    } else {
-      this.selectedPanel = panel;
-    }
-  }
-
   consultas=0;
 
   clickv1() {
@@ -332,18 +324,6 @@ export class BodyInteraccionComponent implements OnInit, AfterViewInit, OnDestro
       this.click3 = 0;
     }
     this.consultas=this.consultas+1;
-  }
-
-  clickv2() {
-    if (!this.vocabclick2) {
-      this.click3 = 2;
-      this.vocabclick1 = false;
-      this.vocabclick2 = true;
-      this.vocabclick3 = false;
-    } else {
-      this.vocabclick2 = false;
-      this.click3 = 0;
-    }
   }
 
 
@@ -411,19 +391,6 @@ export class BodyInteraccionComponent implements OnInit, AfterViewInit, OnDestro
     }
   }
 
-  answer(currentQno: number, option: any) {
-    this.getProgressPorcent();
-
-    //almacenar la respuesta en el array y sumarle 1 para el posterior
-
-
-    if (currentQno === this.questionList.length) {
-      setTimeout(() => {
-        this.isQuizCompleted = true;
-      }, 1000);
-      this.stopCounter();
-    }
-  }
 
   startCounter() {
     this.qscli = false;
@@ -496,8 +463,9 @@ export class BodyInteraccionComponent implements OnInit, AfterViewInit, OnDestro
     console.log("Correctas:",this.correctAnswer)
     console.log("incorrectas:",this.inCorrectAnswer)
     this.isQuizCompleted = true;
+    this.malas=5-this.correctAnswer;
     this.interaccion[0].cantidadCorrectas = this.correctAnswer;
-    this.interaccion[0].cantidadIorrectas = this.inCorrectAnswer;
+    this.interaccion[0].cantidadIorrectas = this.malas;
     this.interaccion[0].cantidadPuntos = this.points;
     this.generateJSON();
   }
@@ -515,7 +483,7 @@ export class BodyInteraccionComponent implements OnInit, AfterViewInit, OnDestro
       activityId: studentId,
       studentId: activityId,
       correctAnswer: this.points,
-      consultedWord: this.consultas,
+      consultedWord: this.consultas/2,
     };
     console.log("id de la actividad:", studentActivityData)
 

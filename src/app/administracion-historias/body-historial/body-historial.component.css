@@ -34,19 +34,6 @@ main h1 {
   font-family: 'League Spartan', sans-serif;
 }
 
-.btn-register, .btn-login {
-  background-color: #000;
-  color: #fff;
-  border: none;
-  padding: 15px 30px;
-  font-size: 18px;
-  margin-bottom: 20px;
-  border-radius: 30px;
-}
-
-.btn-login {
-  background-color: #000;
-}
 
 
 .header-container {
@@ -93,19 +80,8 @@ main h1 {
 }
 
 
-.circles-container {
-  display: flex;
-  align-items: center;
-  margin-left: 10px;
-}
 
-.circle {
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  margin-right: 5px;
 
-}
 
 .card img {
   width: 100%;
@@ -116,22 +92,6 @@ main h1 {
   margin-bottom: 5px;
 }
 
-.btn-verde,
-.btn-gris {
-
-  background-color: transparent;
-  color: white;
-  border: none;
-  cursor: pointer;
-  font-family: 'League Spartan', sans-serif;
-}
-.btn-verde {
-  background-color: #c7df66;
-}
-
-.btn-gris {
-  background-color: #7e7d7d;
-}
 
 .btn-orange {
   padding: 4px 16px;
@@ -169,16 +129,6 @@ main h1 {
   cursor: pointer;
 }
 
-.boton-editar {
-  background-color: #b2dfb7;
-  width: 10px;
-  height: 10px;
-}
 
-.boton-eliminar {
-  background-color: #ccc;
-  width: 10px;
-  height: 10px;
-}
 
 
