@@ -13,7 +13,7 @@ main {
 .main3 {
   background-color: #e8e8e8;
   text-align: center; /* Centra el texto */
-  padding: 150px; /* Espaciado interior del contenedor */
+  padding: 60px; /* Espaciado interior del contenedor */
   font-family: 'League Spartan', sans-serif;
 }
 
@@ -34,17 +34,29 @@ h5 {
   background-color: #ffffff;
 }
 
+.card52 {
+  margin-top: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  height: 600px;
+  padding: 10px;
+  border: 1px solid #c5c5c5;
+  border-radius: 10px;
+  background-color: #ffffff;
+}
+
+
 
 .card-7 {
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0);
   padding: 10px;
   box-sizing: border-box;
   text-align: center;
 }
 .card-7 img {
-  max-width: 100%;
-  height: 20%; /* Para mantener la proporción original de la imagen */
-  border-radius: 20px; /* Puedes ajustar el radio de borde según tus preferencias */
+  width: 93%;
+  height: 15%; /* Para mantener la proporción original de la imagen */
+  border-radius: 10px; /* Puedes ajustar el radio de borde según tus preferencias */
 }
 
 
@@ -69,7 +81,7 @@ li{
   margin: 10px 0;
 }
 li .card:hover{
-  border: 1px solid blue;
+  border: 1px solid #e1791a;
 }
 ol{
   padding: 0;
@@ -161,7 +173,7 @@ button.aa{
 }
 
 .panel h3 {
-  color: #007BFF;
+  color: #565656;
   margin-bottom: 5px;
 }
 
@@ -199,9 +211,9 @@ button.aa{
 }
 
 .options div.selected {
-  background-color: #05588d; /* Color de fondo cuando está seleccionado */
+  background-color: rgb(251, 120, 0); /* Color de fondo cuando está seleccionado */
   color: #fff; /* Color del texto cuando está seleccionado */
-  border: 2px solid grey;
+  border: 2px solid #5e5e5e;
 }
 
 /*.options div.correct {*/
@@ -216,12 +228,13 @@ body {
   align-items: center;
   height: 75vh;
   margin: 0vh;
+  background-color: rgba(255, 255, 255, 0);
 }
 
 .card25 {
-  border: 1px solid #ccc;
-  border-radius: 8px;
-
+  border: 1px solid rgba(204, 204, 204, 0);
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0);
   display: flex;
 }
 
@@ -269,6 +282,18 @@ body {
   margin-left: 10px;
   background-color: #e8e8e8;
   border: 1px solid #969696;
+}
+
+.btn-pr {
+  background-color: #ee7102;
+  border-color: #ee7102;
+  color: white;
+}
+
+.btn-pr2 {
+  background-color: #ee7102;
+  border-color: #ee7102;
+  color: white;
 }
 
 

@@ -89,8 +89,7 @@ body {
 }
 
 .esperando {
-  font-size: 50px; /* Tamaño del texto */
-  font-weight: bold; /* Texto en negrita */
+  font-size: 25px; /* Tamaño del texto */
   color: black; /* Color del texto negro */
   margin-bottom: 15px; /* Margen inferior entre los párrafos */
   margin-top: 20px; /* Margen superior */

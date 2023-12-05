@@ -415,6 +415,7 @@ export class BodyInteraccionComponent implements OnInit, AfterViewInit, OnDestro
 
   endQuiz() {
     console.log("palabras consultadas",this.consultedWords)
+    this. completarActividad();
     if (this.selectedOption) {
       // Verificar si la opción seleccionada es la correcta
       if (this.selectedOption.correct) {
@@ -440,20 +441,30 @@ export class BodyInteraccionComponent implements OnInit, AfterViewInit, OnDestro
 
 
   completarActividad() {
-
+    console.log("Enviando array de consultedword:", this.consultedWords)
     const studentId =  this.sharedService.getStoryActivityId();
     const activityId = this.sharedService.getStudentId();
     console.log("id de la actividad:", activityId)
     console.log("id del estudiante:", studentId)
+
+
+
+    const consultedWords = this.consultedWords
+    const contenidoTransformadoB64 = this.codifB64(consultedWords);
+    console.log("b64:", contenidoTransformadoB64)
+
 
     // Supongamos que ya tienes los datos de la actividad
     const studentActivityData: StudentActivity = {
       activityId: studentId,
       studentId: activityId,
       correctAnswer: this.points,
-      consultedWord: this.consultas/2,
+      consultedWord: contenidoTransformadoB64,
     };
-    console.log("id de la actividad:", studentActivityData)
+
+    console.log("datos completos:", studentActivityData)
+    console.log("rara cosa:", studentActivityData.consultedWord)
+
 
     // Llama al servicio para completar la actividad
     this.studentService.completeActivity(studentId, activityId, studentActivityData)
@@ -473,5 +484,18 @@ export class BodyInteraccionComponent implements OnInit, AfterViewInit, OnDestro
 
   hideButton1: boolean = false;
   hideButton2: boolean = false;
+
+  codifB64(consultedWords: { palabra: string, consultCount: number }[]): string {
+    // Convertir el array a una cadena JSON
+    const contenidoTransformadoJSON = JSON.stringify(consultedWords);
+
+    // Codificar la cadena JSON en base64
+    const contenidoTransformadoB64 = btoa(contenidoTransformadoJSON);
+
+    // Devolver la cadena base64 resultante
+    return contenidoTransformadoB64;
+  }
+
+
 
 }

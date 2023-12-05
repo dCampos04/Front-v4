@@ -2,21 +2,21 @@
   <ng-container *ngIf="!isQuizCompleted">
 
     <body>
-    <div class="card25">
-      <div class="columna-izquierda">
+    <div class="card25" >
+      <div class="columna-izquierda" style="margin-left: 50px">
         <!-- Contenido de la columna izquierda -->
-          <div class="cards-container-7">
-            <div class="card-7">
-              <img [src]="jsonDecodificado.questions[currentQuestion]?.lienzo" alt="lienzo">
-            </div>
+        <div class="cards-container-7">
+          <div class="card-7">
+            <img [src]="jsonDecodificado.questions[currentQuestion]?.lienzo" alt="lienzo">
           </div>
+        </div>
       </div>
 
       <div class="columna-derecha">
         <div class="fila-arriba">
           <!-- Contenido de la fila superior de la columna derecha -->
 
-          <div class="card">
+          <div class="card52 mt-2">
             <div class="d-flex justify-content-between mt-1 mb-1">
               <div class="image">
                 <img src="./assets/startup.png" width="70" alt="logo">
@@ -62,35 +62,33 @@
             </div>
 
             <div class="btnend mt-3 mb-3">
-              <button *ngIf="currentQuestion < 4" class="btn" (click)="nextQuestion()">
-                <i class="fa text-primary fa-chevron-right fa-2x" aria-hidden="true"></i>
-              </button>
-              <button *ngIf="currentQuestion >= 4" class="btn btn-primary" (click)="endQuiz()">FINALIZAR</button>
+              <button *ngIf="currentQuestion < 4" class="btn btn-pr2 mt-3" (click)="nextQuestion()">Siguiente</button>
+              <button *ngIf="currentQuestion >= 4" class="btn btn-pr mt-3" (click)="endQuiz()">FINALIZAR</button>
             </div>
           </div>
 
 
-          <div class="fila-arriba-der">
+          <div class="fila-arriba-der" style="margin-right: 100px">
 
             <!-- Ayuda 1 -->
-            <div class="card panel2" *ngIf="click1 == 0 && !hideButton1">
+            <div class="card panel2 mt-2" *ngIf="click1 == 0 && !hideButton1">
               <button (click)="clickv1()" class="btn btn-secondary aa">Ayuda 1</button>
             </div>
 
-            <div class="card panel23" *ngIf="click1 === 1 && !hideButton1">
-              <button (click)="clickv1()" class="btn btn-primary aa">{{jsonDecodificado.questions[currentQuestion]?.palabraText[0] || 'No se registró'}}</button>
+            <div class="card panel23 mt-2" *ngIf="click1 === 1 && !hideButton1">
+              <button (click)="clickv1()" class="btn btn-pr aa">{{jsonDecodificado.questions[currentQuestion]?.palabraText[0] || 'No se registró'}}</button>
               <div class="card-body panel-content">
                 <p>* {{jsonDecodificado.questions[currentQuestion]?.significado[0] || 'No se registró'}}</p>
               </div>
             </div>
 
             <!-- Ayuda 2 -->
-            <div class="card panel2" *ngIf="click2 == 0 && !hideButton2">
+            <div class="card panel2 mt-2" *ngIf="click2 == 0 && !hideButton2">
               <button (click)="clickv2()" class="btn btn-secondary aa">Ayuda 2</button>
             </div>
 
-            <div class="card panel23" *ngIf="click2 === 1 && !hideButton2">
-              <button (click)="clickv2()" class="btn btn-primary aa">{{jsonDecodificado.questions[currentQuestion]?.palabraText[1] || 'No se registró'}}</button>
+            <div class="card panel23 mt-2" *ngIf="click2 === 1 && !hideButton2">
+              <button (click)="clickv2()" class="btn btn-pr aa">{{jsonDecodificado.questions[currentQuestion]?.palabraText[1] || 'No se registró'}}</button>
               <div class="card-body panel-content">
                 <p>* {{jsonDecodificado.questions[currentQuestion]?.significado[1] || 'No se registró'}}</p>
               </div>
@@ -134,6 +132,8 @@
 </main>
 
 
-
+<div *ngFor="let word of consultedWords">
+  {{ word.palabra }} consultada {{ word.consultCount }} veces
+</div>
 
 

@@ -1,33 +1,54 @@
 
 <main class="main">
   <h1>La historia ha Finalizado</h1>
-  <p class="titulo">Titulo: <span class="titulo-grande">{{students.title}}</span></p>
+  <h3 class="titulo mb-5">Titulo: {{ students.title }}</h3>
   <div class="resultados-info">
     <h2 class="resultados-titulo">Resultados:</h2>
-    <p class="resultados-texto">{{students.totalStudents}} Estudiantes</p>
+    <h2 class="titulo">{{ students.totalStudents }} Estudiantes</h2>
   </div>
-  <div class="tabla">
-    <div class="fila">
-      <div class="columna nombre">Nombre del estudiante</div>
-      <div class="columna puntaje">Puntaje</div>
-      <div class="columna palabraConsultada">Palabras Consultadas</div>
-    </div>
-    <div *ngFor="let student of students.students" class="fila">
-      <div class="columna nombre"><br>{{ student.nameStudent }}</div>
-      <div class="columna puntaje"><br>{{ student.correctAnswer }}/20</div>
-      <div class="columna palabraConsultada"> Pelo consultada 3 veces <br>
-        Pelo consultada 3 veces <br>
-        Pelo consultada 3 veces
-      </div>
-    </div>
-   </div>
+  <div class="tabla mt-5">
+
+    <table responsive cAlign="middle" cTable>
+      <hr class="linea-horizontal">
+      <thead>
+      </thead>
+      <thead>
+      <tr>
+        <th class="w-25" scope="col">
+          Nombre del estudiante
+        </th>
+        <th class="w-25" scope="col">
+          Puntaje
+        </th>
+        <th class="w-25" scope="col">
+          Palabras Consultadas
+        </th>
+      </tr>
+      </thead>
+      <hr class="linea-horizontal">
+      <tbody *ngFor="let student of students.students">
+      <tr>
+        <td>
+          {{ student.nameStudent }}
+        </td>
+        <td>
+          {{ student.correctAnswer }}/20
+        </td>
+        <td>
+          <ng-container *ngFor="let word of student.consultedWord">{{ word.palabra }} consultada {{ word.consultCount }} vez<br>
+          </ng-container>
+        </td>
+      </tr>
+      <hr class="linea-horizontal">
+      </tbody>
+    </table>
+  </div>
     <button class="btn-orange" routerLink="/historial">Volver a mis historias</button>
 </main>
 
 
-<!--<div *ngFor="let word of consultedWords">-->
-<!--  {{ word.palabra }} consultada {{ word.consultCount }} veces-->
-<!--</div>-->
+
+
 
 
 

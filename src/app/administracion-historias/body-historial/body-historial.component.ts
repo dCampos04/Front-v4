@@ -82,9 +82,12 @@ export class BodyHistorialComponent implements OnInit {
       // Ordenar alfabéticamente por el título de la historia
       this.stories.sort((a: any, b: any) => a.title.localeCompare(b.title));
     } else if (filtroSeleccionado === 'Mas recientes') {
-      // Aquí puedes implementar la lógica para ordenar por la fecha más reciente si es necesario
-      // Por ejemplo, podrías tener una propiedad de fecha en tus objetos 'libro'
-      // y ordenar en consecuencia.
+      // Ordenar por la fecha de creación de forma descendente (los más recientes primero)
+      this.stories.sort((a: any, b: any) => {
+        const dateA = new Date(a.dateCreation).getTime();
+        const dateB = new Date(b.dateCreation).getTime();
+        return dateB - dateA;
+      });
     } else {
       // Si se selecciona "Seleccionar filtro" o cualquier otro caso, restaurar la lista a su estado original
       this.ngOnInit();

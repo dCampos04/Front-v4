@@ -32,7 +32,7 @@ export class BodyPreFinComponent implements OnInit {
     // Espera 10 segundos y luego navega a la ruta /terminar
     setTimeout(() => {
       this.router.navigate(['/terminar']);
-    }, 10000);
+    }, 5000);
   }
 
   terminarYVerResultados() {
