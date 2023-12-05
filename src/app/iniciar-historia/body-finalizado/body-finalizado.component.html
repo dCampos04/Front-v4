@@ -10,14 +10,24 @@
     <div class="fila">
       <div class="columna nombre">Nombre del estudiante</div>
       <div class="columna puntaje">Puntaje</div>
+      <div class="columna palabraConsultada">Palabras Consultadas</div>
     </div>
     <div *ngFor="let student of students.students" class="fila">
-      <div class="columna nombre">{{ student.nameStudent }}</div>
-      <div class="columna puntaje">{{ student.correctAnswer }}/20</div>
+      <div class="columna nombre"><br>{{ student.nameStudent }}</div>
+      <div class="columna puntaje"><br>{{ student.correctAnswer }}/20</div>
+      <div class="columna palabraConsultada"> Pelo consultada 3 veces <br>
+        Pelo consultada 3 veces <br>
+        Pelo consultada 3 veces
+      </div>
     </div>
    </div>
     <button class="btn-orange" routerLink="/historial">Volver a mis historias</button>
 </main>
+
+
+<!--<div *ngFor="let word of consultedWords">-->
+<!--  {{ word.palabra }} consultada {{ word.consultCount }} veces-->
+<!--</div>-->
 
 
 

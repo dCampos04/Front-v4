@@ -10,6 +10,7 @@ import { StoryDTO } from "../Modelo/StoryDTO";
 
 
 const base_url=['http://localhost:8080/api/stories']
+//const base_url1=['https://3.143.233.119/api/stories'];
 
 @Injectable({
   providedIn: 'root'

@@ -1,6 +1,6 @@
 
   <main>
-        <div class="card mb-5">
+        <div class="card">
           <div class="d-flex">
             <div class="izqui col-lg-6">
               <!-- Parte izquierda -->
@@ -11,25 +11,11 @@
             <div class="dere col-lg-6">
             <!-- Parte derecha -->
               <div class="card3 mt-5 mb-5">
-                <div class="d-flex justifly-content-between mt-3 mb-2">
-                  <div class="quiz-header">
-                    <h4 style="font-style: italic; margin-left: 10px; margin-right: 260px;"> Realiza tus preguntas</h4>
-                    <span style="font-style: italic; margin-left: 10px;"> Bienvenido ___!</span>
-                  </div>
-                  <div class="image">
-                    <img src="./assets/startup.png" width="70" alt="logo" >
-
-
-
-                  </div>
-                </div>
-
-
                 <ng-container *ngFor="let question of questions; let i = index">
                   <div *ngIf="page === i + 1">
                     <div class="formulario">
                       <form (submit)="submitForm(i)">
-                        <div class="title mt-1 mb-1" style="margin-left: 100px">
+                        <div class="title mt-3 mb-1" style="margin-left: 100px">
                           <h2>FORMULARIO {{ i + 1 }}:</h2>
                         </div>
                         <div class="resp-group ">
@@ -46,21 +32,34 @@
                             <input class="option" type="radio" [id]="'correct-' + i + '-' + j" name="correct{{ i }}" [value]="j" [checked]="questions[i].options[j].correct" (change)="updateCorrectOption(i, j)">
 
                           </div>
-                          <div class="title mt-4 mb-3" style="margin-left: 100px">
-                            <h2>VOCABULARIO {{ i + 1 }}:</h2>
+                          <div class="card55 title mt-4 mb-4" style="margin-left: 8px">
+                            <h4>VOCABULARIO {{ i + 1 }}:</h4>
+
+
+                          <form [formGroup]="miFormulario">
+                            <div *ngFor="let palabraGrupo of palabraGrupos; let i = index" formArrayName="palabras">
+                              <div [formGroupName]="i">
+                                <label class="sigcas">
+                                  Palabra:
+                                  <input class="responseInput2" formControlName="palabra"/>
+                                  <button *ngIf="i === 1 && ddd === 2" type="button" (click)="eliminarCampo()" class="round-button delete-button">-</button>
+                                  <button *ngIf="i === 0 && ddd === 1" type="button" (click)="agregarCampo()" class="round-button add-button">+</button>
+                                </label>
+                                <label class="sigcas">
+                                  Significado:
+                                  <textarea class="significadoInput" formControlName="significado"></textarea>
+                                </label>
+                                <br>
+                                <img *ngIf="ddd === 1" src="./assets/Diccionario.jpg" style="width: 400px; margin-left: 10px">
+                              </div>
+                            </div>
+                          </form>
+
+
+
+
                           </div>
-                          <div class="response">
-                            <label  class="sigcas" for="palabraText{{ i + 1 }}">Palabra {{ i + 1 }}:</label>
-                            <input class="responseInput2" type="text" id="palabraText{{ i + 1 }}" name="palabraText{{ i + 1 }}" [(ngModel)]="questions[i].palabraText" required>
-                          </div>
-                          <div class="sign-group">
-                            <label class="sigcas" for="significado{{ i + 1 }}">Significado {{ i + 1 }}:</label>
-                            <textarea class="significadoInput" id="significado{{ i + 1 }}" name="significado{{ i + 1 }}" [(ngModel)]="questions[i].significado" required rows="3"></textarea>
-                          </div>
-                          <div class="casou-group ">
-                            <label class="sigcas" for="casouso{{ i + 1 }}">Caso de Uso {{ i + 1 }}:</label>
-                            <textarea class="significadoInput" id="casouso{{ i + 1 }}" name="casouso{{ i + 1 }}" [(ngModel)]="questions[i].casouso" required rows="3"></textarea>
-                          </div>
+
                         </div>
                       </form>
                     </div>
@@ -75,24 +74,6 @@
                 </div>
               </div>
             </div>
-          </div>
-
-
-
-
-          <div>
-            <p>Contenido convertido:</p>
-            <p>{{jsonConvertido}}</p>
-
-            <p>imagen prev:</p>
-            <p>{{prevCode}}</p>
-
-            <p>Contenido de jsonapi:</p>
-            <ul>
-              <li *ngFor="let item of imageCodes">{{ item }}</li>
-            </ul>
-
-
           </div>
         </div>
   </main>

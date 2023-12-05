@@ -1,9 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { AuthService } from "../../../services/auth.service";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {Router, RouterModule} from "@angular/router";
-
-import {MatDialog, MatDialogModule} from "@angular/material/dialog";
+import { FormBuilder, FormGroup, Validators} from "@angular/forms";
+import { Router, RouterModule} from "@angular/router";
+import { MatDialog, MatDialogModule} from "@angular/material/dialog";
 import { ModalConfRegComponent} from "../modal-conf-reg/modal-conf-reg.component";
 
 
@@ -29,6 +28,7 @@ export class BodyRegistroComponent implements OnInit{
       password: [null,[Validators.required]],
       newsletterCtrl: [false]
     })
+    console.warn()
   }
 
   siguientePaso() {

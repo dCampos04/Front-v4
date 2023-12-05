@@ -32,7 +32,7 @@ import { Body2InteractuaComponent } from './interactua/body2-interactua/body2-in
 import { MatCardModule } from "@angular/material/card";
 import { MatButtonModule } from "@angular/material/button";
 import { ModalConfRegComponent } from './registro/modal-conf-reg/modal-conf-reg.component';
-import {BodyRegistroComponent} from "./registro/body-registro/body-registro.component";
+import { BodyRegistroComponent} from "./registro/body-registro/body-registro.component";
 
 
 @NgModule({
@@ -58,7 +58,6 @@ import {BodyRegistroComponent} from "./registro/body-registro/body-registro.comp
     MatCheckboxModule,
     MatIconModule,
     MatToolbarModule,
-
     FormsModule,
     FormDirective,
     GutterDirective,
@@ -67,7 +66,6 @@ import {BodyRegistroComponent} from "./registro/body-registro/body-registro.comp
     FormLabelDirective,
     FormFeedbackComponent,
     ColComponent,
-    ReactiveFormsModule,
     AlertModule,
     MatCardModule,
     MatButtonModule,

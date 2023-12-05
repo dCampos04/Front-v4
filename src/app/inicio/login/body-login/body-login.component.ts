@@ -1,5 +1,5 @@
 import { Component} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { AuthService } from "../../../services/auth.service";
 import { Router } from "@angular/router";
 
@@ -12,7 +12,6 @@ import { Router } from "@angular/router";
 export class BodyLoginComponent {
 
   loginTeacherForm: FormGroup;
-
 
   constructor(private teacherService: AuthService,
               private fb: FormBuilder,
@@ -30,10 +29,10 @@ export class BodyLoginComponent {
   login() {
     console.log(this.loginTeacherForm.value);
     this.teacherService.authenticate(this.loginTeacherForm.value).subscribe((res) => {
-        console.log(res);
+        console.log("esta es la resupesta:",res);
         if (res) {
           // Asegúrate de que res es verdadero (autenticación exitosa) antes de intentar acceder a res.token
-          localStorage.setItem('token', res.token || ''); // Usa un valor predeterminado en caso de que res.token sea undefined
+          localStorage.setItem('token', res.token);
           this.router.navigate(['/crea']);
         }
       },

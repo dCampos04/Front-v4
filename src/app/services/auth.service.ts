@@ -11,7 +11,8 @@ import { Teacher} from "../Modelo/Teacher";
 })
 export class AuthService {
 
-  private baseUrl = 'http://localhost:8080/api/auth';  // Cambia esto según la URL de tu backend
+  private baseUrl = 'http://localhost:8080/api/auth';
+  //const base_url1=['https://3.143.233.119/api/auth'];
 
   constructor(private httpClient: HttpClient) { }
 

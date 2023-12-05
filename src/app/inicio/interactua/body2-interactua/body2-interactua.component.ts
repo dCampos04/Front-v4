@@ -6,7 +6,6 @@ import { Student} from "../../../Modelo/Student";
 import { StoryDTORequest } from "../../../Modelo/StoryDTORequest";
 import {SharedService} from "../../../services/shared.service";
 
-
 @Component({
   selector: 'app-body2-interactua',
   templateUrl: './body2-interactua.component.html',
@@ -39,7 +38,7 @@ export class Body2InteractuaComponent implements OnInit{
       this.page = 1;
     }
     else {
-      this.router.navigate(['/interactuar']);
+      this.router.navigate(['/']);
     }
   }
 

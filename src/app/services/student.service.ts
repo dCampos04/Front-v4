@@ -8,6 +8,7 @@ import { StudentActivity } from "../Modelo/StudentActivity"
 
 
 const base_url=['http://localhost:8080/api/students']
+//const base_url1=['https://3.143.233.119/api/students'];
 
 @Injectable({
   providedIn: 'root'
@@ -31,6 +32,4 @@ export class StudentService {
     const url = `${base_url}/${activityId}/studentActivities/${studentId}`;
     return this.httpClient.post<StudentActivity>(url, studentActivity);
   }
-
-
 }

@@ -1,12 +1,11 @@
-import { Component, OnInit} from '@angular/core';
-import { QuestionService } from "../../service/question.service";
-import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
-import { StoriesService} from "../../services/stories.service";
-import { StoryDTO} from "../../Modelo/StoryDTO";
-import { AuthService} from "../../services/auth.service";
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators, FormArray, FormControl } from '@angular/forms';
+import { DomSanitizer } from '@angular/platform-browser';
+import { StoriesService } from '../../services/stories.service';
+import { StoryDTO } from '../../Modelo/StoryDTO';
+import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { SharedService } from '../../services/shared.service';
-
 
 
 @Component({
@@ -17,13 +16,19 @@ import { SharedService } from '../../services/shared.service';
 export class BodyHistorialComponent implements OnInit {
 
   stories: StoryDTO[] = [];
-  public filtro:boolean=false;
+  public filtro: boolean = false;
 
-  constructor( private sanitizer: DomSanitizer,
-              private storiesService: StoriesService, private authService:AuthService,
-              private router: Router, private sharedService: SharedService,
+  constructor(
+    private sanitizer: DomSanitizer,
+    private fb: FormBuilder,
+    private storiesService: StoriesService,
+    private authService: AuthService,
+    private router: Router,
+    private sharedService: SharedService,
   ) {
+
   }
+
 
   ngOnInit() {
 
@@ -93,5 +98,6 @@ export class BodyHistorialComponent implements OnInit {
     // Redirige a la página de inicio de la historia
     this.router.navigate(['/iniciar']);
   }
+
 
 }

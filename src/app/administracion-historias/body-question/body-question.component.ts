@@ -2,11 +2,11 @@ import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/
 import CreativeEditorSDK, { Configuration } from '@cesdk/cesdk-js';
 import { Router } from '@angular/router';
 import { StoriesService } from "../../services/stories.service";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {FormArray, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../services/auth.service";
 import { Activity} from "../../Modelo/Activity";
 import { SharedService} from "../../services/shared.service";
-
+import { VocQ} from "../../Modelo/vocQ";
 
 export interface DefaultEntries {
   someProperty: string;
@@ -19,15 +19,19 @@ export interface DefaultEntries {
   templateUrl: './body-question.component.html',
   styleUrls: ['./body-question.component.css'],
 })
+
 export class BodyQuestionComponent implements AfterViewInit, OnInit {
 
   @ViewChild('cesdk_container') containerRef: ElementRef = {} as ElementRef;
+  campo:string="";
+  campo2:string="";
   aa:string ="sdssdfsd";
   vv:string ="hola";
   title = 'Integrate CreativeEditor SDK with Angular';
   page: number = 1;
   prevCode: string[] = [];
   imageCodes: string[] = [];
+
   bbb: boolean= false;
   ccc: boolean=false;
   private instance: any;
@@ -35,6 +39,13 @@ export class BodyQuestionComponent implements AfterViewInit, OnInit {
   jsonConvertido: string = '';
   imgPrincipal: string = '';
   private imageblobIndex: number = 0;
+  ddd:number=0;
+
+  DatosVoc: VocQ[] = [];
+
+  AlmacenTotal: any[]=[];
+  Almacenpalabras: any[]=[];
+  Almacensignificaos: any[]=[];
 
   postStoryForm: FormGroup;
 
@@ -43,14 +54,83 @@ export class BodyQuestionComponent implements AfterViewInit, OnInit {
   constructor( private storiesService: StoriesService, private fb: FormBuilder, private router: Router, private authService: AuthService, private sharedService: SharedService // Agrega el servicio compartido
   ) {
     this.postStoryForm = this.fb.group({});
+    this.miFormulario = this.fb.group({
+      palabras: this.fb.array([]),
+    });
+
+    // Agregar un grupo inicial
+    this.agregarCampo();
+  }
+  miFormulario: FormGroup;
+  palabraGrupos: FormGroup[] = [];
+
+  agregarCampo() {
+    this.ddd=2;
+    const nuevoGrupo = this.fb.group({
+      palabra: ['', Validators.required],
+      significado: ['', Validators.required],
+    });
+
+    this.palabraGrupos.push(nuevoGrupo);
+    this.palabras.push(nuevoGrupo);
+
   }
 
+  eliminarCampo() {
+    this.ddd=1;
+    if (this.palabraGrupos.length > 1) {
+      this.palabraGrupos.pop();
+      this.palabras.removeAt(this.palabras.length - 1);
+    }
+  }
+
+  guardarDatos() {
+    // Mapea los datos y almacénalos en dos listas separadas
+    const palabrasGuardadas: string[] = [];
+    const significadosGuardados: string[] = [];
+
+    this.palabraGrupos.forEach(grupo => {
+      const palabra = grupo.get('palabra')?.value || '';
+      const significado = grupo.get('significado')?.value || '';
+
+      palabrasGuardadas.push(palabra);
+      significadosGuardados.push(significado);
+    });
+
+    console.log('Palabras guardadas:', palabrasGuardadas);
+    console.log('Significados guardados:', significadosGuardados);
+
+    this.Almacenpalabras[this.page]=palabrasGuardadas
+    this.Almacensignificaos[this.page]=significadosGuardados
+    console.log('Almacen palabras:', this.Almacenpalabras[this.page]);
+    console.log('Almacen sig:', this.Almacensignificaos[this.page]);
+
+    this.AlmacenTotal[0] = this.Almacenpalabras
+    this.AlmacenTotal[1] = this.Almacensignificaos
+
+    console.log('Almacen total:', this.AlmacenTotal);
+    console.log('Almacen total: primeras palabras', this.AlmacenTotal[0][1][0]);
+
+    this.campo="";
+
+  }
+
+  get palabras() {
+    return this.miFormulario.get('palabras') as FormArray;
+  }
+
+
+
+
   ngOnInit() {
+    this.ddd=1;
     this.postStoryForm = this.fb.group({
       title: [null, [Validators.required]],
       accessWord: [null, [Validators.required]],
     });
   }
+
+
 
 
 
@@ -71,11 +151,15 @@ export class BodyQuestionComponent implements AfterViewInit, OnInit {
 
   config: Configuration = {
     // Serve assets from IMG.LY cdn or locally
-    baseURL: 'https://cdn.img.ly/packages/imgly/cesdk-js/1.17.0/assets',
+    baseURL: 'https://cdn.img.ly/packages/imgly/cesdk-js/1.18.0/assets',
     // Enable local uploads in Asset Library
     locale: 'es',
     i18n: {
-      es: {}
+      es: {
+        'common.back': 'Atrás',
+        'meta.currentLanguage': 'Español',
+
+      }
     },
     callbacks: {
       onUpload:'local',
@@ -261,8 +345,7 @@ export class BodyQuestionComponent implements AfterViewInit, OnInit {
         { text: '' },
       ],
       palabraText: "",
-      significado: "",
-      casouso: ""
+      significado: ""
     },
     {
       lienzo: '',
@@ -274,8 +357,7 @@ export class BodyQuestionComponent implements AfterViewInit, OnInit {
         { text: '' },
       ],
       palabraText: "",
-      significado: "",
-      casouso: ""
+      significado: ""
     },
     {
       lienzo: '',
@@ -287,8 +369,7 @@ export class BodyQuestionComponent implements AfterViewInit, OnInit {
         { text: '' },
       ],
       palabraText: "",
-      significado: "",
-      casouso: ""
+      significado: ""
     },
     {
       lienzo: '',
@@ -300,8 +381,7 @@ export class BodyQuestionComponent implements AfterViewInit, OnInit {
         { text: '' },
       ],
       palabraText: "",
-      significado: "",
-      casouso: ""
+      significado: ""
     },
     {
       lienzo: '',
@@ -313,14 +393,17 @@ export class BodyQuestionComponent implements AfterViewInit, OnInit {
         { text: '' },
       ],
       palabraText: "",
-      significado: "",
-      casouso: ""
+      significado: ""
     },
   ];
 
   nextpage() {
 
     if (this.ccc) {
+
+      this.guardarDatos()
+      this.reiniciarFormulario();
+      this.eliminarCampo();
       this.imageblobIndex=this.imageblobIndex+1;
       this.limpiarLienzo();
       this.page++;
@@ -332,9 +415,16 @@ export class BodyQuestionComponent implements AfterViewInit, OnInit {
         window.alert('guardar antes de continuar!');
         this.ccc=false;
       }
-
     }
+  }
 
+
+  reiniciarFormulario() {
+    // Itera sobre los grupos de palabras y establece los valores a cadenas vacías
+    this.palabraGrupos.forEach(grupo => {
+      grupo.get('palabra')?.setValue('');
+      grupo.get('significado')?.setValue('');
+    });
   }
 
   submitForm(index: number) {
@@ -343,12 +433,12 @@ export class BodyQuestionComponent implements AfterViewInit, OnInit {
 
   generateJSON() {
     if (this.ccc) {
+      this.guardarDatos()
       // Obtén la ID de la historia desde el servicio compartido
       const storyId = this.sharedService.getStoryId();
 
       // Iterar sobre las preguntas y asignar el valor de "imageCodes" a la propiedad "lienzo"
-      for (let i = 0; i < this.questions.length; i++) {
-        // Obtener el valor correspondiente de "imageCodes" (asegúrate de que haya suficientes elementos en el array)
+      for (let i = 0; i < this.questions.length; i++) {        // Obtener el valor correspondiente de "imageCodes" (asegúrate de que haya suficientes elementos en el array)
         const imageCode = this.prevCode[i] || '';
 
         // Construir la pregunta con la propiedad "lienzo"
@@ -359,9 +449,9 @@ export class BodyQuestionComponent implements AfterViewInit, OnInit {
             text: option.text,
             correct: option.correct,
           })),
-          palabraText: this.questions[i].palabraText,
-          significado: this.questions[i].significado,
-          casouso: this.questions[i].casouso,
+          palabraText: this.AlmacenTotal[0][i+1],
+          significado: this.AlmacenTotal[1][i+1],
+          // Remover "casouso" ya que no se requiere
         };
         // Asignar la pregunta modificada de nuevo al arreglo de preguntas
         this.questions[i] = question;

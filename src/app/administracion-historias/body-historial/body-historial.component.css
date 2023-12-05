@@ -125,5 +125,20 @@ main h1 {
 }
 
 
+.no-historias {
+  height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center; /* Para centrar horizontalmente el texto */
+}
+
+.no-historias h3 {
+  font-family: 'League Spartan', sans-serif;
+  font-size: 30px;
+  margin: 0; /* Eliminar el margen predeterminado del h3 */
+}
+
+
 
 

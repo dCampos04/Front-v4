@@ -1,6 +1,6 @@
 main {
   background-color: #eaeaea;
-  height: 1200px;
+  height: 1150px;
 }
 .row{
   background-color: #ffffff;
@@ -75,11 +75,17 @@ btns {
   margin-bottom: 10px;
 }
 
+.response2 {
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
 .correct-label {
-  margin-left: 85px;
+  margin-left: 110px;
 }
 .answer-label {
-  margin-left: 105px;
+  margin-left: 160px;
 }
 
 .option{
@@ -120,22 +126,33 @@ btns {
 }
 
 .sigcas{
-  margin-left: 10px;
+  margin-left: -8px;
+  margin-bottom: 10px;
 }
+
 .responseInput2 {
-  width: 350px;
-  height: 40px;
+  width: 120px;
+  height: 35px;
   padding: 5px;
   border: 1px solid #ccc;
   border-radius: 5px;
-
   margin-top: 5px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.formVoc{
+  display: flex;
+  margin-left: -12px;
+}
+.formVoc .sigcas{
+  margin-left: 20px;
 }
 
 textarea.significadoInput {
-  margin-left: 8px;
-  width: 442px;
-  height: 60px;
+  margin-top: 10px;
+  width: 430px;
+  height: 50px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
@@ -143,7 +160,7 @@ textarea.significadoInput {
 
 textarea.cuestionInput {
   width: 450px;
-  height: 100px;
+  height: 50px;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -185,4 +202,35 @@ textarea.cuestionInput {
 }
 
 
+.round-button {
+  border-radius: 50%;
+  width: 30px;
+  padding: 5px;
+  cursor: pointer;
+  border: none;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.add-button {
+  background-color: #f97700; /* Color polo */
+
+}
+
+.delete-button {
+  background-color: #6b747c; /* Color naranja */
+
+}
+
+.card55 {
+  margin-left: 50px;
+  width: 450px;
+  height: 400px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ffffff;
+  background-color: #ffffff;
+  margin-right: -50px;
+}
 

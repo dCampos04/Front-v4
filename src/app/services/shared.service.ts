@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { StoryDTO } from '../Modelo/StoryDTO';
-import {StudentDetails} from "../Modelo/studentDetails";
+import { StudentDetails } from "../Modelo/studentDetails";
 
 
 @Injectable({

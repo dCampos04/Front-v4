@@ -1,7 +1,6 @@
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, OnDestroy } from '@angular/core';
 import { QuestionService } from "../../service/question.service";
 import { interval } from "rxjs";
-import CreativeEditorSDK, { Configuration } from '@cesdk/cesdk-js';
 import {SharedService} from "../../services/shared.service";
 import {StoriesService} from "../../services/stories.service";
 import {Activity} from "../../Modelo/Activity";
@@ -10,6 +9,7 @@ import {StudentService} from "../../services/student.service";
 import { Subscription, Subject } from 'rxjs';
 import { Router } from '@angular/router';
 import {takeUntil} from "rxjs/operators";
+import {ContWord} from "../../Modelo/ContWord";
 
 @Component({
   selector: 'app-body-interaccion',
@@ -18,6 +18,8 @@ import {takeUntil} from "rxjs/operators";
 })
 export class BodyInteraccionComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('cesdk_container') containerRef: ElementRef = {} as ElementRef;
+
+  consultedWords: { palabra: string, consultCount: number }[] = [];
 
   accessWord: string = '';
   public estado: boolean = false;
@@ -29,6 +31,8 @@ export class BodyInteraccionComponent implements OnInit, AfterViewInit, OnDestro
   vocabclick3: boolean = false;
   storyIdActivity:number=0;
   activity: Activity;
+  click1 = 0;
+  click2 = 0;
   click3 = 0;
   cont = false;
   cont2 = false;
@@ -38,7 +42,7 @@ export class BodyInteraccionComponent implements OnInit, AfterViewInit, OnDestro
   public currentQuestion: number = 0;
   public currentlienzo: number = 0;
   public points: any = 0;
-  counter = 120;
+  counter = 300;
   public correctAnswer: any = 0;
   public inCorrectAnswer: any = 0;
   interval$: any;
@@ -49,9 +53,9 @@ export class BodyInteraccionComponent implements OnInit, AfterViewInit, OnDestro
   //el back me dara este valor
   jsonConvertido: string = "";
   nombreEstudiante:string="";
-
   public jsonDecodificado: any = "";
 
+  contword: ContWord[];
 
   interaccion = [
     {
@@ -81,96 +85,6 @@ export class BodyInteraccionComponent implements OnInit, AfterViewInit, OnDestro
     // Puedes guardar jsonString en un archivo o enviarlo a través de una solicitud HTTP según tus necesidades.
   }
 
-  config: Configuration = {
-    locale: 'es',
-    i18n: {
-      es: {
-        "input.page.titleTemplate": "",
-      }
-    },
-    role: "Viewer",
-    callbacks: { onUpload: "local" },
-    ui: {
-      elements: {
-        view: "advanced",
-        navigation: {
-          show: false,
-          action: {
-            close: false,
-            back: false,
-            load: false,
-            save: false,
-            export: {
-              show: false,
-              format: ["application/pdf"]
-            },
-            download: false,
-            custom: [
-              {
-                label: "common.custom",
-                iconName: "default",
-                callback: () => { }
-              }
-            ]
-          }
-        },
-        dock: {
-          iconSize: "normal",
-          hideLabels: false,
-          groups: [
-            {
-              id: "ly.img.template",
-              entryIds: ["ly.img.template"]
-            },
-            {
-              id: "ly.img.defaultGroup",
-              showOverview: false
-            }
-          ],
-          defaultGroupId: "ly.img.defaultGroup"
-        },
-        libraries: {
-          insert: {
-            entries: (defaultEntries) => defaultEntries,
-            floating: false,
-            autoClose: false
-          },
-          replace: {
-            entries: (defaultEntries) => defaultEntries,
-            floating: false,
-            autoClose: false
-          }
-        },
-        panels: {
-          inspector: {
-            show: false
-          },
-          assetLibrary: {
-            show: false
-          },
-          settings: {
-            show: false
-          }
-        },
-        blocks: {
-          opacity: false,
-          transform: false,
-          "//ly.img.ubq/image": {
-            adjustments: false,
-            filters: false,
-            effects: false,
-            blur: false,
-            crop: false
-          },
-          "//ly.img.ubq/page": {
-            manage: true,
-            format: true,
-            maxDuration: 30 * 60
-          }
-        }
-      }
-    }
-  };
 
   private instance: any;
   private subscription: Subscription;
@@ -180,7 +94,7 @@ export class BodyInteraccionComponent implements OnInit, AfterViewInit, OnDestro
    ngOnInit() {
 
      this.accessStory()
-     this.subscription = interval(5000)
+     this.subscription = interval(3000)
        .pipe(takeUntil(this.destroy$))
        .subscribe(() => {
          try {
@@ -267,7 +181,7 @@ export class BodyInteraccionComponent implements OnInit, AfterViewInit, OnDestro
   }
 
   ngAfterViewInit() {
-    this.initializeCreativeEditor();
+
   }
 
   ngOnDestroy() {
@@ -280,19 +194,6 @@ export class BodyInteraccionComponent implements OnInit, AfterViewInit, OnDestro
     }
   }
 
-  private async initializeCreativeEditor() {
-    // Limpiar el contenedor antes de crear un nuevo lienzo
-    this.containerRef.nativeElement.innerHTML = '';
-
-    // Asigna la instancia actual a la propiedad 'instance'
-    this.instance = await CreativeEditorSDK.create(this.containerRef.nativeElement, this.config);
-
-    await this.instance.addDefaultAssetSources();
-    await this.instance.addDemoAssetSources({ sceneMode: "Design" });
-    this.instance.engine.scene.loadFromString(this.jsonDecodificado.questions[this.currentlienzo]?.lienzo);
-    //this.instance.engine.scene.loadFromString(this.questionList[this.currentlienzo]?.lienzo);
-
-  }
 
   desconvertirCadenaAJson() {
     if (this.jsonConvertido) {
@@ -303,8 +204,12 @@ export class BodyInteraccionComponent implements OnInit, AfterViewInit, OnDestro
 
       this.jsonDecodificado.questions[this.currentlienzo]?.lienzo
       console.log('lienzo descodificado', this.jsonDecodificado.questions[this.currentlienzo]?.lienzo);
-
       console.log('lienzo descodificado', this.jsonDecodificado.questions[4]?.lienzo);
+
+
+
+
+
     }
     else {
       console.log('revisar');
@@ -315,12 +220,62 @@ export class BodyInteraccionComponent implements OnInit, AfterViewInit, OnDestro
 
   clickv1() {
     if (!this.vocabclick1) {
-      this.click3 = 1;
+      this.click1 = 1;
+      this.click2 = 0;
+      this.click3 = 0;
       this.vocabclick1 = true;
       this.vocabclick2 = false;
       this.vocabclick3 = false;
+
+      const palabraText = this.jsonDecodificado.questions[this.currentQuestion]?.palabraText[0] || 'No se registró';
+      this.updateConsultedWords(palabraText);
     } else {
       this.vocabclick1 = false;
+      this.click1 = 0;
+    }
+    this.consultas = this.consultas + 1;
+  }
+
+  clickv2() {
+    if (!this.vocabclick2) {
+      this.click1 = 0;
+      this.click2 = 1;
+      this.click3 = 0;
+      this.vocabclick1 = false;
+      this.vocabclick2 = true;
+      this.vocabclick3 = false;
+
+      const palabraText = this.jsonDecodificado.questions[this.currentQuestion]?.palabraText[1] || 'No se registró';
+      this.updateConsultedWords(palabraText);
+    } else {
+      this.vocabclick2 = false;
+      this.click2 = 0;
+    }
+    this.consultas = this.consultas + 1;
+  }
+
+  private updateConsultedWords(palabra: string) {
+    const index = this.consultedWords.findIndex(item => item.palabra === palabra);
+    if (index !== -1) {
+      // La palabra ya está en el array, aumenta la cantidad de consultas
+      this.consultedWords[index].consultCount += 1; // Aumenta en dos debido a la lógica de la pregunta
+    } else {
+      // La palabra no está en el array, agrégala
+      this.consultedWords.push({palabra, consultCount: 1}); // Inicia en dos debido a la lógica de la pregunta
+    }
+  }
+
+  clickv3() {
+    if (!this.vocabclick3) {
+      this.click1 = 0;
+      this.click2 = 0;
+      this.click3 = 1;
+      this.vocabclick1 = false;
+      this.vocabclick2 = false;
+      this.vocabclick3 = true;
+
+    } else {
+      this.vocabclick3 = false;
       this.click3 = 0;
     }
     this.consultas=this.consultas+1;
@@ -358,9 +313,12 @@ export class BodyInteraccionComponent implements OnInit, AfterViewInit, OnDestro
     this.currentQuestion++;
     this.jsonDecodificado.questions[this.currentlienzo+1].lienzo
     this.vocabclick1 = false;
+    this.vocabclick2 = false;
+    this.vocabclick3 = false;
+    this.click1 = 0;
+    this.click2 = 0;
     this.click3 = 0;
     //this.questionList[this.currentlienzo + 1].lienzo;
-    this.initializeCreativeEditor();
     this.currentlienzo++;
     this.hasAnswered = false;
     this.qscli = false;
@@ -370,6 +328,16 @@ export class BodyInteraccionComponent implements OnInit, AfterViewInit, OnDestro
       this.stopCounter();
     }
 
+
+    this.hideButton1 = this.isPalabraTextEmpty(0);
+    this.hideButton2 = this.isPalabraTextEmpty(1);
+
+  }
+
+
+  isPalabraTextEmpty(index: number): boolean {
+    const palabraText = this.jsonDecodificado.questions[this.currentQuestion]?.palabraText[index];
+    return !palabraText || palabraText.trim() === '';
   }
 
   previusQuestion() {
@@ -394,13 +362,13 @@ export class BodyInteraccionComponent implements OnInit, AfterViewInit, OnDestro
 
   startCounter() {
     this.qscli = false;
-    this.interval$ = interval(1000)
+    this.interval$ = interval(1500)
       .subscribe(val => {
         this.counter--;
         if (this.counter === 0) {
           this.nextQuestion();
           this.getProgressPorcent();
-          this.counter = 120;
+          this.counter = 300;
           this.points -= 0;
           if (this.currentQuestion === this.questionList.length) {
             this.isQuizCompleted = true;
@@ -420,7 +388,7 @@ export class BodyInteraccionComponent implements OnInit, AfterViewInit, OnDestro
 
   resetCounter() {
     this.stopCounter();
-    this.counter = 120;
+    this.counter = 300;
     this.startCounter();
   }
 
@@ -428,7 +396,7 @@ export class BodyInteraccionComponent implements OnInit, AfterViewInit, OnDestro
     //this.resetCounter();
     this.getAllQuestions();
     this.points = 0;
-    this.counter = 120;
+    this.counter = 300;
     this.currentQuestion = 0;
     this.progress = "0";
   }
@@ -446,7 +414,7 @@ export class BodyInteraccionComponent implements OnInit, AfterViewInit, OnDestro
   }
 
   endQuiz() {
-
+    console.log("palabras consultadas",this.consultedWords)
     if (this.selectedOption) {
       // Verificar si la opción seleccionada es la correcta
       if (this.selectedOption.correct) {
@@ -491,7 +459,7 @@ export class BodyInteraccionComponent implements OnInit, AfterViewInit, OnDestro
     this.studentService.completeActivity(studentId, activityId, studentActivityData)
       .subscribe(
         completedActivity => {
-          // Maneja la respuesta aquí si es necesario
+          // Maneja la respuesta aquí si es necesarioa
           console.log('Actividad completada:', completedActivity);
 
         },
@@ -501,5 +469,9 @@ export class BodyInteraccionComponent implements OnInit, AfterViewInit, OnDestro
         }
       );
   }
+
+
+  hideButton1: boolean = false;
+  hideButton2: boolean = false;
 
 }
