@@ -78,7 +78,7 @@
             <div class="card panel23 mt-2" *ngIf="click1 === 1 && !hideButton1">
               <button (click)="clickv1()" class="btn btn-pr aa">{{jsonDecodificado.questions[currentQuestion]?.palabraText[0] || 'No se registró'}}</button>
               <div class="card-body panel-content">
-                <p>* {{jsonDecodificado.questions[currentQuestion]?.significado[0] || 'No se registró'}}</p>
+                <p>Significado: {{jsonDecodificado.questions[currentQuestion]?.significado[0] || 'No se registró'}}</p>
               </div>
             </div>
 
@@ -90,7 +90,7 @@
             <div class="card panel23 mt-2" *ngIf="click2 === 1 && !hideButton2">
               <button (click)="clickv2()" class="btn btn-pr aa">{{jsonDecodificado.questions[currentQuestion]?.palabraText[1] || 'No se registró'}}</button>
               <div class="card-body panel-content">
-                <p>* {{jsonDecodificado.questions[currentQuestion]?.significado[1] || 'No se registró'}}</p>
+                <p>Significado: {{jsonDecodificado.questions[currentQuestion]?.significado[1] || 'No se registró'}}</p>
               </div>
             </div>
 
@@ -130,10 +130,3 @@
     </main>
   </ng-container>
 </main>
-
-
-<div *ngFor="let word of consultedWords">
-  {{ word.palabra }} consultada {{ word.consultCount }} veces
-</div>
-
-

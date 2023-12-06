@@ -34,6 +34,14 @@ h5 {
   background-color: #ffffff;
 }
 
+
+.card444 {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 10px;
+  background-color: #ffffff;
+}
+
 .card52 {
   margin-top: 20px;
   max-width: 800px;
@@ -277,7 +285,7 @@ body {
 
 .panel23 {
   width: 250px;
-  height: 200px;
+
   margin-right: 1px;
   margin-left: 10px;
   background-color: #e8e8e8;
@@ -291,6 +299,12 @@ body {
 }
 
 .btn-pr2 {
+  background-color: #ee7102;
+  border-color: #ee7102;
+  color: white;
+}
+
+.btn-danger {
   background-color: #ee7102;
   border-color: #ee7102;
   color: white;

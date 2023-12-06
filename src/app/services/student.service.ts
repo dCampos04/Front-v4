@@ -5,31 +5,32 @@ import { Student } from "../Modelo/Student";
 import { StoryDTORequest } from "../Modelo/StoryDTORequest";
 import { StoryResponse } from "../Modelo/StoryDTORequest";
 import { StudentActivity } from "../Modelo/StudentActivity"
+import {environments} from "../../environments/environments";
 
 
-const base_url=['http://localhost:8080/api/students']
-//const base_url1=['https://3.143.233.119/api/students'];
 
 @Injectable({
   providedIn: 'root'
 })
 export class StudentService {
 
+  url:string = environments.baseUrl;
+
   constructor(private httpClient:HttpClient) { }
 
   enterName(student: Student): Observable<Student> {
-    const url = `${base_url}/register`;
+    const url = `${this.url}/api/students/register`;
     return this.httpClient.post<Student>(url, student);
   }
 
   accessStory(accessWord: string): Observable<StoryResponse> {
-    const url = `${base_url}/access-story`;
+    const url = `${this.url}/api/students/access-story`;
     const storyDTO: StoryDTORequest = { accessWord };
     return this.httpClient.post<StoryResponse>(url, storyDTO);
   }
 
   completeActivity(studentId: number, activityId: number, studentActivity: StudentActivity): Observable<StudentActivity> {
-    const url = `${base_url}/${activityId}/studentActivities/${studentId}`;
+    const url = `${this.url}/api/students/${activityId}/studentActivities/${studentId}`;
     return this.httpClient.post<StudentActivity>(url, studentActivity);
   }
 }

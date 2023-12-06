@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators'; // Agrega la importación de 'map'
 import { of } from 'rxjs';
 import { Teacher} from "../Modelo/Teacher";
+import {environments} from "../../environments/environments";
 
 
 @Injectable({
@@ -11,19 +12,19 @@ import { Teacher} from "../Modelo/Teacher";
 })
 export class AuthService {
 
-  private baseUrl = 'http://localhost:8080/api/auth';
-  //const base_url1=['https://3.143.233.119/api/auth'];
+  url:string = environments.baseUrl;
+
 
   constructor(private httpClient: HttpClient) { }
 
   register(teacher:Teacher): Observable<Teacher> {
-    const url = `${this.baseUrl}/register`;
+    const url = `${this.url}/api/auth/register`;
     return this.httpClient.post<Teacher>(url, teacher);
   }
 
   authenticate(credentials?: any): Observable<any> {
     if (credentials) {
-      const url = `${this.baseUrl}/authenticate`;
+      const url = `${this.url}/api/auth/authenticate`;
       return this.httpClient.post<any>(url, credentials)
         .pipe(
           map(response => {
