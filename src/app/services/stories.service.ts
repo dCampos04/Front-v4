@@ -53,11 +53,4 @@ export class StoriesService {
   }
 
 
-
-  deleteAllStudentActivities(storyId: number): Observable<any> {
-    const url = `${this.url}/api/stories/${storyId}/activity/deleteStudentActivities`;
-    return this.httpClient.delete(url);
-  }
-
-
 }

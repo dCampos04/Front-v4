@@ -57,14 +57,4 @@ export class AuthService {
     return null;
   }
 
-
-
-
-  // forgotPassword(email: string): Observable<any> {
-  //   return this.httpClient.post<any>(base_url+'/forgot-password', { email });
-  // }
-
-  // resetPassword(newPassword: string, token: string): Observable<any> {
-  //   return this.httpClient .patch<any>(base_url+'/reset-password', { newPassword, token });
-  // }
 }
