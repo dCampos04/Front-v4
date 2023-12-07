@@ -13,7 +13,7 @@ main {
   display: flex; /* Usa flexbox para centrar verticalmente */
   align-items: center; /* Centra verticalmente */
   justify-content: center; /* Centra horizontalmente */
-  height: 700px; /* Usa altura del 100% de la ventana */
+  height: 900px; /* Usa altura del 100% de la ventana */
   flex-direction: column; /* Alinea los elementos verticalmente */
 }
 

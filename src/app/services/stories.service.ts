@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
 import { Story } from "../Modelo/Story";
@@ -21,37 +21,64 @@ export class StoriesService {
   constructor(private httpClient: HttpClient) { }
 
   createStory(story: Story): Observable<Story> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      'Content-Type': `application/json`,
+      'Authorization': `Bearer ${token}`
+    });
     const url = `${this.url}/api/stories/createStory/${story.teacherId}`;
-    return this.httpClient.post<Story>(url, story);
+    return this.httpClient.post<Story>(url, story, {headers});
   }
 
   assignActivityToStory(activity: Activity): Observable<Activity> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      'Content-Type': `application/json`,
+      'Authorization': `Bearer ${token}`
+    });
     const url = `${this.url}/api/stories/${activity.storyId}/activity`;
-    return this.httpClient.put<Activity>(url, activity);
+    return this.httpClient.put<Activity>(url, activity, {headers});
   }
 
 
   getStoriesByTeacherId(teacherId: number): Observable<StoryDTO[]> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      'Content-Type': `application/json`,
+      'Authorization': `Bearer ${token}`
+    });
     const url = `${this.url}/api/stories/byTeacher/${teacherId}`;
-    return this.httpClient.get<StoryDTO[]>(url);
+    return this.httpClient.get<StoryDTO[]>(url, {headers});
   }
 
   activateStory(storyId: number): Observable<any> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      'Content-Type': `application/json`,
+      'Authorization': `Bearer ${token}`
+    });
     const url = `${this.url}/api/stories/activate/${storyId}`;
-    return this.httpClient.put(url, null);
+    return this.httpClient.put(url, null, {headers});
   }
 
   //trae la actividad al niño: publicEndpoint
   getAllActivities(storyId: number): Observable<Activity> {
+    const headers = new HttpHeaders({
+      'Content-Type': `application/json`,
+    });
     const url = `${this.url}/api/stories/${storyId}/activity`;
-    return this.httpClient.get<Activity>(url);
+    return this.httpClient.get<Activity>(url, {headers});
   }
 
 
   deactivateStory(storyId: number|undefined): Observable<any> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      'Content-Type': `application/json`,
+      'Authorization': `Bearer ${token}`
+    });
     const url = `${this.url}/api/stories/deactivate/${storyId}`;
-    return this.httpClient.put(url, null);
+    return this.httpClient.put(url, null, {headers});
   }
-
 
 }
