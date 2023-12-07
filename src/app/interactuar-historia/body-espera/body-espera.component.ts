@@ -33,7 +33,7 @@ export class BodyEsperaComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.gettitAutData();
-    this.subscription = interval(5000)
+    this.subscription = interval(3000)
       .pipe(takeUntil(this.destroy$))
       .subscribe(() => {
         try {

@@ -18,19 +18,19 @@ export class StudentService {
 
   constructor(private httpClient:HttpClient) { }
 
-  enterName(student: Student): Observable<Student> {
-    const url = `${this.url}/api/students/register`;
-    return this.httpClient.post<Student>(url, student);
-  }
-
   accessStory(accessWord: string): Observable<StoryResponse> {
     const url = `${this.url}/api/students/access-story`;
     const storyDTO: StoryDTORequest = { accessWord };
     return this.httpClient.post<StoryResponse>(url, storyDTO);
   }
 
+  enterName(student: Student): Observable<Student> {
+    const url = `${this.url}/api/students/register-student`;
+    return this.httpClient.post<Student>(url, student);
+  }
+
   completeActivity(studentId: number, activityId: number, studentActivity: StudentActivity): Observable<StudentActivity> {
-    const url = `${this.url}/api/students/${activityId}/studentActivities/${studentId}`;
+    const url = `${this.url}/api/students/${studentId}/studentActivities/${activityId}`;
     return this.httpClient.post<StudentActivity>(url, studentActivity);
   }
 }

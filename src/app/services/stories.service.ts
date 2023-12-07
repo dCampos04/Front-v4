@@ -21,7 +21,7 @@ export class StoriesService {
   constructor(private httpClient: HttpClient) { }
 
   createStory(story: Story): Observable<Story> {
-    const url = `${this.url}/api/stories/createStory/${story.teacherId}`; // Asegúrate de tener teacherId en tu modelo Story
+    const url = `${this.url}/api/stories/createStory/${story.teacherId}`;
     return this.httpClient.post<Story>(url, story);
   }
 
@@ -41,6 +41,7 @@ export class StoriesService {
     return this.httpClient.put(url, null);
   }
 
+  //trae la actividad al niño: publicEndpoint
   getAllActivities(storyId: number): Observable<Activity> {
     const url = `${this.url}/api/stories/${storyId}/activity`;
     return this.httpClient.get<Activity>(url);

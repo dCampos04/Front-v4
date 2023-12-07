@@ -94,13 +94,17 @@ export class BodyInteraccionComponent implements OnInit, AfterViewInit, OnDestro
    ngOnInit() {
 
      this.accessStory()
-     this.subscription = interval(3000)
+     this.subscription = interval(2000)
        .pipe(takeUntil(this.destroy$))
        .subscribe(() => {
          try {
            console.log("ejecutandome en desarrollo...")
            this.accessStory();
            this.checkActiveStatus();
+           if(this.isQuizCompleted){
+             this.completarActividad()
+             console.log("se ejecuto el metodo completar")
+           }
          } catch (error) {
            console.error('Error en el intervalo:', error);
            this.unsubscribeInterval();
@@ -128,6 +132,10 @@ export class BodyInteraccionComponent implements OnInit, AfterViewInit, OnDestro
             console.log('jsonConvertido:', this.jsonConvertido);
             this.desconvertirCadenaAJson();
 
+          this.hideButton1 = this.isPalabraTextEmpty(0);
+          console.log("estado de la palabra claev 1:", this.hideButton1)
+          this.hideButton2 = this.isPalabraTextEmpty(1);
+          console.log("estado de la palabra claev 2:", this.hideButton1)
         },
         (error) => {
           console.error('Error al obtener actividades:', error);
@@ -139,6 +147,8 @@ export class BodyInteraccionComponent implements OnInit, AfterViewInit, OnDestro
       console.error('No se pudo obtener el ID de la actividad.');
       // Manejar el error según tus necesidades
     }
+
+
   }
 
   private unsubscribeInterval() {
@@ -281,7 +291,6 @@ export class BodyInteraccionComponent implements OnInit, AfterViewInit, OnDestro
     this.consultas=this.consultas+1;
   }
 
-
   getAllQuestions() {
     console.log("revisar getallwuestion")
   }
@@ -330,8 +339,9 @@ export class BodyInteraccionComponent implements OnInit, AfterViewInit, OnDestro
 
 
     this.hideButton1 = this.isPalabraTextEmpty(0);
+    console.log("estado de la palabra claev 1:", this.hideButton1)
     this.hideButton2 = this.isPalabraTextEmpty(1);
-
+    console.log("estado de la palabra claev 2:", this.hideButton1)
   }
 
 
@@ -415,7 +425,6 @@ export class BodyInteraccionComponent implements OnInit, AfterViewInit, OnDestro
 
   endQuiz() {
     console.log("palabras consultadas",this.consultedWords)
-    this. completarActividad();
     if (this.selectedOption) {
       // Verificar si la opción seleccionada es la correcta
       if (this.selectedOption.correct) {
@@ -440,24 +449,21 @@ export class BodyInteraccionComponent implements OnInit, AfterViewInit, OnDestro
   }
 
 
+
   completarActividad() {
     console.log("Enviando array de consultedword:", this.consultedWords)
-    const studentId =  this.sharedService.getStoryActivityId();
-    const activityId = this.sharedService.getStudentId();
+    const studentId =  this.sharedService.getStudentId();
+    const activityId = this.sharedService.getStoryActivityId();
     console.log("id de la actividad:", activityId)
     console.log("id del estudiante:", studentId)
-
-
 
     const consultedWords = this.consultedWords
     const contenidoTransformadoB64 = this.codifB64(consultedWords);
     console.log("b64:", contenidoTransformadoB64)
 
-
-    // Supongamos que ya tienes los datos de la actividad
     const studentActivityData: StudentActivity = {
-      activityId: studentId,
-      studentId: activityId,
+      studentId: studentId,
+      activityId: activityId,
       correctAnswer: this.points,
       consultedWord: contenidoTransformadoB64,
     };
@@ -465,8 +471,6 @@ export class BodyInteraccionComponent implements OnInit, AfterViewInit, OnDestro
     console.log("datos completos:", studentActivityData)
     console.log("rara cosa:", studentActivityData.consultedWord)
 
-
-    // Llama al servicio para completar la actividad
     this.studentService.completeActivity(studentId, activityId, studentActivityData)
       .subscribe(
         completedActivity => {
@@ -484,6 +488,7 @@ export class BodyInteraccionComponent implements OnInit, AfterViewInit, OnDestro
 
   hideButton1: boolean = false;
   hideButton2: boolean = false;
+
 
   codifB64(consultedWords: { palabra: string, consultCount: number }[]): string {
     // Convertir el array a una cadena JSON

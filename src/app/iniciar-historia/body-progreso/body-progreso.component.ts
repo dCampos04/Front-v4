@@ -31,14 +31,15 @@ export class BodyProgresoComponent implements OnInit {
   }
 
   terminarYVerResultados() {
+
     const storyId = this.sharedServie.getActivityId()
     // Desactivar la historia usando el servicio
     this.storiesService.deactivateStory(storyId).subscribe(
       (response) => {
-        console.log('Historia desactivada exitosamente:', response);
+        console.log('Historia desactivada exitosamente en progreso:', response);
         // Puedes redirigir a la página de resultados o manejar la respuesta de otra manera
         this.router.navigateByUrl('/preterminar');
-        this.sharedServie.setStudentDetails(response);
+
       },
       (error) => {
         console.error('Error al intentar desactivar la historia:', error);

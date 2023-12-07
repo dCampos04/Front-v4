@@ -13,10 +13,10 @@ import {IniciarHistoriaComponent} from "../iniciar-historia/iniciar-historia.com
 
 const routes: Routes = [
   { path: '', component: AdministracionHistoriasComponent, children: [ {path: '', component: BodyCrearComponent}], canActivate: [AuthGuard]},
-  { path: 'crea', component: AdministracionHistoriasComponent, children: [ {path: '', component: BodyCrearComponent}]},
+  { path: 'crea', component: AdministracionHistoriasComponent, children: [ {path: '', component: BodyCrearComponent}], canActivate: [AuthGuard]},
   { path: 'historial', component: AdministracionHistoriasComponent, children: [ {path: '', component: BodyHistorialComponent}], canActivate: [AuthGuard]},
-  { path: 'idtitulo', component: IniciarHistoriaComponent, children: [ {path: '', component: BodyIdTitleComponent}]},
-  { path: 'quiz', component: IniciarHistoriaComponent, children: [ {path: '', component: BodyQuestionComponent}]},
+  { path: 'idtitulo', component: IniciarHistoriaComponent, children: [ {path: '', component: BodyIdTitleComponent}], canActivate: [AuthGuard]},
+  { path: 'quiz', component: IniciarHistoriaComponent, children: [ {path: '', component: BodyQuestionComponent}], canActivate: [AuthGuard]},
   { path: 'vocabulario', component: AdministracionHistoriasComponent, children: [ {path: '', component: BodyVocabularyComponent}], canActivate: [AuthGuard]},
 ];
 

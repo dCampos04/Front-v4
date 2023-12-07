@@ -23,39 +23,11 @@ export class BodyFinalizadoComponent implements OnInit  {
   constructor(private questionService: QuestionService, private sharedService:SharedService
   ,  private storiesService: StoriesService, private router:Router) {}
 
-  consultedWords: { palabra: string, consultCount: number }[] = [];
-
-  listaparausar:WordsConts[]=[];
-
-  lista:string[]=[];
 
   ngOnInit(): void {
     this.getAllQuestions();
-    this.students=this.sharedService.getStudentDetails()
-    this.storyId = this.sharedService.getActivityId()
-    console.log("detalles en lista:",this.students)
-    console.log("id de la historia", this.storyId)
+    this.terminarYVerResultados()
 
-    const lista = this.students.students;
-    const studentsData: any[] = []; // Aquí almacenaremos la nueva estructura
-
-    for (let i = 0; i < lista.length; i++) {
-      const contenidoTransformadoB64 = lista[i].consultedWord;
-      const contenidoDecodificado = this.deCodifB64(contenidoTransformadoB64);
-
-      console.log('Contenido decodificado en ngOnInit:', contenidoDecodificado);
-
-      // Reemplazar la propiedad 'consultedWord' con su versión decodificada
-      lista[i].consultedWord = contenidoDecodificado;
-
-      // Agregar el objeto modificado a la nueva lista
-      studentsData.push(lista[i]);
-    }
-
-    // Almacena el array completo en la propiedad students.students
-    this.students.students = studentsData;
-
-    console.log('Nueva lista de estudiantes:', this.students);
   }
 
 
@@ -82,7 +54,47 @@ export class BodyFinalizadoComponent implements OnInit  {
       });
   }
 
-  deleteAllStudentActivities() {
 
+  terminarYVerResultados() {
+    const storyId = this.sharedService.getActivityId()
+    // Desactivar la historia usando el servicio
+    this.storiesService.deactivateStory(storyId).subscribe(
+      (response) => {
+        console.log('Historia desactivada exitosamente:', response);
+        // Puedes redirigir a la página de resultados o manejar la respuesta de otra manera
+        this.students=response
+        this.storyId = this.sharedService.getActivityId()
+        console.log("detalles en lista:",this.students)
+        console.log("id de la historia", this.storyId)
+
+        const lista = this.students.students;
+        const studentsData: any[] = []; // Aquí almacenaremos la nueva estructura
+
+        for (let i = 0; i < lista.length; i++) {
+          const contenidoTransformadoB64 = lista[i].consultedWord;
+          const contenidoDecodificado = this.deCodifB64(contenidoTransformadoB64);
+
+          console.log('Contenido decodificado en ngOnInit:', contenidoDecodificado);
+
+          // Reemplazar la propiedad 'consultedWord' con su versión decodificada
+          lista[i].consultedWord = contenidoDecodificado;
+
+          // Agregar el objeto modificado a la nueva lista
+          studentsData.push(lista[i]);
+        }
+
+        // Almacena el array completo en la propiedad students.students
+        this.students.students = studentsData;
+
+        console.log('Nueva lista de estudiantes:', this.students);
+
+
+      },
+      (error) => {
+        console.error('Error al intentar desactivar la historia:', error);
+        // Puedes manejar errores aquí si es necesario
+      }
+    );
   }
+
 }

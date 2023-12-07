@@ -35,8 +35,13 @@
           {{ student.correctAnswer }}/20
         </td>
         <td>
-          <ng-container *ngFor="let word of student.consultedWord">{{ word.palabra }} consultada {{ word.consultCount }} vez<br>
+          <ng-container *ngFor="let word of student.consultedWord">
+            Palabra: {{ word.palabra }}, Consultas: {{ word.consultCount }}<br>
           </ng-container>
+          <ng-container *ngIf="student.consultedWord && student.consultedWord.length == 0">
+            No realizo consultas<br>
+          </ng-container>
+
         </td>
       </tr>
       <hr class="linea-horizontal">

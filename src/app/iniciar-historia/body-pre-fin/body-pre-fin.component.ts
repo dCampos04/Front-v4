@@ -28,27 +28,10 @@ export class BodyPreFinComponent implements OnInit {
       const storyId = +params['storyId'];
       // Hacer algo con el storyId si es necesario
     });
-    this.terminarYVerResultados()
     // Espera 10 segundos y luego navega a la ruta /terminar
     setTimeout(() => {
       this.router.navigate(['/terminar']);
-    }, 5000);
+    }, 8000);
   }
 
-  terminarYVerResultados() {
-    const storyId = this.sharedServie.getActivityId()
-    // Desactivar la historia usando el servicio
-    this.storiesService.deactivateStory(storyId).subscribe(
-      (response) => {
-        console.log('Historia desactivada exitosamente:', response);
-        // Puedes redirigir a la página de resultados o manejar la respuesta de otra manera
-        this.router.navigateByUrl('/preterminar');
-        this.sharedServie.setStudentDetails(response);
-      },
-      (error) => {
-        console.error('Error al intentar desactivar la historia:', error);
-        // Puedes manejar errores aquí si es necesario
-      }
-    );
-  }
 }

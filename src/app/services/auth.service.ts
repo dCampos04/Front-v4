@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators'; // Agrega la importación de 'map'
 import { of } from 'rxjs';
@@ -18,14 +18,20 @@ export class AuthService {
   constructor(private httpClient: HttpClient) { }
 
   register(teacher:Teacher): Observable<Teacher> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
     const url = `${this.url}/api/auth/register`;
-    return this.httpClient.post<Teacher>(url, teacher);
+    return this.httpClient.post<Teacher>(url, teacher, {headers});
   }
 
   authenticate(credentials?: any): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
     if (credentials) {
       const url = `${this.url}/api/auth/authenticate`;
-      return this.httpClient.post<any>(url, credentials)
+      return this.httpClient.post<any>(url, credentials, {headers})
         .pipe(
           map(response => {
             return response; // Devuelve la respuesta completa, incluido el id
